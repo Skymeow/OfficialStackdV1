@@ -24,5 +24,23 @@ class AlertView: UIView {
     func dismiss() {
         self.removeFromSuperview()
     }
+    
+    func show() {
+        UIView.animate(withDuration: 2, delay: 2, options: [], animations: {
+            self.alpha = 1
+        }) { (completed) in
+            print("view appear animate completed")
+        }
+    }
+    
+    func hide() {
+        UIView.animate(withDuration: 2, delay: 3, options: [], animations: {
+            self.alpha = 0
+        }) { (completed) in
+            if completed {
+                self.removeFromSuperview()
+            }
+        }
+    }
 
 }

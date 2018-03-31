@@ -14,22 +14,14 @@ import CoreData
 @objc (ShareViewController) class ShareViewController: UIViewController {
     
     let coreDataStack = CoreDataStack.instance
-    var successSaveView: AlertView!
-    override func viewWillAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 0.3, delay: 2.0, options: .curveEaseIn, animations: { [unowned self] in
-            guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
-            self.successSaveView = successView
-            //            FIXME: view appear on top left corner and then center, why?
-            self.successSaveView.configureView(title: "Saved to Stacked", at: self.view.center)
-            self.view.addSubview(self.successSaveView)
-            }, completion: { finished in
-                self.successSaveView.isHidden = true
-                print("view disappered")
-        })
-    }
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
+        successView.configureView(title: "Saved to Stacked", at: self.view.center)
+        self.view.addSubview(successView)
+        successView.hide()
+        
         let extensionItem = extensionContext?.inputItems.first as! NSExtensionItem
         
         //        for youtube
@@ -80,20 +72,6 @@ import CoreData
             }
         }
     }
-    
-    //    override func loadView() {
-    //        super.loadView()
-    //        UIView.animate(withDuration: 0.3, delay: 2.0, options: .curveEaseOut, animations: { [unowned self] in
-    //            guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
-    //            self.successSaveView = successView
-    //            self.successSaveView.configureView(title: "Saved to Stacked", at: self.view.center)
-    //            self.view.addSubview(self.successSaveView)
-    //            }, completion: { finished in
-    //                self.successSaveView.isHidden = true
-    //                print("view disappered")
-    //        })
-    //    }
-    
     
 }
 
