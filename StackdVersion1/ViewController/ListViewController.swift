@@ -14,7 +14,7 @@ import CoreData
 
 class ListViewController: UIViewController {
     
-    var sharedItems: [Any]? {
+    var sharedItems: [TabelViewCellItemType]? {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -30,28 +30,22 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nibCell = UINib(nibName: "SharedTableViewCell", bundle: Bundle.main)
+        tableView.register(nibCell, forCellReuseIdentifier: "regularcell")
+        
+        let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
+        tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
+        
         self.tableView.sectionHeaderHeight = 230
         
-        //  FIXME: time analyse for web url currently not working
-//        let webUrlStr = "https://medium.com/@ziadtamim/create-parallax-effect-with-uimotioneffect-3a3ae7aa1679"
-//        Networking.instance.analyzeTime(url: webUrlStr) { (success, timeStr) in
-//            if success {
-//                print(timeStr)
-//            }
-//        }
-//        let youtubeStr = "https://www.youtube.com/watch?v=Y7ojcTR78qE&spfreload=9"
-//        Networking.instance.getYoutubeDetail(youtubeUrl: youtubeStr) { (success, result) in
-//            if success {
-//                print(result)
-//            }
-//        }
-//       let time =  PodcastDataServer.instance.getPodcastInfo("https://itunes.apple.com/us/podcast/running-into-problems-shared-cross-platform-code-in/id1231805301?i=1000406940185&mt=2")
         self.podcasts = fetchAll(Podcast.self, route: .podcast)
         self.safaris = fetchAll(Safari.self, route: .safari)
         self.youtubes = fetchAll(Youtube.self, route: .youtube)
-        self.sharedItems?.append(self.safaris)
-        self.sharedItems?.append(self.podcasts)
-        self.sharedItems?.append(self.youtubes)
+        
+        let sharedItems1 = TabelViewCellItemType(type: "podcast", item: self.podcasts)
+        let sharedItems2 = TabelViewCellItemType(type: "safari", item: self.safaris)
+        let sharedItems3 = TabelViewCellItemType(type: "youtube", item: self.youtubes)
+        self.sharedItems = [sharedItems1, sharedItems2, sharedItems3]
     }
   
 }
@@ -66,6 +60,31 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        let type = self.sharedItems![indexPath.row].type
+        print(type)
+        switch type {
+        case "podcast":
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
+                
+                return cell
+            }
+        case "safari":
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
+                
+                return cell
+            }
+        case "podcast":
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
+                
+                return cell
+            }
+        default:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
+                
+                return cell
+            }
+        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SharedTableViewCell
         

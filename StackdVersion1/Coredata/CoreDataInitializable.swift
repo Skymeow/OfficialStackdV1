@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+
 protocol CoreDataInitializable {
     init(context: NSManagedObjectContext)
 }

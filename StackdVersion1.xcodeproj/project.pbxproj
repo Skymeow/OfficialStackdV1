@@ -10,6 +10,9 @@
 		F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
 		F90CF76E2070770F00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
 		F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */; };
+		F90CF77220708BE500174AA2 /* SharedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */; };
+		F90CF77420708BF600174AA2 /* YoutubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90CF77320708BF600174AA2 /* YoutubeTableViewCell.xib */; };
+		F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7762070961600174AA2 /* TabelViewCellItem.swift */; };
 		F940B593206DC156007CE630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B592206DC156007CE630 /* AppDelegate.swift */; };
 		F940B598206DC156007CE630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F940B596206DC156007CE630 /* Main.storyboard */; };
 		F940B59A206DC156007CE630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F940B599206DC156007CE630 /* Assets.xcassets */; };
@@ -91,6 +94,9 @@
 /* Begin PBXFileReference section */
 		F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistantContainer.swift; sourceTree = "<group>"; };
 		F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTableViewCell.swift; sourceTree = "<group>"; };
+		F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedTableViewCell.xib; sourceTree = "<group>"; };
+		F90CF77320708BF600174AA2 /* YoutubeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubeTableViewCell.xib; sourceTree = "<group>"; };
+		F90CF7762070961600174AA2 /* TabelViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabelViewCellItem.swift; sourceTree = "<group>"; };
 		F940B58F206DC156007CE630 /* StackdVersion1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackdVersion1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F940B592206DC156007CE630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F940B597206DC156007CE630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -208,6 +214,8 @@
 			children = (
 				F940B5BA206DC883007CE630 /* SharedTableViewCell.swift */,
 				F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */,
+				F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */,
+				F90CF77320708BF600174AA2 /* YoutubeTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -216,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				F940B5BC206DC883007CE630 /* Video.swift */,
+				F90CF7762070961600174AA2 /* TabelViewCellItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -370,8 +379,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F90CF77420708BF600174AA2 /* YoutubeTableViewCell.xib in Resources */,
 				F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */,
 				F940B59A206DC156007CE630 /* Assets.xcassets in Resources */,
+				F90CF77220708BE500174AA2 /* SharedTableViewCell.xib in Resources */,
 				F940B598206DC156007CE630 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +429,7 @@
 				F940B5D5206DC884007CE630 /* PodcastDataServer.swift in Sources */,
 				F940B5D8206DC884007CE630 /* Reg.swift in Sources */,
 				F940B5DD206DC884007CE630 /* KeyCenter.swift in Sources */,
+				F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */,
 				F940B5D3206DC884007CE630 /* ListViewController.swift in Sources */,
 				F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */,
 				F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */,
