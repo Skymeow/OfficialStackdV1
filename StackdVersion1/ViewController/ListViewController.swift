@@ -14,7 +14,6 @@ import CoreData
 
 class ListViewController: UIViewController {
     
-    
     var sharedItems: [Any]? {
         didSet {
             DispatchQueue.main.async {
@@ -34,12 +33,12 @@ class ListViewController: UIViewController {
         self.tableView.sectionHeaderHeight = 230
         
         //  FIXME: time analyse for web url currently not working
-        let webUrlStr = "https://medium.com/@ziadtamim/create-parallax-effect-with-uimotioneffect-3a3ae7aa1679"
-        Networking.instance.analyzeTime(url: webUrlStr) { (success, timeStr) in
-            if success {
-                print(timeStr)
-            }
-        }
+//        let webUrlStr = "https://medium.com/@ziadtamim/create-parallax-effect-with-uimotioneffect-3a3ae7aa1679"
+//        Networking.instance.analyzeTime(url: webUrlStr) { (success, timeStr) in
+//            if success {
+//                print(timeStr)
+//            }
+//        }
 //        let youtubeStr = "https://www.youtube.com/watch?v=Y7ojcTR78qE&spfreload=9"
 //        Networking.instance.getYoutubeDetail(youtubeUrl: youtubeStr) { (success, result) in
 //            if success {

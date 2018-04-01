@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
+		F90CF76E2070770F00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
+		F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */; };
 		F940B593206DC156007CE630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B592206DC156007CE630 /* AppDelegate.swift */; };
 		F940B598206DC156007CE630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F940B596206DC156007CE630 /* Main.storyboard */; };
 		F940B59A206DC156007CE630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F940B599206DC156007CE630 /* Assets.xcassets */; };
@@ -86,6 +89,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistantContainer.swift; sourceTree = "<group>"; };
+		F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTableViewCell.swift; sourceTree = "<group>"; };
 		F940B58F206DC156007CE630 /* StackdVersion1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackdVersion1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F940B592206DC156007CE630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F940B597206DC156007CE630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -166,6 +171,11 @@
 		F940B591206DC156007CE630 /* StackdVersion1 */ = {
 			isa = PBXGroup;
 			children = (
+				F940B592206DC156007CE630 /* AppDelegate.swift */,
+				F940B596206DC156007CE630 /* Main.storyboard */,
+				F940B599206DC156007CE630 /* Assets.xcassets */,
+				F940B59B206DC156007CE630 /* LaunchScreen.storyboard */,
+				F940B59E206DC156007CE630 /* Info.plist */,
 				F9BA2A53206DCB380059ECBA /* StackdVersion1.entitlements */,
 				F940B5BF206DC884007CE630 /* ViewController */,
 				F940B5B9206DC883007CE630 /* Cell */,
@@ -175,11 +185,6 @@
 				F940B5BB206DC883007CE630 /* Model */,
 				F940B5C1206DC884007CE630 /* Service */,
 				F940B5BD206DC884007CE630 /* UICustomClass */,
-				F940B592206DC156007CE630 /* AppDelegate.swift */,
-				F940B596206DC156007CE630 /* Main.storyboard */,
-				F940B599206DC156007CE630 /* Assets.xcassets */,
-				F940B59B206DC156007CE630 /* LaunchScreen.storyboard */,
-				F940B59E206DC156007CE630 /* Info.plist */,
 			);
 			path = StackdVersion1;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				F940B5BA206DC883007CE630 /* SharedTableViewCell.swift */,
+				F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 				F940B5CA206DC884007CE630 /* CoredataStack.swift */,
 				F940B5CB206DC884007CE630 /* FetchHelper.swift */,
 				F940B5CC206DC884007CE630 /* SharedItems.xcdatamodeld */,
+				F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */,
 			);
 			path = Coredata;
 			sourceTree = "<group>";
@@ -412,6 +419,8 @@
 				F940B5D8206DC884007CE630 /* Reg.swift in Sources */,
 				F940B5DD206DC884007CE630 /* KeyCenter.swift in Sources */,
 				F940B5D3206DC884007CE630 /* ListViewController.swift in Sources */,
+				F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */,
+				F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */,
 				F940B5D1206DC884007CE630 /* Video.swift in Sources */,
 				F940B5D9206DC884007CE630 /* CoreDataInitializable.swift in Sources */,
 				F940B593206DC156007CE630 /* AppDelegate.swift in Sources */,
@@ -430,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9BA2A43206DCAD70059ECBA /* DataConverter.swift in Sources */,
+				F90CF76E2070770F00174AA2 /* CustomPersistantContainer.swift in Sources */,
 				F9BA2A46206DCAE20059ECBA /* Networking.swift in Sources */,
 				F9BA2A3E206DCAC60059ECBA /* CoreDataInitializable.swift in Sources */,
 				F9BA2A41206DCACE0059ECBA /* SharedItems.xcdatamodeld in Sources */,

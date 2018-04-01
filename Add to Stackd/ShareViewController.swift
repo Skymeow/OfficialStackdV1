@@ -36,7 +36,7 @@ import CoreData
                                 youtube.duration  = result.duration
                                 youtube.videoThumbnail = result.thumbnailUrl
                                 youtube.title = result.videoTitle
-                                self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+                                self.coreDataStack.saveTo(context: self.coreDataStack.viewContext)
                             }
                         }
                         
@@ -50,6 +50,7 @@ import CoreData
                         //                        instantiate coredata MO for podcast
                         let podcast = Podcast(context: self.coreDataStack.privateContext)
                         podcast.urlStr = urlStr
+                        podcast.duration = "see detail in podcast app"
                         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
                     }
                 })
@@ -62,6 +63,13 @@ import CoreData
                                 let urlStr = results["URL"] as? String {
                                 let safari = Safari(context: self.coreDataStack.privateContext)
                                 safari.urlStr = urlStr
+                                Networking.instance.analyzeTime(url: urlStr) { (success, timeStr) in
+                                    if success {
+                                       safari.duration = timeStr
+                                    } else {
+                                         safari.duration = "unable to analyze time"
+                                    }
+                                }
                                 self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
                             }
                             

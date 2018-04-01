@@ -12,8 +12,8 @@ import CoreData
 public final class CoreDataStack {
     static let instance = CoreDataStack()
     
-    private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "SharedItems")
+    private lazy var persistentContainer: CustomPersistantContainer = {
+        let container = CustomPersistantContainer(name: "SharedItems")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
