@@ -13,6 +13,11 @@
 		F90CF77220708BE500174AA2 /* SharedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */; };
 		F90CF77420708BF600174AA2 /* YoutubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90CF77320708BF600174AA2 /* YoutubeTableViewCell.xib */; };
 		F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7762070961600174AA2 /* TabelViewCellItem.swift */; };
+		F90CF7982072E13A00174AA2 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7972072E13A00174AA2 /* FilterViewController.swift */; };
+		F90CF79A2072E16700174AA2 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7992072E16700174AA2 /* HomeListViewController.swift */; };
+		F90CF79C2072EA3300174AA2 /* FilterParamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF79B2072EA3300174AA2 /* FilterParamCell.swift */; };
+		F90CF79E2072F3F100174AA2 /* FilteredItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */; };
+		F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */; };
 		F940B593206DC156007CE630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B592206DC156007CE630 /* AppDelegate.swift */; };
 		F940B598206DC156007CE630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F940B596206DC156007CE630 /* Main.storyboard */; };
 		F940B59A206DC156007CE630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F940B599206DC156007CE630 /* Assets.xcassets */; };
@@ -23,7 +28,6 @@
 		F940B5D0206DC884007CE630 /* SharedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5BA206DC883007CE630 /* SharedTableViewCell.swift */; };
 		F940B5D1206DC884007CE630 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5BC206DC883007CE630 /* Video.swift */; };
 		F940B5D2206DC884007CE630 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5BE206DC884007CE630 /* CustomHeaderView.swift */; };
-		F940B5D3206DC884007CE630 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C0206DC884007CE630 /* ListViewController.swift */; };
 		F940B5D4206DC884007CE630 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C2206DC884007CE630 /* Networking.swift */; };
 		F940B5D5206DC884007CE630 /* PodcastDataServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C3206DC884007CE630 /* PodcastDataServer.swift */; };
 		F940B5D6206DC884007CE630 /* SharedItemsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C4206DC884007CE630 /* SharedItemsData.swift */; };
@@ -97,6 +101,11 @@
 		F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedTableViewCell.xib; sourceTree = "<group>"; };
 		F90CF77320708BF600174AA2 /* YoutubeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubeTableViewCell.xib; sourceTree = "<group>"; };
 		F90CF7762070961600174AA2 /* TabelViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabelViewCellItem.swift; sourceTree = "<group>"; };
+		F90CF7972072E13A00174AA2 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		F90CF7992072E16700174AA2 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
+		F90CF79B2072EA3300174AA2 /* FilterParamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterParamCell.swift; sourceTree = "<group>"; };
+		F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredItemsViewController.swift; sourceTree = "<group>"; };
+		F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredItemCell.swift; sourceTree = "<group>"; };
 		F940B58F206DC156007CE630 /* StackdVersion1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackdVersion1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F940B592206DC156007CE630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F940B597206DC156007CE630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,7 +120,6 @@
 		F940B5BA206DC883007CE630 /* SharedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedTableViewCell.swift; sourceTree = "<group>"; };
 		F940B5BC206DC883007CE630 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		F940B5BE206DC884007CE630 /* CustomHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
-		F940B5C0206DC884007CE630 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		F940B5C2206DC884007CE630 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		F940B5C3206DC884007CE630 /* PodcastDataServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastDataServer.swift; sourceTree = "<group>"; };
 		F940B5C4206DC884007CE630 /* SharedItemsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedItemsData.swift; sourceTree = "<group>"; };
@@ -216,6 +224,8 @@
 				F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */,
 				F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */,
 				F90CF77320708BF600174AA2 /* YoutubeTableViewCell.xib */,
+				F90CF79B2072EA3300174AA2 /* FilterParamCell.swift */,
+				F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -240,7 +250,9 @@
 		F940B5BF206DC884007CE630 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F940B5C0206DC884007CE630 /* ListViewController.swift */,
+				F90CF7992072E16700174AA2 /* HomeListViewController.swift */,
+				F90CF7972072E13A00174AA2 /* FilterViewController.swift */,
+				F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -430,16 +442,20 @@
 				F940B5D8206DC884007CE630 /* Reg.swift in Sources */,
 				F940B5DD206DC884007CE630 /* KeyCenter.swift in Sources */,
 				F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */,
-				F940B5D3206DC884007CE630 /* ListViewController.swift in Sources */,
+				F90CF79C2072EA3300174AA2 /* FilterParamCell.swift in Sources */,
 				F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */,
 				F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */,
 				F940B5D1206DC884007CE630 /* Video.swift in Sources */,
 				F940B5D9206DC884007CE630 /* CoreDataInitializable.swift in Sources */,
 				F940B593206DC156007CE630 /* AppDelegate.swift in Sources */,
+				F90CF79A2072E16700174AA2 /* HomeListViewController.swift in Sources */,
 				F940B5D7206DC884007CE630 /* DataConverter.swift in Sources */,
+				F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */,
 				F940B5D6206DC884007CE630 /* SharedItemsData.swift in Sources */,
+				F90CF7982072E13A00174AA2 /* FilterViewController.swift in Sources */,
 				F940B5DC206DC884007CE630 /* SharedItems.xcdatamodeld in Sources */,
 				F940B5DB206DC884007CE630 /* FetchHelper.swift in Sources */,
+				F90CF79E2072F3F100174AA2 /* FilteredItemsViewController.swift in Sources */,
 				F940B5DA206DC884007CE630 /* CoredataStack.swift in Sources */,
 				F940B5D0206DC884007CE630 /* SharedTableViewCell.swift in Sources */,
 				F940B5D4206DC884007CE630 /* Networking.swift in Sources */,

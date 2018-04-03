@@ -9,8 +9,12 @@
 import UIKit
 import SnapKit
 
+protocol HeaderActionDelegate {
+    func filterTapped()
+}
 class CustomHeaderView: UIView {
    
+    var customedHeaderDelegate: HeaderActionDelegate?
     var titleLabel: UILabel!
     var subTitleLabel: UILabel!
     var filterButton: UIButton!
@@ -50,8 +54,9 @@ class CustomHeaderView: UIView {
         
         filterButton = UIButton(type: .custom)
         let filterImg = UIImage(named: "Filter")
+        filterButton.imageView?.contentMode = .scaleAspectFit
         filterButton.setBackgroundImage(filterImg, for: .normal)
-//        filterButton.addTarget(self, action: #selector(filter), for: .touchUpInside)
+        filterButton.addTarget(self, action: #selector(filterTapped), for: .touchUpInside)
         
         self.addSubview(filterButton)
         self.addSubview(titleLabel)
@@ -64,7 +69,7 @@ class CustomHeaderView: UIView {
         
         titleLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(30)
+            make.top.equalToSuperview().offset(45)
             make.bottom.equalTo(subTitleLabel.snp.top).offset(30)
             make.height.equalTo(55)
             make.width.equalTo(200)
@@ -84,6 +89,10 @@ class CustomHeaderView: UIView {
             make.width.equalTo(45)
         }
         
+    }
+    
+    @objc func filterTapped() {
+        customedHeaderDelegate?.filterTapped()
     }
 }
 
