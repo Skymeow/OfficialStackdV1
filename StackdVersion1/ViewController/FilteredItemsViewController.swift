@@ -7,20 +7,36 @@
 //
 
 import UIKit
+import CoreData
 
 class FilteredItemsViewController: UIViewController {
-
-    var sharedItems: [TabelViewCellItemType]? {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
     
-    var podcasts = [Podcast]()
-    var safaris = [Safari]()
-    var youtubes = [Youtube]()
+    var sharedItems: TabelViewCellItemType?
+//    {
+//        didSet {
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
+//    }
+    
+//    var podcasts = [Podcast]() {
+//        didSet {
+//            self.tableView.reloadData()
+//        }
+//    }
+//    
+//    var safaris = [Safari]() {
+//        didSet {
+//            self.tableView.reloadData()
+//        }
+//    }
+//    
+//    var youtubes = [Youtube]() {
+//        didSet {
+//            self.tableView.reloadData()
+//        }
+//    }
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,34 +50,44 @@ class FilteredItemsViewController: UIViewController {
         
         let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
-        
-        self.podcasts = fetchAll(Podcast.self, route: .podcast)
-        self.safaris = fetchAll(Safari.self, route: .safari)
-        self.youtubes = fetchAll(Youtube.self, route: .youtube)
-        
-        let sharedItems1 = TabelViewCellItemType(type: "podcast", item: self.podcasts)
-        let sharedItems2 = TabelViewCellItemType(type: "safari", item: self.safaris)
-        let sharedItems3 = TabelViewCellItemType(type: "youtube", item: self.youtubes)
-        self.sharedItems = [sharedItems1, sharedItems2, sharedItems3]
     }
     
 }
 
 extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let items = self.sharedItems {
+        if let items = self.sharedItems?.item {
             return items.count
         } else {
             //            FIXME: change it into 0 
-            return 2
+            return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var genericCell: UITableViewCell?
+        let type = self.sharedItems!.type
+        print(type)
+        switch type {
+        case "podcast":
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
+                genericCell = cell
+            }
+        case "safari":
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
+                genericCell = cell
+            }
+        case "youtube":
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
+                genericCell = cell
+            }
+        default:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
+                genericCell = cell
+            }
+        }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FilteredItemCell
-        
-        return cell
+        return genericCell!
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

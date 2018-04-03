@@ -20,10 +20,10 @@ class FilterParamCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        FilterParamBtn.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
+//        FilterParamBtn.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
     }
     
-    @objc func btnTapped() {
-        self.FilterDelegate?.passCategory(sender: self)
-    }
+//    @objc func btnTapped() {
+//        self.FilterDelegate?.passCategory(sender: self)
+//    }
 }

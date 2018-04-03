@@ -61,35 +61,29 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        var genericCell: UITableViewCell?
         let type = self.sharedItems![indexPath.row].type
         print(type)
         switch type {
         case "podcast":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
-                
-                return cell
+                genericCell = cell
             }
         case "safari":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
-                
-                return cell
+                genericCell = cell
             }
-        case "podcast":
+        case "youtube":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
-                
-                return cell
+                genericCell = cell
             }
         default:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
-                
-                return cell
+               genericCell = cell
             }
         }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SharedTableViewCell
-        
-        return cell
+       
+        return genericCell!
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -105,6 +99,9 @@ extension HomeListViewController: HeaderActionDelegate {
     func filterTapped() {
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "filterVC") as! FilterViewController
+        vc.podcasts = self.podcasts
+        vc.youtubes = self.youtubes
+        vc.safaris = self.safaris
        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
