@@ -15,7 +15,6 @@
 		F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7762070961600174AA2 /* TabelViewCellItem.swift */; };
 		F90CF7982072E13A00174AA2 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7972072E13A00174AA2 /* FilterViewController.swift */; };
 		F90CF79A2072E16700174AA2 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7992072E16700174AA2 /* HomeListViewController.swift */; };
-		F90CF79C2072EA3300174AA2 /* FilterParamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF79B2072EA3300174AA2 /* FilterParamCell.swift */; };
 		F90CF79E2072F3F100174AA2 /* FilteredItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */; };
 		F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */; };
 		F90CF7A220730DA100174AA2 /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */; };
@@ -104,7 +103,6 @@
 		F90CF7762070961600174AA2 /* TabelViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabelViewCellItem.swift; sourceTree = "<group>"; };
 		F90CF7972072E13A00174AA2 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		F90CF7992072E16700174AA2 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
-		F90CF79B2072EA3300174AA2 /* FilterParamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterParamCell.swift; sourceTree = "<group>"; };
 		F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredItemsViewController.swift; sourceTree = "<group>"; };
 		F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredItemCell.swift; sourceTree = "<group>"; };
 		F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHeaderView.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */,
 				F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */,
 				F90CF77320708BF600174AA2 /* YoutubeTableViewCell.xib */,
-				F90CF79B2072EA3300174AA2 /* FilterParamCell.swift */,
 				F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */,
 			);
 			path = Cell;
@@ -445,7 +442,6 @@
 				F940B5D8206DC884007CE630 /* Reg.swift in Sources */,
 				F940B5DD206DC884007CE630 /* KeyCenter.swift in Sources */,
 				F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */,
-				F90CF79C2072EA3300174AA2 /* FilterParamCell.swift in Sources */,
 				F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */,
 				F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */,
 				F940B5D1206DC884007CE630 /* Video.swift in Sources */,

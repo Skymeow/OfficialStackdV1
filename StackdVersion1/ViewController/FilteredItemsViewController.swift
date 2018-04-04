@@ -12,32 +12,6 @@ import CoreData
 class FilteredItemsViewController: UIViewController {
     
     var sharedItems: TabelViewCellItemType?
-//    {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        }
-//    }
-    
-//    var podcasts = [Podcast]() {
-//        didSet {
-//            self.tableView.reloadData()
-//        }
-//    }
-//    
-//    var safaris = [Safari]() {
-//        didSet {
-//            self.tableView.reloadData()
-//        }
-//    }
-//    
-//    var youtubes = [Youtube]() {
-//        didSet {
-//            self.tableView.reloadData()
-//        }
-//    }
-    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -59,7 +33,6 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
         if let items = self.sharedItems?.item {
             return items.count
         } else {
-            //            FIXME: change it into 0 
             return 0
         }
     }
