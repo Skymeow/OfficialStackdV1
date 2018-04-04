@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F905BF582075873C00C7B94F /* apple-app-site-association in Resources */ = {isa = PBXBuildFile; fileRef = F905BF572075873B00C7B94F /* apple-app-site-association */; };
+		F905BF5A2075875100C7B94F /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905BF592075875100C7B94F /* YoutubeViewController.swift */; };
 		F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
 		F90CF76E2070770F00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
 		F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */; };
@@ -96,6 +98,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F905BF572075873B00C7B94F /* apple-app-site-association */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
+		F905BF592075875100C7B94F /* YoutubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeViewController.swift; sourceTree = "<group>"; };
 		F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistantContainer.swift; sourceTree = "<group>"; };
 		F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTableViewCell.swift; sourceTree = "<group>"; };
 		F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedTableViewCell.xib; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 		F940B591206DC156007CE630 /* StackdVersion1 */ = {
 			isa = PBXGroup;
 			children = (
+				F905BF572075873B00C7B94F /* apple-app-site-association */,
 				F940B592206DC156007CE630 /* AppDelegate.swift */,
 				F940B596206DC156007CE630 /* Main.storyboard */,
 				F940B599206DC156007CE630 /* Assets.xcassets */,
@@ -253,6 +258,7 @@
 				F90CF7992072E16700174AA2 /* HomeListViewController.swift */,
 				F90CF7972072E13A00174AA2 /* FilterViewController.swift */,
 				F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */,
+				F905BF592075875100C7B94F /* YoutubeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -363,6 +369,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -395,6 +404,7 @@
 				F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */,
 				F940B59A206DC156007CE630 /* Assets.xcassets in Resources */,
 				F90CF77220708BE500174AA2 /* SharedTableViewCell.xib in Resources */,
+				F905BF582075873C00C7B94F /* apple-app-site-association in Resources */,
 				F940B598206DC156007CE630 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +466,7 @@
 				F940B5DB206DC884007CE630 /* FetchHelper.swift in Sources */,
 				F90CF79E2072F3F100174AA2 /* FilteredItemsViewController.swift in Sources */,
 				F940B5DA206DC884007CE630 /* CoredataStack.swift in Sources */,
+				F905BF5A2075875100C7B94F /* YoutubeViewController.swift in Sources */,
 				F940B5D0206DC884007CE630 /* SharedTableViewCell.swift in Sources */,
 				F940B5D4206DC884007CE630 /* Networking.swift in Sources */,
 				F90CF7A220730DA100174AA2 /* FilterHeaderView.swift in Sources */,
