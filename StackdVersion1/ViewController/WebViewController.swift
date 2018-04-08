@@ -16,7 +16,7 @@ protocol OpenedViewDelegate: class {
 class WebViewController: UIViewController, WKUIDelegate {
 
     weak var openedViewdelegate: OpenedViewDelegate?
-    
+    var urlStr: String!
     var webView: WKWebView!
     var btn: UIButton!
     override func loadView() {
@@ -34,8 +34,7 @@ class WebViewController: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-//        let myURL = URL(string: "https://www.youtube.com/watch?v=Y7ojcTR78qE&spfreload=9")
-        let myURL = URL(string: "https://medium.com/@ales.musto/making-a-share-extension-that-accepts-text-and-urls-in-combination-with-coredata-swift-3-a0139c0f9800")
+        let myURL = URL(string: self.urlStr)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
         

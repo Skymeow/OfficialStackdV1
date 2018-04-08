@@ -11,7 +11,9 @@ import CoreData
 
 class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     
+    let coreDataStack = CoreDataStack.instance
     var sharedItems: TabelViewCellItemType?
+    var selected: NSManagedObject!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var archiveBtn: UIButton!
@@ -35,27 +37,37 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
         self.CenterX.constant = 0
     }
     
-    func openInApp() {
+    func openInApp(_ urlStr: String) {
         let vc = WebViewController()
         vc.openedViewdelegate = self
+        vc.urlStr = urlStr
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func redirectToPodcast() {
-        let url = URL(string: "https://itunes.apple.com/us/podcast/sleep-and-relax-asmr/id1133320064?mt=2&i=10003989096")!
+    func redirectToPodcast(_ urlStr: String) {
+        let url = URL(string: urlStr)!
         UIApplication.shared.open(url, options: [:]) { (success) in
             if success {
                 print("podcast opened")
             }
         }
     }
+    
 //    delete from coredata
     @objc func deleteTapped() {
+        if let allObjects = self.sharedItems?.item {
+            for object in allObjects {
+                self.coreDataStack.viewContext.delete(object)
+            }
+        }
         
     }
-//    save to coredata archive
+    
+//    set selected item's coredata archive to be true
     @objc func archiveTapped() {
-        
+        self.selected.setValue(true, forKey: "archived")
+        self.coreDataStack.saveTo(context: self.coreDataStack.viewContext)
+        print("success")
     }
 }
 
@@ -92,6 +104,22 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
         }
         
         return genericCell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selected = self.sharedItems!.item[indexPath.row]
+        let url = selected.value(forKeyPath: "urlStr") as! String
+        let selectedType = self.sharedItems!.type
+        switch selectedType {
+        case "podcast":
+            self.redirectToPodcast(url)
+        case "youtube":
+            self.openInApp(url)
+        case "safari":
+            self.openInApp(url)
+        default:
+            print("exception in didselect")
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

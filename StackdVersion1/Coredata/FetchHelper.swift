@@ -59,6 +59,29 @@ func fetchAll<T: NSManagedObject>(_ entityName: T.Type, route: Route, sortDescri
     return results!
 }
 
+//  fetch all archived items
+func fetchAllArchived<T: NSManagedObject>(_ entityName: T.Type, route: Route, sortDescriptor: [NSSortDescriptor]? = nil) -> [T] {
+    var results: [T]?
+    let coreDataStack = CoreDataStack.instance
+    let fetchRequest = NSFetchRequest<T>(entityName: NSStringFromClass(T.self))
+    
+    let result = NSPredicate(format: "archived == true")
+    fetchRequest.predicate = result
+    if sortDescriptor != nil {
+        fetchRequest.sortDescriptors = sortDescriptor!
+    }
+    
+    fetchRequest.returnsObjectsAsFaults = false
+    
+    do {
+        results = try coreDataStack.viewContext.fetch(fetchRequest)
+    } catch {
+        assert(false, error.localizedDescription)
+    }
+    
+    return results!
+}
+
 
 
 

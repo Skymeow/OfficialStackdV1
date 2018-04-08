@@ -9,7 +9,7 @@
 import Foundation
 import AVKit
 import AVFoundation
-
+//TODO: get podcast later if I have moretime
 class PodcastDataServer {
     static let instance = PodcastDataServer()
     

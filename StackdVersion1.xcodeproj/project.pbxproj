@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F905BF582075873C00C7B94F /* apple-app-site-association in Resources */ = {isa = PBXBuildFile; fileRef = F905BF572075873B00C7B94F /* apple-app-site-association */; };
-		F905BF5A2075875100C7B94F /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905BF592075875100C7B94F /* YoutubeViewController.swift */; };
+		F905BF5A2075875100C7B94F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905BF592075875100C7B94F /* WebViewController.swift */; };
 		F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
 		F90CF76E2070770F00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
 		F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */; };
@@ -32,7 +32,6 @@
 		F940B5D2206DC884007CE630 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5BE206DC884007CE630 /* CustomHeaderView.swift */; };
 		F940B5D4206DC884007CE630 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C2206DC884007CE630 /* Networking.swift */; };
 		F940B5D5206DC884007CE630 /* PodcastDataServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C3206DC884007CE630 /* PodcastDataServer.swift */; };
-		F940B5D6206DC884007CE630 /* SharedItemsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C4206DC884007CE630 /* SharedItemsData.swift */; };
 		F940B5D7206DC884007CE630 /* DataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C6206DC884007CE630 /* DataConverter.swift */; };
 		F940B5D8206DC884007CE630 /* Reg.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C7206DC884007CE630 /* Reg.swift */; };
 		F940B5D9206DC884007CE630 /* CoreDataInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C9206DC884007CE630 /* CoreDataInitializable.swift */; };
@@ -58,6 +57,7 @@
 		F9BA2A50206DCB1E0059ECBA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4F206DCB1E0059ECBA /* SnapKit.framework */; };
 		F9BA2A51206DCB1E0059ECBA /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4F206DCB1E0059ECBA /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F9BA2A52206DCB260059ECBA /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4C206DCB190059ECBA /* CommonCrypto.framework */; };
+		F9EBFF78207AB45600B0B0F3 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EBFF77207AB45600B0B0F3 /* ArchiveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +99,7 @@
 
 /* Begin PBXFileReference section */
 		F905BF572075873B00C7B94F /* apple-app-site-association */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
-		F905BF592075875100C7B94F /* YoutubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeViewController.swift; sourceTree = "<group>"; };
+		F905BF592075875100C7B94F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistantContainer.swift; sourceTree = "<group>"; };
 		F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTableViewCell.swift; sourceTree = "<group>"; };
 		F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedTableViewCell.xib; sourceTree = "<group>"; };
@@ -126,7 +126,6 @@
 		F940B5BE206DC884007CE630 /* CustomHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		F940B5C2206DC884007CE630 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		F940B5C3206DC884007CE630 /* PodcastDataServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastDataServer.swift; sourceTree = "<group>"; };
-		F940B5C4206DC884007CE630 /* SharedItemsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedItemsData.swift; sourceTree = "<group>"; };
 		F940B5C6206DC884007CE630 /* DataConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConverter.swift; sourceTree = "<group>"; };
 		F940B5C7206DC884007CE630 /* Reg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reg.swift; sourceTree = "<group>"; };
 		F940B5C9206DC884007CE630 /* CoreDataInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInitializable.swift; sourceTree = "<group>"; };
@@ -141,6 +140,7 @@
 		F9BA2A4F206DCB1E0059ECBA /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		F9BA2A53206DCB380059ECBA /* StackdVersion1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StackdVersion1.entitlements; sourceTree = "<group>"; };
 		F9BA2A54206DCB5B0059ECBA /* Add to Stackd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Add to Stackd.entitlements"; sourceTree = "<group>"; };
+		F9EBFF77207AB45600B0B0F3 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +258,8 @@
 				F90CF7992072E16700174AA2 /* HomeListViewController.swift */,
 				F90CF7972072E13A00174AA2 /* FilterViewController.swift */,
 				F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */,
-				F905BF592075875100C7B94F /* YoutubeViewController.swift */,
+				F905BF592075875100C7B94F /* WebViewController.swift */,
+				F9EBFF77207AB45600B0B0F3 /* ArchiveViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -268,7 +269,6 @@
 			children = (
 				F940B5C2206DC884007CE630 /* Networking.swift */,
 				F940B5C3206DC884007CE630 /* PodcastDataServer.swift */,
-				F940B5C4206DC884007CE630 /* SharedItemsData.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -460,13 +460,13 @@
 				F90CF79A2072E16700174AA2 /* HomeListViewController.swift in Sources */,
 				F940B5D7206DC884007CE630 /* DataConverter.swift in Sources */,
 				F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */,
-				F940B5D6206DC884007CE630 /* SharedItemsData.swift in Sources */,
+				F9EBFF78207AB45600B0B0F3 /* ArchiveViewController.swift in Sources */,
 				F90CF7982072E13A00174AA2 /* FilterViewController.swift in Sources */,
 				F940B5DC206DC884007CE630 /* SharedItems.xcdatamodeld in Sources */,
 				F940B5DB206DC884007CE630 /* FetchHelper.swift in Sources */,
 				F90CF79E2072F3F100174AA2 /* FilteredItemsViewController.swift in Sources */,
 				F940B5DA206DC884007CE630 /* CoredataStack.swift in Sources */,
-				F905BF5A2075875100C7B94F /* YoutubeViewController.swift in Sources */,
+				F905BF5A2075875100C7B94F /* WebViewController.swift in Sources */,
 				F940B5D0206DC884007CE630 /* SharedTableViewCell.swift in Sources */,
 				F940B5D4206DC884007CE630 /* Networking.swift in Sources */,
 				F90CF7A220730DA100174AA2 /* FilterHeaderView.swift in Sources */,
