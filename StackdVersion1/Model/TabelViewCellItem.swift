@@ -13,3 +13,8 @@ struct TabelViewCellItemType {
     let type: String
     let item: [NSManagedObject]
 }
+
+struct TwoCellTypes {
+    let type: String
+    let item: NSManagedObject
+}

@@ -18,6 +18,8 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var archiveBtn: UIButton!
     @IBOutlet weak var CenterX: NSLayoutConstraint!
+    @IBOutlet weak var backFromPopupView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         CenterX.constant = -400
@@ -29,12 +31,17 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
         let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
         
+        backFromPopupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissXis)))
         deleteBtn.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
         archiveBtn.addTarget(self, action: #selector(archiveTapped), for: .touchUpInside)
     }
     
     func changeXis() {
         self.CenterX.constant = 0
+    }
+    
+    @objc func dismissXis() {
+        self.CenterX.constant = -400
     }
     
     func openInApp(_ urlStr: String) {
@@ -55,19 +62,27 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     
 //    delete from coredata
     @objc func deleteTapped() {
+        CenterX.constant = -400
         if let allObjects = self.sharedItems?.item {
             for object in allObjects {
                 self.coreDataStack.viewContext.delete(object)
             }
         }
-        
     }
     
 //    set selected item's coredata archive to be true
     @objc func archiveTapped() {
+        CenterX.constant = -400
         self.selected.setValue(true, forKey: "archived")
         self.coreDataStack.saveTo(context: self.coreDataStack.viewContext)
-        print("success")
+        self.configureArchivedModal()
+    }
+    
+    func configureArchivedModal() {
+        guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
+        successView.configureView(title: "Saved to Stacked", at: self.view.center)
+        self.view.addSubview(successView)
+        successView.hide()
     }
 }
 

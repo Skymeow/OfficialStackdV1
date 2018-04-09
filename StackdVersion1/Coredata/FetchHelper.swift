@@ -13,6 +13,22 @@ enum Route {
     case podcast
     case youtube
     case safari
+    
+    func setSortDescriptor() -> NSSortDescriptor? {
+        switch self {
+        case .podcast:
+            let descriptor = NSSortDescriptor(key: #keyPath(Podcast.date), ascending: true)
+            return descriptor
+        case .youtube:
+            let descriptor = NSSortDescriptor(key: #keyPath(Youtube.date), ascending: true)
+            return descriptor
+        case .safari:
+            let descriptor = NSSortDescriptor(key: #keyPath(Safari.date), ascending: true)
+            return descriptor
+        default:
+            return nil
+        }
+    }
 }
 
 //MARK: fetch one and all entities from viewContext
@@ -37,15 +53,17 @@ func fetchOne<T: NSManagedObject>(_ entityName: T.Type, sortDescriptor: [NSSortD
     return (results?.first)!
 }
 
-//MARK: fetch all entities from viewContext
+//MARK: fetch all entities from viewContext by latest data and different cell type
 
 func fetchAll<T: NSManagedObject>(_ entityName: T.Type, route: Route, sortDescriptor: [NSSortDescriptor]? = nil) -> [T] {
     var results: [T]?
     let coreDataStack = CoreDataStack.instance
     let fetchRequest = NSFetchRequest<T>(entityName: NSStringFromClass(T.self))
-   
+    
     if sortDescriptor != nil {
         fetchRequest.sortDescriptors = sortDescriptor!
+    } else {
+        fetchRequest.sortDescriptors = [route.setSortDescriptor()!]
     }
     
     fetchRequest.returnsObjectsAsFaults = false

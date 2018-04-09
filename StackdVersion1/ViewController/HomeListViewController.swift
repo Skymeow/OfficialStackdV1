@@ -12,8 +12,8 @@ import AVFoundation
 import MediaPlayer
 import CoreData
 
-class HomeListViewController: UIViewController {
-
+class HomeListViewController: UIViewController, OpenedViewDelegate {
+    
     var sharedItems: [TabelViewCellItemType]? {
         didSet {
             DispatchQueue.main.async {
@@ -21,15 +21,17 @@ class HomeListViewController: UIViewController {
             }
         }
     }
-    
+    var selected: NSManagedObject!
     var podcasts = [Podcast]()
     var safaris = [Safari]()
     var youtubes = [Youtube]()
+    var allItems = [NSManagedObject]()
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.isHidden = true
         self.tableView.sectionHeaderHeight = 150
         
@@ -42,13 +44,16 @@ class HomeListViewController: UIViewController {
         self.podcasts = fetchAll(Podcast.self, route: .podcast)
         self.safaris = fetchAll(Safari.self, route: .safari)
         self.youtubes = fetchAll(Youtube.self, route: .youtube)
-        
+        self.allItems = self.podcasts
         let sharedItems1 = TabelViewCellItemType(type: "podcast", item: self.podcasts)
         let sharedItems2 = TabelViewCellItemType(type: "safari", item: self.safaris)
         let sharedItems3 = TabelViewCellItemType(type: "youtube", item: self.youtubes)
         self.sharedItems = [sharedItems1, sharedItems2, sharedItems3]
     }
     
+    func changeXis() {
+        print("")
+    }
 }
 
 extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -84,6 +89,22 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         }
        
         return genericCell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.selected = self.sharedItems![indexPath.row]
+        let url = selected.value(forKeyPath: "urlStr") as! String
+        let selectedType = self.sharedItems![indexPath.row].type
+        switch selectedType {
+        case "podcast":
+            PrepareForPresentingViews.shared.redirectToPodcast(url)
+        case "youtube":
+            PrepareForPresentingViews.shared.openInApp(url, viewController: self, navigationController: self.navigationController)
+        case "safari":
+            PrepareForPresentingViews.shared.openInApp(url, viewController: self, navigationController: self.navigationController)
+        default:
+            print("exception in didselect")
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

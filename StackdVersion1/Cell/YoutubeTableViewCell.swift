@@ -10,6 +10,12 @@ import UIKit
 
 class YoutubeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var sourceLogo: UIImageView!
+    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var duration: UILabel!
+    @IBOutlet weak var sourceImg: UIImageView!
+    
+    @IBOutlet weak var sourceTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

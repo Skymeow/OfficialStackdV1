@@ -10,6 +10,11 @@ import UIKit
 
 class SharedTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var sourceLogo: UIImageView!
+    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var duration: UILabel!
+    @IBOutlet weak var sourceTitle: UILabel!
+    
     var sharedItems: [Any]? {
         didSet {
             guard let sharedItems = (sharedItems as? [Podcast])

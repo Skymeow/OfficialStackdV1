@@ -23,7 +23,7 @@ import CoreData
         successView.hide()
         
         let extensionItem = extensionContext?.inputItems.first as! NSExtensionItem
-        
+
         //        for youtube
         if let itemProvider = extensionItem.attachments?.first as? NSItemProvider {
             if itemProvider.hasItemConformingToTypeIdentifier(kUTTypePlainText as String) {
@@ -46,10 +46,12 @@ import CoreData
             } else if itemProvider.hasItemConformingToTypeIdentifier("public.url") {
                 itemProvider.loadItem(forTypeIdentifier: "public.url", options: nil, completionHandler: { [unowned self] (item, error) -> Void in
                     if let url = item as? NSURL {
+                        let title = url.cutStringPath()
                         let urlStr = url.absoluteString
                         //                        instantiate coredata MO for podcast
                         let podcast = Podcast(context: self.coreDataStack.privateContext)
                         podcast.urlStr = urlStr
+                        podcast.title = title
                         podcast.duration = "see detail in podcast app"
                         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
                     }
@@ -60,9 +62,11 @@ import CoreData
                     if let dictionary = item as? NSDictionary {
                         OperationQueue.main.addOperation {
                             if let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as? NSDictionary,
+                                let title = results["title"] as? String,
                                 let urlStr = results["URL"] as? String {
                                 let safari = Safari(context: self.coreDataStack.privateContext)
                                 safari.urlStr = urlStr
+                                safari.title = title
                                 Networking.instance.analyzeTime(url: urlStr) { (success, timeStr) in
                                     if success {
                                        safari.duration = timeStr

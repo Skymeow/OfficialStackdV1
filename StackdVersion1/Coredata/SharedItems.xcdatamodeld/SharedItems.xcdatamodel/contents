@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="SharedItems">
-    <entity name="Podcast" representedClassName="Podcast" syncable="YES" codeGenerationType="class">
+    <entity name="AllItem" representedClassName="AllItem" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="archived" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="urlStr" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Safari" representedClassName="Safari" syncable="YES" codeGenerationType="class">
-        <attribute name="archived" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="urlStr" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Youtube" representedClassName="Youtube" syncable="YES" codeGenerationType="class">
-        <attribute name="archived" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="cellType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlStr" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Podcast" representedClassName="Podcast" parentEntity="AllItem" syncable="YES" codeGenerationType="class"/>
+    <entity name="Safari" representedClassName="Safari" parentEntity="AllItem" syncable="YES" codeGenerationType="class"/>
+    <entity name="Youtube" representedClassName="Youtube" parentEntity="AllItem" syncable="YES" codeGenerationType="class">
         <attribute name="videoThumbnail" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Podcast" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Safari" positionX="-36" positionY="36" width="128" height="90"/>
-        <element name="Youtube" positionX="-54" positionY="9" width="128" height="120"/>
+        <element name="AllItem" positionX="-18" positionY="72" width="128" height="135"/>
+        <element name="Podcast" positionX="-63" positionY="-18" width="128" height="45"/>
+        <element name="Safari" positionX="-36" positionY="36" width="128" height="45"/>
+        <element name="Youtube" positionX="-54" positionY="9" width="128" height="60"/>
     </elements>
 </model>

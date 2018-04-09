@@ -58,6 +58,9 @@
 		F9BA2A51206DCB1E0059ECBA /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4F206DCB1E0059ECBA /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F9BA2A52206DCB260059ECBA /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4C206DCB190059ECBA /* CommonCrypto.framework */; };
 		F9EBFF78207AB45600B0B0F3 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EBFF77207AB45600B0B0F3 /* ArchiveViewController.swift */; };
+		F9EBFF79207ABB7200B0B0F3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5DE206DC89D007CE630 /* AlertView.swift */; };
+		F9EBFF7A207ABB8000B0B0F3 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F940B5DF206DC89D007CE630 /* AlertView.xib */; };
+		F9EBFF7C207AC9E100B0B0F3 /* PrepareForPresentingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EBFF7B207AC9E100B0B0F3 /* PrepareForPresentingViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +144,7 @@
 		F9BA2A53206DCB380059ECBA /* StackdVersion1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StackdVersion1.entitlements; sourceTree = "<group>"; };
 		F9BA2A54206DCB5B0059ECBA /* Add to Stackd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Add to Stackd.entitlements"; sourceTree = "<group>"; };
 		F9EBFF77207AB45600B0B0F3 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
+		F9EBFF7B207AC9E100B0B0F3 /* PrepareForPresentingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareForPresentingViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +282,7 @@
 			children = (
 				F940B5C6206DC884007CE630 /* DataConverter.swift */,
 				F940B5C7206DC884007CE630 /* Reg.swift */,
+				F9EBFF7B207AC9E100B0B0F3 /* PrepareForPresentingViews.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9EBFF7A207ABB8000B0B0F3 /* AlertView.xib in Resources */,
 				F90CF77420708BF600174AA2 /* YoutubeTableViewCell.xib in Resources */,
 				F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */,
 				F940B59A206DC156007CE630 /* Assets.xcassets in Resources */,
@@ -452,11 +458,13 @@
 				F940B5D8206DC884007CE630 /* Reg.swift in Sources */,
 				F940B5DD206DC884007CE630 /* KeyCenter.swift in Sources */,
 				F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */,
+				F9EBFF79207ABB7200B0B0F3 /* AlertView.swift in Sources */,
 				F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */,
 				F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */,
 				F940B5D1206DC884007CE630 /* Video.swift in Sources */,
 				F940B5D9206DC884007CE630 /* CoreDataInitializable.swift in Sources */,
 				F940B593206DC156007CE630 /* AppDelegate.swift in Sources */,
+				F9EBFF7C207AC9E100B0B0F3 /* PrepareForPresentingViews.swift in Sources */,
 				F90CF79A2072E16700174AA2 /* HomeListViewController.swift in Sources */,
 				F940B5D7206DC884007CE630 /* DataConverter.swift in Sources */,
 				F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */,

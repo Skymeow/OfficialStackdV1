@@ -1,3 +1,4 @@
-github "Alamofire/Alamofire" "4.7.0"
+github "Alamofire/Alamofire" "4.7.1"
 github "SnapKit/SnapKit" "4.0.0"
+github "onevcat/Kingfisher" "4.7.0"
 github "soffes/CommonCrypto" "v1.1.0"

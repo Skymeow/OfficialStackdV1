@@ -24,3 +24,12 @@ extension String {
         return replace
     }
 }
+
+extension NSURL {
+    func cutStringPath() -> String {
+        let urlWithoutLastPath = self.deletingLastPathComponent
+        let shortenedUrl = urlWithoutLastPath?.lastPathComponent
+        
+        return shortenedUrl!
+    }
+}

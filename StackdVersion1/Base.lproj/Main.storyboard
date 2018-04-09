@@ -242,6 +242,7 @@
                     <connections>
                         <outlet property="CenterX" destination="bDF-zR-YpO" id="7st-hS-0W3"/>
                         <outlet property="archiveBtn" destination="InT-0n-Gcc" id="Rfu-N0-XTV"/>
+                        <outlet property="backFromPopupView" destination="uCq-Yg-xw1" id="2QB-2u-P3k"/>
                         <outlet property="deleteBtn" destination="SGK-4W-Tki" id="iVp-9H-XMp"/>
                         <outlet property="tableView" destination="TDK-pY-5Ir" id="SCu-MO-sbL"/>
                     </connections>
@@ -334,8 +335,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="tNM-gu-c5B" id="yGf-e4-CUh"/>
-                                    <outlet property="delegate" destination="tNM-gu-c5B" id="JRC-pJ-81E"/>
+                                    <outlet property="dataSource" destination="UNS-8K-LOo" id="HXz-T5-AbE"/>
+                                    <outlet property="delegate" destination="UNS-8K-LOo" id="E6m-hF-Jc5"/>
                                 </connections>
                             </tableView>
                         </subviews>
