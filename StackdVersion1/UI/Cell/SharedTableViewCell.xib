@@ -18,41 +18,46 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="JVO-IW-Eqd">
-                    <rect key="frame" x="10" y="5" width="375" height="112"/>
+                    <rect key="frame" x="6" y="5" width="375" height="112"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="tpq-9Q-SkH">
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tpq-9Q-SkH">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
                             <subviews>
-                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jqZ-n9-VV2">
-                                    <rect key="frame" x="0.0" y="0.0" width="246" height="37.5"/>
+                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jqZ-n9-VV2" userLabel="left Stack View">
+                                    <rect key="frame" x="0.0" y="0.0" width="214.5" height="37.5"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-Pe-04y">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-Pe-04y">
                                             <rect key="frame" x="0.0" y="0.0" width="37.5" height="37.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="pUf-Pe-04y" secondAttribute="height" multiplier="1:1" id="HaT-P2-AN8"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shared from source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWX-rt-9qt">
-                                            <rect key="frame" x="47.5" y="0.0" width="258.5" height="37.5"/>
+                                            <rect key="frame" x="47.5" y="0.0" width="227" height="37.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uz1-tm-6JH">
-                                    <rect key="frame" x="236" y="0.0" width="129" height="37.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7SN-mp-AbG" userLabel="right Stack View">
+                                    <rect key="frame" x="208.5" y="0.0" width="160.5" height="37.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Duration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uz1-tm-6JH">
+                                            <rect key="frame" x="0.0" y="0.0" width="160.5" height="37.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="Uz1-tm-6JH" firstAttribute="width" secondItem="EWX-rt-9qt" secondAttribute="width" multiplier="1:2" id="2D5-N8-Gs1"/>
                                 <constraint firstItem="jqZ-n9-VV2" firstAttribute="centerY" secondItem="tpq-9Q-SkH" secondAttribute="centerY" id="A7y-7x-MaV"/>
+                                <constraint firstItem="7SN-mp-AbG" firstAttribute="width" secondItem="jqZ-n9-VV2" secondAttribute="width" multiplier="1.5:2" id="fQj-Ly-xDO"/>
                             </constraints>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="ahufadjafdljafdkljadfskljfadjkdfajsfhjadsfhajsdkfhalsdfhjadhfuowiehfilaehfilasdbhfkalsdhfaklsf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vah-Fa-3CF">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="ahufadjafdljafdkljadfskljfadjkdfajsfhjadsfhajsdkfhalsdfhjadhfuowiehfilaehfilasdbhfkalsdhfaklsf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vah-Fa-3CF">
                             <rect key="frame" x="0.0" y="52.5" width="375" height="59.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -66,9 +71,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="0.70980392160000005" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="JVO-IW-Eqd" secondAttribute="trailing" constant="10" id="6y2-Rr-Aj4"/>
+                <constraint firstAttribute="trailing" secondItem="JVO-IW-Eqd" secondAttribute="trailing" constant="5" id="6y2-Rr-Aj4"/>
                 <constraint firstItem="JVO-IW-Eqd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="SbF-Va-3dN"/>
-                <constraint firstItem="JVO-IW-Eqd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Tu7-uR-xTN"/>
+                <constraint firstItem="JVO-IW-Eqd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="6" id="Tu7-uR-xTN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="JVO-IW-Eqd" secondAttribute="bottom" constant="3" id="z4q-uD-2dD"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

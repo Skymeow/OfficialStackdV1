@@ -16,12 +16,26 @@ extension String {
     }
     
     func formatDuration() -> String {
-        var replace = self.replacingOccurrences(of: "H", with: " Hour, ")
-        replace = replace.replacingOccurrences(of: "M", with: " Minutes, ")
-        replace = replace.replacingOccurrences(of: "S", with: " Seconds")
+        var replace = self.replacingOccurrences(of: "H", with: " H, ")
+        replace = replace.replacingOccurrences(of: "M", with: " Min, ")
+        replace = replace.replacingOccurrences(of: "S", with: " Sec")
         replace = replace.replacingOccurrences(of: "PT", with: "")
         
         return replace
+    }
+    
+    func formatDurationForArticle() -> String {
+        var replace = self.replacingOccurrences(of: ":", with: " Min, ")
+        replace = replace + " Sec"
+        print(replace)
+        return replace
+    }
+    
+    func getSafariSource() -> String {
+        let arr = self.components(separatedBy: "?")
+        let source = arr[0]
+        
+        return source
     }
 }
 

@@ -24,7 +24,7 @@ import CoreData
         
         let extensionItem = extensionContext?.inputItems.first as! NSExtensionItem
 
-        //        for youtube
+        //  for youtube
         if let itemProvider = extensionItem.attachments?.first as? NSItemProvider {
             if itemProvider.hasItemConformingToTypeIdentifier(kUTTypePlainText as String) {
                 itemProvider.loadItem(forTypeIdentifier: kUTTypePlainText as String, options: nil, completionHandler: { (item, error) -> Void in
@@ -36,27 +36,31 @@ import CoreData
                                 youtube.duration  = result.duration
                                 youtube.videoThumbnail = result.thumbnailUrl
                                 youtube.title = result.videoTitle
-                                self.coreDataStack.saveTo(context: self.coreDataStack.viewContext)
+                                youtube.cellType = "youtube"
+                                youtube.date = Date()
+                                self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
                             }
                         }
                         
                     }
                 })
-                //                for podcast
+                // for podcast
             } else if itemProvider.hasItemConformingToTypeIdentifier("public.url") {
                 itemProvider.loadItem(forTypeIdentifier: "public.url", options: nil, completionHandler: { [unowned self] (item, error) -> Void in
                     if let url = item as? NSURL {
                         let title = url.cutStringPath()
                         let urlStr = url.absoluteString
-                        //                        instantiate coredata MO for podcast
+                        //   instantiate coredata MO for podcast
                         let podcast = Podcast(context: self.coreDataStack.privateContext)
                         podcast.urlStr = urlStr
                         podcast.title = title
                         podcast.duration = "see detail in podcast app"
+                        podcast.cellType = "podcast"
+                        podcast.date = Date()
                         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
                     }
                 })
-                //               safari
+                // safari
             } else if itemProvider.hasItemConformingToTypeIdentifier(String(kUTTypePropertyList)) {
                 itemProvider.loadItem(forTypeIdentifier: String(kUTTypePropertyList), options: nil, completionHandler: { [unowned self] (item, error) -> Void in
                     if let dictionary = item as? NSDictionary {
@@ -67,14 +71,17 @@ import CoreData
                                 let safari = Safari(context: self.coreDataStack.privateContext)
                                 safari.urlStr = urlStr
                                 safari.title = title
+                                safari.cellType = "safari"
+                                safari.date = Date()
                                 Networking.instance.analyzeTime(url: urlStr) { (success, timeStr) in
                                     if success {
                                        safari.duration = timeStr
                                     } else {
                                          safari.duration = "unable to analyze time"
                                     }
+                                    self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
                                 }
-                                self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+                                
                             }
                             
                         }

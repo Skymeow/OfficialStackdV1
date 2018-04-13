@@ -7,16 +7,20 @@
         <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlStr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="videoThumbnail" optional="YES" attributeType="String" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="urlStr"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="Podcast" representedClassName="Podcast" parentEntity="AllItem" syncable="YES" codeGenerationType="class"/>
     <entity name="Safari" representedClassName="Safari" parentEntity="AllItem" syncable="YES" codeGenerationType="class"/>
-    <entity name="Youtube" representedClassName="Youtube" parentEntity="AllItem" syncable="YES" codeGenerationType="class">
-        <attribute name="videoThumbnail" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
+    <entity name="Youtube" representedClassName="Youtube" parentEntity="AllItem" syncable="YES" codeGenerationType="class"/>
     <elements>
-        <element name="AllItem" positionX="-18" positionY="72" width="128" height="135"/>
+        <element name="AllItem" positionX="-18" positionY="72" width="128" height="150"/>
         <element name="Podcast" positionX="-63" positionY="-18" width="128" height="45"/>
         <element name="Safari" positionX="-36" positionY="36" width="128" height="45"/>
-        <element name="Youtube" positionX="-54" positionY="9" width="128" height="60"/>
+        <element name="Youtube" positionX="-54" positionY="9" width="128" height="45"/>
     </elements>
 </model>

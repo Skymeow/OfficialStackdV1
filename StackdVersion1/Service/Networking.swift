@@ -13,7 +13,7 @@ import UIKit
 class Networking {
     static let instance = Networking()
     
-    func analyzeTime(url: String, completion: @escaping (_ success: Bool, _ time: String) -> Void) {
+    func analyzeTime(url: String, completion: @escaping (_ success: Bool, _ time: String?) -> Void) {
         let sessionConfig = URLSessionConfiguration.default
         
         /* Create session, and optionally set a URLSessionDelegate. */

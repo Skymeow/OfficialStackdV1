@@ -11,21 +11,21 @@ import AVKit
 import AVFoundation
 import MediaPlayer
 import CoreData
+import Kingfisher
 
 class HomeListViewController: UIViewController, OpenedViewDelegate {
-    
-    var sharedItems: [TabelViewCellItemType]? {
+   
+    var selected: AllItem!
+    var podcasts = [Podcast]()
+    var safaris = [Safari]()
+    var youtubes = [Youtube]()
+    var allItems: [AllItem]? {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
-    var selected: NSManagedObject!
-    var podcasts = [Podcast]()
-    var safaris = [Safari]()
-    var youtubes = [Youtube]()
-    var allItems = [NSManagedObject]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -44,11 +44,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         self.podcasts = fetchAll(Podcast.self, route: .podcast)
         self.safaris = fetchAll(Safari.self, route: .safari)
         self.youtubes = fetchAll(Youtube.self, route: .youtube)
-        self.allItems = self.podcasts
-        let sharedItems1 = TabelViewCellItemType(type: "podcast", item: self.podcasts)
-        let sharedItems2 = TabelViewCellItemType(type: "safari", item: self.safaris)
-        let sharedItems3 = TabelViewCellItemType(type: "youtube", item: self.youtubes)
-        self.sharedItems = [sharedItems1, sharedItems2, sharedItems3]
+        self.allItems = fetchAll(AllItem.self, route: .allItem)
     }
     
     func changeXis() {
@@ -58,29 +54,57 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
 
 extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let items = self.sharedItems {
+        if let items = self.allItems {
+            print(items.count)
             return items.count
         } else {
             return 0
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let rowHeight = CGFloat(120)
+        return rowHeight
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var genericCell: UITableViewCell?
-        let type = self.sharedItems![indexPath.row].type
+        let item = self.allItems![indexPath.row]
+        let type = item.cellType!
         print(type)
         switch type {
         case "podcast":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
                 genericCell = cell
+                cell.duration.text = item.duration
+                cell.sourceLabel.text = "apple.itunes.com"
+                let img = UIImage(named: "listen_tapped")
+                cell.sourceLogo.image = img
+                cell.sourceTitle.text = item.title
+                
             }
         case "safari":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
                 genericCell = cell
+                let duration = item.duration?.formatDurationForArticle()
+                cell.duration.text = duration
+                cell.sourceLabel.text = item.urlStr?.getSafariSource()
+                let img = UIImage(named: "read_default")
+                cell.sourceLogo.image = img
+                cell.sourceTitle.text = item.title
             }
         case "youtube":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
                 genericCell = cell
+                cell.duration.text = item.duration
+                cell.sourceLabel.text = "www.youtube.com"
+                cell.sourceImg.kf.indicatorType = .activity
+                let url = URL(string: item.videoThumbnail!)
+                cell.sourceImg.kf.setImage(with: url, options: [.cacheSerializer(FormatIndicatedCacheSerializer.jpeg), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
+                let img = UIImage(named: "watch_default")
+                cell.sourceLogo.image = img
+                cell.sourceTitle.text = item.title
             }
         default:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
@@ -92,9 +116,9 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.selected = self.sharedItems![indexPath.row]
-        let url = selected.value(forKeyPath: "urlStr") as! String
-        let selectedType = self.sharedItems![indexPath.row].type
+        selected = self.allItems![indexPath.row]
+        let url = selected.urlStr!
+        let selectedType = selected.cellType!
         switch selectedType {
         case "podcast":
             PrepareForPresentingViews.shared.redirectToPodcast(url)

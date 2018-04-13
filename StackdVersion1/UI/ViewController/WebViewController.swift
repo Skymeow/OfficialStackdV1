@@ -34,12 +34,43 @@ class WebViewController: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        self.addLoadingIndicator()
         let myURL = URL(string: self.urlStr)
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
-        
+        if let unwrappedURL = myURL {
+            let myRequest = URLRequest(url: unwrappedURL)
+            let session = URLSession.shared
+            let task = session.dataTask(with: myRequest, completionHandler: { (data, response, err) in
+                if err == nil {
+                    DispatchQueue.main.async {
+                        self.webView.load(myRequest)
+                        self.removeLoadingIndcator()
+                    }
+                } else {
+                    print("ERROR: \(err)")
+                }
+            }).resume()
+        }
+
         btn.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
         
+    }
+    
+    func addLoadingIndicator(){
+        guard let loadingIndicator = Bundle.main.loadNibNamed("LoadingIndicator",
+                                                              owner:self, options:nil)![0] as? LoadingIndicatorView else{
+                                                                return
+        }
+        loadingIndicator.configView(with: "Loading Webview", at: view.center)
+        view.addSubview(loadingIndicator)
+    }
+
+    func removeLoadingIndcator(){
+        for view in view.subviews{
+            if view is LoadingIndicatorView{
+                view.removeFromSuperview()
+                break
+            }
+        }
     }
     
     @objc func backTapped() {

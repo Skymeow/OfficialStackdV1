@@ -15,6 +15,8 @@ public final class CoreDataStack {
     private lazy var persistentContainer: CustomPersistantContainer = {
         let container = CustomPersistantContainer(name: "SharedItems")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+//            for urlStr unique contraints
+            container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
@@ -33,6 +35,7 @@ public final class CoreDataStack {
     
     func saveTo(context: NSManagedObjectContext) {
         if context.hasChanges {
+            context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             do {
                 try context.save()
             } catch {

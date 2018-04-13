@@ -144,3 +144,12 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
         return customizedHeaderView
     }
 }
+
+//for the back button
+extension FilteredItemsViewController: FilterHeaderActionDelegate {
+    func backTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+}

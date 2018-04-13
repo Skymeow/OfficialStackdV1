@@ -11,14 +11,14 @@ import UIKit
 import SnapKit
 
 protocol FilterHeaderActionDelegate {
-    func filterTapped()
+    func backTapped()
 }
 class FilterHeaderView: UIView {
     
     var filterHeaderDelegate: FilterHeaderActionDelegate?
     var titleLabel: UILabel!
     var subTitleLabel: UILabel!
-    var filterButton: UIButton!
+    var backButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,9 +35,9 @@ class FilterHeaderView: UIView {
         self.isUserInteractionEnabled = true
         
         titleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
-        titleLabel.text = "Stacked"
+        titleLabel.text = "FILTER"
         titleLabel.textColor = .white
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 36)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
         titleLabel.textAlignment = .left
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 1
@@ -53,13 +53,13 @@ class FilterHeaderView: UIView {
         subTitleLabel.numberOfLines = 1
         subTitleLabel.sizeToFit()
         
-        filterButton = UIButton(type: .custom)
-        let filterImg = UIImage(named: "Filter")
-        filterButton.imageView?.contentMode = .scaleAspectFit
-        filterButton.setBackgroundImage(filterImg, for: .normal)
-        filterButton.addTarget(self, action: #selector(filterTapped), for: .touchUpInside)
+        backButton = UIButton(type: .custom)
+        let backImg = UIImage(named: "back_btn")
+        backButton.imageView?.contentMode = .scaleAspectFit
+        backButton.setBackgroundImage(backImg, for: .normal)
+        backButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
         
-        self.addSubview(filterButton)
+        self.addSubview(backButton)
         self.addSubview(titleLabel)
         self.addSubview(subTitleLabel)
         
@@ -69,7 +69,7 @@ class FilterHeaderView: UIView {
     func setConstraints() {
         
         titleLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(20)
+            make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(45)
             make.bottom.equalTo(subTitleLabel.snp.top).offset(30)
             make.height.equalTo(55)
@@ -83,17 +83,17 @@ class FilterHeaderView: UIView {
             make.width.equalTo(150)
         }
         
-        filterButton.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(-15)
-            make.bottom.equalToSuperview().offset(-20)
-            make.height.equalTo(55)
+        backButton.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(20)
+            make.centerY.equalTo(titleLabel.snp.centerY)
+            make.height.equalTo(titleLabel.snp.height)
             make.width.equalTo(45)
         }
         
     }
     
-    @objc func filterTapped() {
-        filterHeaderDelegate?.filterTapped()
+    @objc func backTapped() {
+        filterHeaderDelegate?.backTapped()
     }
 }
 

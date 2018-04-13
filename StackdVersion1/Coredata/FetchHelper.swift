@@ -13,6 +13,7 @@ enum Route {
     case podcast
     case youtube
     case safari
+    case allItem
     
     func setSortDescriptor() -> NSSortDescriptor? {
         switch self {
@@ -24,6 +25,9 @@ enum Route {
             return descriptor
         case .safari:
             let descriptor = NSSortDescriptor(key: #keyPath(Safari.date), ascending: true)
+            return descriptor
+        case .allItem:
+            let descriptor = NSSortDescriptor(key: #keyPath(AllItem.date), ascending: true)
             return descriptor
         default:
             return nil

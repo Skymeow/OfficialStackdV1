@@ -20,6 +20,8 @@
 		F90CF79E2072F3F100174AA2 /* FilteredItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */; };
 		F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */; };
 		F90CF7A220730DA100174AA2 /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */; };
+		F936C4BD20813219002D4E4D /* LoadingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = F936C4BB20813219002D4E4D /* LoadingIndicator.xib */; };
+		F936C4BE20813219002D4E4D /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */; };
 		F940B593206DC156007CE630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B592206DC156007CE630 /* AppDelegate.swift */; };
 		F940B598206DC156007CE630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F940B596206DC156007CE630 /* Main.storyboard */; };
 		F940B59A206DC156007CE630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F940B599206DC156007CE630 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		F940B5DD206DC884007CE630 /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CF206DC884007CE630 /* KeyCenter.swift */; };
 		F940B5E0206DC89D007CE630 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5DE206DC89D007CE630 /* AlertView.swift */; };
 		F940B5E1206DC89D007CE630 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F940B5DF206DC89D007CE630 /* AlertView.xib */; };
+		F964CDC5207C3F810064E40C /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F964CDC4207C3F810064E40C /* Kingfisher.framework */; };
+		F964CDC6207C3F810064E40C /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F964CDC4207C3F810064E40C /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F9BA2A3E206DCAC60059ECBA /* CoreDataInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C9206DC884007CE630 /* CoreDataInitializable.swift */; };
 		F9BA2A3F206DCAC90059ECBA /* CoredataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CA206DC884007CE630 /* CoredataStack.swift */; };
 		F9BA2A40206DCACB0059ECBA /* FetchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CB206DC884007CE630 /* FetchHelper.swift */; };
@@ -93,6 +97,7 @@
 			files = (
 				F9BA2A51206DCB1E0059ECBA /* SnapKit.framework in Embed Frameworks */,
 				F9BA2A4E206DCB190059ECBA /* CommonCrypto.framework in Embed Frameworks */,
+				F964CDC6207C3F810064E40C /* Kingfisher.framework in Embed Frameworks */,
 				F9BA2A4A206DCB120059ECBA /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -113,6 +118,8 @@
 		F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredItemsViewController.swift; sourceTree = "<group>"; };
 		F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredItemCell.swift; sourceTree = "<group>"; };
 		F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHeaderView.swift; sourceTree = "<group>"; };
+		F936C4BB20813219002D4E4D /* LoadingIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingIndicator.xib; sourceTree = "<group>"; };
+		F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		F940B58F206DC156007CE630 /* StackdVersion1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackdVersion1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F940B592206DC156007CE630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F940B597206DC156007CE630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +145,7 @@
 		F940B5CF206DC884007CE630 /* KeyCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCenter.swift; sourceTree = "<group>"; };
 		F940B5DE206DC89D007CE630 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F940B5DF206DC89D007CE630 /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		F964CDC4207C3F810064E40C /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		F9BA2A48206DCB120059ECBA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		F9BA2A4C206DCB190059ECBA /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
 		F9BA2A4F206DCB1E0059ECBA /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 			files = (
 				F9BA2A50206DCB1E0059ECBA /* SnapKit.framework in Frameworks */,
 				F9BA2A4D206DCB190059ECBA /* CommonCrypto.framework in Frameworks */,
+				F964CDC5207C3F810064E40C /* Kingfisher.framework in Frameworks */,
 				F9BA2A49206DCB120059ECBA /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,9 +178,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F936C4B8208131D3002D4E4D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F936C4B9208131E5002D4E4D /* UIHelper */,
+				F940B5BF206DC884007CE630 /* ViewController */,
+				F940B5B9206DC883007CE630 /* Cell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F936C4B9208131E5002D4E4D /* UIHelper */ = {
+			isa = PBXGroup;
+			children = (
+				F936C4BA20813219002D4E4D /* LoadingIndicator */,
+			);
+			path = UIHelper;
+			sourceTree = "<group>";
+		};
+		F936C4BA20813219002D4E4D /* LoadingIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				F936C4BB20813219002D4E4D /* LoadingIndicator.xib */,
+				F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */,
+			);
+			path = LoadingIndicator;
+			sourceTree = "<group>";
+		};
 		F940B586206DC156007CE630 = {
 			isa = PBXGroup;
 			children = (
+				F964CDC4207C3F810064E40C /* Kingfisher.framework */,
 				F9BA2A4F206DCB1E0059ECBA /* SnapKit.framework */,
 				F9BA2A4C206DCB190059ECBA /* CommonCrypto.framework */,
 				F9BA2A48206DCB120059ECBA /* Alamofire.framework */,
@@ -200,8 +237,7 @@
 				F940B59B206DC156007CE630 /* LaunchScreen.storyboard */,
 				F940B59E206DC156007CE630 /* Info.plist */,
 				F9BA2A53206DCB380059ECBA /* StackdVersion1.entitlements */,
-				F940B5BF206DC884007CE630 /* ViewController */,
-				F940B5B9206DC883007CE630 /* Cell */,
+				F936C4B8208131D3002D4E4D /* UI */,
 				F940B5C8206DC884007CE630 /* Coredata */,
 				F940B5CE206DC884007CE630 /* Credentials */,
 				F940B5C5206DC884007CE630 /* Helpers */,
@@ -406,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9EBFF7A207ABB8000B0B0F3 /* AlertView.xib in Resources */,
+				F936C4BD20813219002D4E4D /* LoadingIndicator.xib in Resources */,
 				F90CF77420708BF600174AA2 /* YoutubeTableViewCell.xib in Resources */,
 				F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */,
 				F940B59A206DC156007CE630 /* Assets.xcassets in Resources */,
@@ -436,11 +473,13 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CommonCrypto.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -461,6 +500,7 @@
 				F9EBFF79207ABB7200B0B0F3 /* AlertView.swift in Sources */,
 				F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */,
 				F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */,
+				F936C4BE20813219002D4E4D /* LoadingIndicatorView.swift in Sources */,
 				F940B5D1206DC884007CE630 /* Video.swift in Sources */,
 				F940B5D9206DC884007CE630 /* CoreDataInitializable.swift in Sources */,
 				F940B593206DC156007CE630 /* AppDelegate.swift in Sources */,
