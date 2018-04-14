@@ -85,7 +85,7 @@ class CustomHeaderView: UIView {
         filterButton.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-15)
             make.bottom.equalToSuperview().offset(-20)
-            make.height.equalTo(55)
+            make.height.equalTo(40)
             make.width.equalTo(45)
         }
         

@@ -31,6 +31,8 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.dragDelegate = self
+        self.tableView.dragInteractionEnabled = true
         
         self.navigationController?.navigationBar.isHidden = true
         self.tableView.sectionHeaderHeight = 150
@@ -79,7 +81,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 genericCell = cell
                 cell.duration.text = item.duration
                 cell.sourceLabel.text = "apple.itunes.com"
-                let img = UIImage(named: "listen_tapped")
+                let img = UIImage(named: "listen_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
                 
@@ -90,7 +92,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 let duration = item.duration?.formatDurationForArticle()
                 cell.duration.text = duration
                 cell.sourceLabel.text = item.urlStr?.getSafariSource()
-                let img = UIImage(named: "read_default")
+                let img = UIImage(named: "read_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
             }
@@ -102,7 +104,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.sourceImg.kf.indicatorType = .activity
                 let url = URL(string: item.videoThumbnail!)
                 cell.sourceImg.kf.setImage(with: url, options: [.cacheSerializer(FormatIndicatedCacheSerializer.jpeg), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
-                let img = UIImage(named: "watch_default")
+                let img = UIImage(named: "watch_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
             }
@@ -150,3 +152,68 @@ extension HomeListViewController: HeaderActionDelegate {
        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+extension HomeListViewController: UITableViewDragDelegate {
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let dragItem = self.dragItem(forItemAt: indexPath)
+        
+        return [dragItem]
+    }
+    
+    private func dragItem(forItemAt indexPath: IndexPath) -> UIDragItem {
+        let dragObject = self.allItems?[indexPath.row]
+        let dragItemData = dragObject?.title
+        let itemProvider = NSItemProvider(object: dragItemData as! NSItemProviderWriting)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = dragObject
+       
+        return dragItem
+    }
+    
+    func tableView(_ tableView: UITableView, dragPreviewParametersForRowAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+        
+        return previewParam(forItemAt:indexPath)
+    }
+    
+    private func previewParam(forItemAt indexPath: IndexPath) -> UIDragPreviewParameters {
+        var cell: UITableViewCell
+        if self.allItems?[indexPath.row].cellType == "podcast" || self.allItems?[indexPath.row].cellType == "safari" {
+            cell = self.tableView.cellForRow(at: indexPath) as! SharedTableViewCell
+        } else {
+            cell = self.tableView.cellForRow(at: indexPath) as! YoutubeTableViewCell
+        }
+        
+        let previewParameters = UIDragPreviewParameters()
+        previewParameters.visiblePath = UIBezierPath(rect: (cell.textLabel?.frame)!)
+        
+        return previewParameters
+    }
+}
+
+extension HomeListViewController: UITableViewDropDelegate {
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        let destinationIndexPath: IndexPath
+        if let indexPath = coordinator.destinationIndexPath
+        {
+            destinationIndexPath = indexPath
+        }
+        else
+        {
+            // Get last index path of collection view.
+            let section = tableView.numberOfSections - 1
+            let row = tableView.numberOfRows(inSection: section)
+            destinationIndexPath = IndexPath(row: row, section: section)
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        if session.localDragSession != nil {
+            return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        } else {
+            return UITableViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)
+        }
+    }
+}
+

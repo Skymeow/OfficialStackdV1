@@ -20,11 +20,11 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="0MK-rf-WbF"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ma9-iX-754">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirm_action" translatesAutoresizingMaskIntoConstraints="NO" id="Ma9-iX-754">
                     <rect key="frame" x="17.5" y="10" width="120" height="120"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="DG8-wB-4Y2"/>
@@ -32,7 +32,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Ma9-iX-754" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="7q6-aM-8gg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lhw-UL-zEj" secondAttribute="trailing" constant="10" id="JNM-JD-h3C"/>
@@ -49,4 +49,7 @@
             <point key="canvasLocation" x="-184.5" y="277"/>
         </view>
     </objects>
+    <resources>
+        <image name="confirm_action" width="150" height="150"/>
+    </resources>
 </document>

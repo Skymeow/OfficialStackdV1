@@ -35,15 +35,15 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6M-Qf-sfU">
-                                                        <rect key="frame" x="137.5" y="0.0" width="100" height="50"/>
+                                                        <rect key="frame" x="152.5" y="0.0" width="70" height="80"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="E6v-2e-rXs"/>
-                                                            <constraint firstAttribute="height" constant="50" id="b0k-Ze-yUB"/>
+                                                            <constraint firstAttribute="width" constant="70" id="E6v-2e-rXs"/>
+                                                            <constraint firstAttribute="height" constant="80" id="b0k-Ze-yUB"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="read_default"/>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3t-OL-ONP">
-                                                        <rect key="frame" x="158.5" y="53" width="58.5" height="58"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3t-OL-ONP">
+                                                        <rect key="frame" x="158.5" y="83" width="58.5" height="28"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -54,15 +54,15 @@
                                                 <rect key="frame" x="0.0" y="136" width="375" height="111.5"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyL-my-BCY">
-                                                        <rect key="frame" x="137.5" y="0.0" width="100" height="50"/>
+                                                        <rect key="frame" x="142.5" y="0.0" width="90" height="80"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="V5H-Fe-GGV"/>
-                                                            <constraint firstAttribute="height" constant="50" id="l6a-JY-pPT"/>
+                                                            <constraint firstAttribute="width" constant="90" id="V5H-Fe-GGV"/>
+                                                            <constraint firstAttribute="height" constant="80" id="l6a-JY-pPT"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="watch_default"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvj-pk-LEq">
-                                                        <rect key="frame" x="161.5" y="53" width="52.5" height="58.5"/>
+                                                        <rect key="frame" x="161.5" y="83" width="52.5" height="28.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -73,15 +73,15 @@
                                                 <rect key="frame" x="0.0" y="272.5" width="375" height="111"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heE-83-Js2">
-                                                        <rect key="frame" x="137.5" y="0.0" width="100" height="50"/>
+                                                        <rect key="frame" x="147.5" y="0.0" width="80" height="80"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="0v1-vt-QMf"/>
-                                                            <constraint firstAttribute="height" constant="50" id="dSC-Oi-hpb"/>
+                                                            <constraint firstAttribute="width" constant="80" id="0v1-vt-QMf"/>
+                                                            <constraint firstAttribute="height" constant="80" id="dSC-Oi-hpb"/>
                                                         </constraints>
-                                                        <state key="normal" backgroundImage="listen_tapped"/>
+                                                        <state key="normal" backgroundImage="listen_default"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podcasts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WZ-MT-ial">
-                                                        <rect key="frame" x="152" y="53" width="71" height="58"/>
+                                                        <rect key="frame" x="152" y="83" width="71" height="28"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -192,21 +192,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hgk-PB-hln">
                                         <rect key="frame" x="75" y="150" width="225" height="45"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InT-0n-Gcc">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InT-0n-Gcc">
                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="gG7-hk-ezp"/>
                                                     <constraint firstAttribute="width" constant="45" id="pLC-hI-Kxc"/>
                                                 </constraints>
-                                                <state key="normal" title="Arc"/>
+                                                <state key="normal" image="popup_archive"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGK-4W-Tki">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGK-4W-Tki">
                                                 <rect key="frame" x="180" y="0.0" width="45" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="B6i-ua-me7"/>
                                                     <constraint firstAttribute="width" constant="45" id="eG9-Mc-bZX"/>
                                                 </constraints>
-                                                <state key="normal" title="Dele"/>
+                                                <state key="normal" title="Dele" image="popup_delete"/>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -363,10 +363,13 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tPz-02-LNG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kvg-2b-9Gs">
+                    <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kvg-2b-9Gs">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.18823529410000001" green="0.5568627451" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.18823529411764706" green="0.55686274509803924" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Ibm-LX-SoS" kind="relationship" relationship="viewControllers" id="MCa-gl-fJI"/>
@@ -377,11 +380,11 @@
             </objects>
             <point key="canvasLocation" x="-1684" y="484"/>
         </scene>
-        <!--Item-->
+        <!--List-->
         <scene sceneID="42V-aI-Gbh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ibm-LX-SoS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="2EW-qw-WiL"/>
+                    <tabBarItem key="tabBarItem" title="List" image="tabbar_list" id="2EW-qw-WiL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BER-B9-dLP">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -396,11 +399,11 @@
             </objects>
             <point key="canvasLocation" x="-394" y="153"/>
         </scene>
-        <!--Item-->
+        <!--Archive-->
         <scene sceneID="6m3-Fs-HQA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cjh-XV-ixL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uJZ-H0-2Zq"/>
+                    <tabBarItem key="tabBarItem" title="Archive" image="tabbar_archive" id="uJZ-H0-2Zq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="evi-GY-gDJ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -417,8 +420,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="listen_tapped" width="14" height="15"/>
-        <image name="read_default" width="12" height="15"/>
-        <image name="watch_default" width="15" height="15"/>
+        <image name="listen_default" width="70" height="73"/>
+        <image name="popup_archive" width="31" height="25"/>
+        <image name="popup_delete" width="25" height="25"/>
+        <image name="read_default" width="58" height="73"/>
+        <image name="tabbar_archive" width="25" height="25"/>
+        <image name="tabbar_list" width="25" height="21"/>
+        <image name="watch_default" width="70" height="73"/>
     </resources>
 </document>
