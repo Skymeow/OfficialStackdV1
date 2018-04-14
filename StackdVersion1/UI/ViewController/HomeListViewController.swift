@@ -31,7 +31,9 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dragDelegate = self
+        tableView.setEditing(true, animated: true)
+    
+//        self.tableView.dragDelegate = self
         self.tableView.dragInteractionEnabled = true
         
         self.navigationController?.navigationBar.isHidden = true
@@ -47,6 +49,8 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         self.safaris = fetchAll(Safari.self, route: .safari)
         self.youtubes = fetchAll(Youtube.self, route: .youtube)
         self.allItems = fetchAll(AllItem.self, route: .allItem)
+        
+        
     }
     
     func changeXis() {
@@ -62,6 +66,29 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return 0
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    
+        return true
+    }
+    
+    //    TODO: update coredata with rearraged items
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        tableView.beginUpdates()
+        let movedObject = self.allItems![sourceIndexPath.row]
+        self.allItems?.remove(at: sourceIndexPath.row)
+        self.allItems?.insert(movedObject, at: destinationIndexPath.row)
+        tableView.endUpdates()
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -153,67 +180,67 @@ extension HomeListViewController: HeaderActionDelegate {
     }
 }
 
-extension HomeListViewController: UITableViewDragDelegate {
-    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let dragItem = self.dragItem(forItemAt: indexPath)
-        
-        return [dragItem]
-    }
-    
-    private func dragItem(forItemAt indexPath: IndexPath) -> UIDragItem {
-        let dragObject = self.allItems?[indexPath.row]
-        let dragItemData = dragObject?.title
-        let itemProvider = NSItemProvider(object: dragItemData as! NSItemProviderWriting)
-        let dragItem = UIDragItem(itemProvider: itemProvider)
-        dragItem.localObject = dragObject
-       
-        return dragItem
-    }
-    
-    func tableView(_ tableView: UITableView, dragPreviewParametersForRowAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-        
-        return previewParam(forItemAt:indexPath)
-    }
-    
-    private func previewParam(forItemAt indexPath: IndexPath) -> UIDragPreviewParameters {
-        var cell: UITableViewCell
-        if self.allItems?[indexPath.row].cellType == "podcast" || self.allItems?[indexPath.row].cellType == "safari" {
-            cell = self.tableView.cellForRow(at: indexPath) as! SharedTableViewCell
-        } else {
-            cell = self.tableView.cellForRow(at: indexPath) as! YoutubeTableViewCell
-        }
-        
-        let previewParameters = UIDragPreviewParameters()
-        previewParameters.visiblePath = UIBezierPath(rect: (cell.textLabel?.frame)!)
-        
-        return previewParameters
-    }
-}
+//extension HomeListViewController: UITableViewDragDelegate {
+//    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+//        let dragItem = self.dragItem(forItemAt: indexPath)
+//
+//        return [dragItem]
+//    }
+//
+//    private func dragItem(forItemAt indexPath: IndexPath) -> UIDragItem {
+//        let dragObject = self.allItems?[indexPath.row]
+//        let dragItemData = dragObject?.title
+//        let itemProvider = NSItemProvider(object: dragItemData as! NSItemProviderWriting)
+//        let dragItem = UIDragItem(itemProvider: itemProvider)
+//        dragItem.localObject = dragObject
+//
+//        return dragItem
+//    }
+//
+//    func tableView(_ tableView: UITableView, dragPreviewParametersForRowAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+//
+//        return previewParam(forItemAt:indexPath)
+//    }
+//
+//    private func previewParam(forItemAt indexPath: IndexPath) -> UIDragPreviewParameters {
+//        var cell: UITableViewCell
+//        if self.allItems?[indexPath.row].cellType == "podcast" || self.allItems?[indexPath.row].cellType == "safari" {
+//            cell = self.tableView.cellForRow(at: indexPath) as! SharedTableViewCell
+//        } else {
+//            cell = self.tableView.cellForRow(at: indexPath) as! YoutubeTableViewCell
+//        }
+//
+//        let previewParameters = UIDragPreviewParameters()
+//        previewParameters.visiblePath = UIBezierPath(rect: (cell.textLabel?.frame)!)
+//
+//        return previewParameters
+//    }
+//}
 
-extension HomeListViewController: UITableViewDropDelegate {
-    
-    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-        let destinationIndexPath: IndexPath
-        if let indexPath = coordinator.destinationIndexPath
-        {
-            destinationIndexPath = indexPath
-        }
-        else
-        {
-            // Get last index path of collection view.
-            let section = tableView.numberOfSections - 1
-            let row = tableView.numberOfRows(inSection: section)
-            destinationIndexPath = IndexPath(row: row, section: section)
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
-        if session.localDragSession != nil {
-            return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
-        } else {
-            return UITableViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)
-        }
-    }
-}
+//extension HomeListViewController: UITableViewDropDelegate {
+//
+//    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+//        let destinationIndexPath: IndexPath
+//        if let indexPath = coordinator.destinationIndexPath
+//        {
+//            destinationIndexPath = indexPath
+//        }
+//        else
+//        {
+//            // Get last index path of collection view.
+//            let section = tableView.numberOfSections - 1
+//            let row = tableView.numberOfRows(inSection: section)
+//            destinationIndexPath = IndexPath(row: row, section: section)
+//        }
+//
+//    }
+//
+//    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+//        if session.localDragSession != nil {
+//            return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+//        } else {
+//            return UITableViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)
+//        }
+//    }
+//}
 
