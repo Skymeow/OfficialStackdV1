@@ -16,7 +16,7 @@ class AlertView: UIView {
     func configureView(title: String, at location: CGPoint) {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.clear.cgColor
-        self.backgroundColor = UIColor.white
+//        self.backgroundColor = UIColor.white
         self.center = location
         self.alertMsg.text = title
     }

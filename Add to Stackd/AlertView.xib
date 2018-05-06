@@ -20,21 +20,21 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="0MK-rf-WbF"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirm_action" translatesAutoresizingMaskIntoConstraints="NO" id="Ma9-iX-754">
-                    <rect key="frame" x="17.5" y="10" width="120" height="120"/>
+                    <rect key="frame" x="17.5" y="25" width="120" height="100"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="DG8-wB-4Y2"/>
+                        <constraint firstAttribute="height" constant="100" id="DG8-wB-4Y2"/>
                         <constraint firstAttribute="width" constant="120" id="Q9G-km-Vc1"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Ma9-iX-754" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="7q6-aM-8gg"/>
+                <constraint firstItem="Ma9-iX-754" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="7q6-aM-8gg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lhw-UL-zEj" secondAttribute="trailing" constant="10" id="JNM-JD-h3C"/>
                 <constraint firstItem="Lhw-UL-zEj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TKf-SQ-TO0"/>
                 <constraint firstItem="Ma9-iX-754" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Zqk-xT-fv6"/>
@@ -50,6 +50,6 @@
         </view>
     </objects>
     <resources>
-        <image name="confirm_action" width="150" height="150"/>
+        <image name="confirm_action" width="42" height="36"/>
     </resources>
 </document>

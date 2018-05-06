@@ -1,0 +1,21 @@
+{
+  "Mac" : [
+    {
+      "name" : "OrderedDictionary",
+      "hash" : "626a624165a22c2e068496afae2b8039cad5770a00375fc390d191760e3b33e1"
+    }
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "v1.1.0",
+  "iOS" : [
+    {
+      "name" : "OrderedDictionary",
+      "hash" : "566a9e2f1dd6f0c09b81c73608e5ec49bdc31875927da5b97388b9cdd913a232"
+    }
+  ]
+}

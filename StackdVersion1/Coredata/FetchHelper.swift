@@ -15,22 +15,24 @@ enum Route {
     case safari
     case allItem
     
-    func setSortDescriptor() -> NSSortDescriptor? {
+    func setSortDescriptor() -> [NSSortDescriptor]? {
         switch self {
         case .podcast:
             let descriptor = NSSortDescriptor(key: #keyPath(Podcast.date), ascending: true)
-            return descriptor
+            return [descriptor]
         case .youtube:
             let descriptor = NSSortDescriptor(key: #keyPath(Youtube.date), ascending: true)
-            return descriptor
+            return [descriptor]
         case .safari:
             let descriptor = NSSortDescriptor(key: #keyPath(Safari.date), ascending: true)
-            return descriptor
+            return [descriptor]
         case .allItem:
-            let descriptor = NSSortDescriptor(key: #keyPath(AllItem.date), ascending: true)
-            return descriptor
+            let rowDescriptor = NSSortDescriptor(key: #keyPath(AllItem.rearrangedRow), ascending: true)
+            let dateDescriptor = NSSortDescriptor(key: #keyPath(AllItem.date), ascending: false)
+            return [rowDescriptor, dateDescriptor]
         default:
-            return nil
+            let dateDescriptor = NSSortDescriptor(key: #keyPath(AllItem.date), ascending: true)
+            return [dateDescriptor]
         }
     }
 }
@@ -49,7 +51,7 @@ func fetchOne<T: NSManagedObject>(_ entityName: T.Type, sortDescriptor: [NSSortD
     fetchRequest.returnsObjectsAsFaults = false
     
     do {
-        results = try coreDataStack.viewContext.fetch(fetchRequest)
+        results = try coreDataStack.privateContext.fetch(fetchRequest)
     } catch {
         assert(false, error.localizedDescription)
     }
@@ -67,13 +69,13 @@ func fetchAll<T: NSManagedObject>(_ entityName: T.Type, route: Route, sortDescri
     if sortDescriptor != nil {
         fetchRequest.sortDescriptors = sortDescriptor!
     } else {
-        fetchRequest.sortDescriptors = [route.setSortDescriptor()!]
+        fetchRequest.sortDescriptors = route.setSortDescriptor()
     }
     
     fetchRequest.returnsObjectsAsFaults = false
     
     do {
-        results = try coreDataStack.viewContext.fetch(fetchRequest)
+        results = try coreDataStack.privateContext.fetch(fetchRequest)
     } catch {
         assert(false, error.localizedDescription)
     }
@@ -96,7 +98,7 @@ func fetchAllArchived<T: NSManagedObject>(_ entityName: T.Type, route: Route, so
     fetchRequest.returnsObjectsAsFaults = false
     
     do {
-        results = try coreDataStack.viewContext.fetch(fetchRequest)
+        results = try coreDataStack.privateContext.fetch(fetchRequest)
     } catch {
         assert(false, error.localizedDescription)
     }

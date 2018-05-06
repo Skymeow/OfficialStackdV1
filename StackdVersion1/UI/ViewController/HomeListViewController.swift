@@ -15,6 +15,7 @@ import Kingfisher
 
 class HomeListViewController: UIViewController, OpenedViewDelegate {
    
+    let coreDataStack = CoreDataStack.instance
     var selected: AllItem!
     var podcasts = [Podcast]()
     var safaris = [Safari]()
@@ -45,9 +46,9 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
         
-        self.podcasts = fetchAll(Podcast.self, route: .podcast)
-        self.safaris = fetchAll(Safari.self, route: .safari)
-        self.youtubes = fetchAll(Youtube.self, route: .youtube)
+//        self.podcasts = fetchAll(Podcast.self, route: .podcast)
+//        self.safaris = fetchAll(Safari.self, route: .safari)
+//        self.youtubes = fetchAll(Youtube.self, route: .youtube)
         self.allItems = fetchAll(AllItem.self, route: .allItem)
         
         
@@ -61,23 +62,22 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
 extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let items = self.allItems {
-            print(items.count)
             return items.count
         } else {
             return 0
         }
     }
-    
+
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .none
     }
-    
+
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-    
+
         return true
     }
     
@@ -85,10 +85,13 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         tableView.beginUpdates()
         let movedObject = self.allItems![sourceIndexPath.row]
+        let beMovedObject = self.allItems![destinationIndexPath.row]
         self.allItems?.remove(at: sourceIndexPath.row)
         self.allItems?.insert(movedObject, at: destinationIndexPath.row)
+        movedObject.rearrangedRow = Int64(destinationIndexPath.row)
+        beMovedObject.rearrangedRow = Int64(sourceIndexPath.row)
+        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
         tableView.endUpdates()
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -101,7 +104,8 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         var genericCell: UITableViewCell?
         let item = self.allItems![indexPath.row]
         let type = item.cellType!
-        print(type)
+//        item.rearrangedRow = Int64(indexPath.row) 
+//        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
         switch type {
         case "podcast":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {

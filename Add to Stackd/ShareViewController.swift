@@ -38,6 +38,7 @@ import CoreData
                                 youtube.title = result.videoTitle
                                 youtube.cellType = "youtube"
                                 youtube.date = Date()
+                                youtube.rearrangedRow = -1
                                 self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
                             }
                         }
@@ -57,6 +58,7 @@ import CoreData
                         podcast.duration = "see detail in podcast app"
                         podcast.cellType = "podcast"
                         podcast.date = Date()
+                        podcast.rearrangedRow = -1
                         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
                     }
                 })
@@ -73,6 +75,7 @@ import CoreData
                                 safari.title = title
                                 safari.cellType = "safari"
                                 safari.date = Date()
+                                safari.rearrangedRow = -1
                                 Networking.instance.analyzeTime(url: urlStr) { (success, timeStr) in
                                     if success {
                                        safari.duration = timeStr
