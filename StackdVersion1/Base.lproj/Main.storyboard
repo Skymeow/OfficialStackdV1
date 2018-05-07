@@ -166,8 +166,9 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OC9-wG-PR8">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                <nil key="textColor"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -176,14 +177,14 @@
                                         <rect key="frame" x="10" y="50.5" width="355" height="84.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtI-Am-ewt">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="19.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="39.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Labeldajfnadsfj aksdljfkladsfnajsdbfkhadsbfjaldnfjanfakjdfnadsjkfndskfad" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fr-7B-UJi">
-                                                <rect key="frame" x="0.0" y="19.5" width="355" height="65"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Came from ................" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fr-7B-UJi">
+                                                <rect key="frame" x="0.0" y="39.5" width="355" height="45"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -244,6 +245,8 @@
                         <outlet property="archiveBtn" destination="InT-0n-Gcc" id="Rfu-N0-XTV"/>
                         <outlet property="backFromPopupView" destination="uCq-Yg-xw1" id="2QB-2u-P3k"/>
                         <outlet property="deleteBtn" destination="SGK-4W-Tki" id="iVp-9H-XMp"/>
+                        <outlet property="sourceHostLabel" destination="2Fr-7B-UJi" id="kx2-Q8-NL9"/>
+                        <outlet property="sourceLabel" destination="WtI-Am-ewt" id="w0t-Fm-xbv"/>
                         <outlet property="tableView" destination="TDK-pY-5Ir" id="SCu-MO-sbL"/>
                     </connections>
                 </viewController>
@@ -285,25 +288,99 @@
                                     <outlet property="delegate" destination="tNM-gu-c5B" id="HBs-eB-GPz"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOf-cM-sfu" userLabel="Popup View">
+                                <rect key="frame" x="-1000" y="418" width="375" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wla-Fc-fLh" userLabel="Top Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFA-9S-kA8">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="DjK-3g-1gJ">
+                                        <rect key="frame" x="10" y="50.5" width="355" height="84.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiV-qi-tkP">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="39.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Came from ................" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2r-nK-PdE">
+                                                <rect key="frame" x="0.0" y="39.5" width="355" height="45"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ws2-D9-kdq">
+                                        <rect key="frame" x="75" y="150" width="225" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xof-8E-bHl">
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="45" id="cfP-3S-bWK"/>
+                                                    <constraint firstAttribute="height" constant="45" id="jx7-OY-UZz"/>
+                                                </constraints>
+                                                <state key="normal" image="popup_archive"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvK-e3-54R">
+                                                <rect key="frame" x="180" y="0.0" width="45" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="45" id="L3i-0S-9Ov"/>
+                                                    <constraint firstAttribute="height" constant="45" id="bfF-h3-QE0"/>
+                                                </constraints>
+                                                <state key="normal" title="Dele" image="popup_delete"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Wla-Fc-fLh" firstAttribute="leading" secondItem="FOf-cM-sfu" secondAttribute="leading" id="49P-VB-YGX"/>
+                                    <constraint firstItem="Wla-Fc-fLh" firstAttribute="top" secondItem="FOf-cM-sfu" secondAttribute="top" id="5cz-JZ-prc"/>
+                                    <constraint firstItem="Wla-Fc-fLh" firstAttribute="height" secondItem="FOf-cM-sfu" secondAttribute="height" multiplier="1:4" id="UAW-P3-6ZN"/>
+                                    <constraint firstItem="DjK-3g-1gJ" firstAttribute="top" secondItem="Wla-Fc-fLh" secondAttribute="bottom" id="YEa-xD-Rpd"/>
+                                    <constraint firstAttribute="bottom" secondItem="ws2-D9-kdq" secondAttribute="bottom" constant="5" id="Ych-JR-5sK"/>
+                                    <constraint firstItem="ws2-D9-kdq" firstAttribute="top" secondItem="DjK-3g-1gJ" secondAttribute="bottom" constant="15" id="Ygr-WG-pOS"/>
+                                    <constraint firstItem="DjK-3g-1gJ" firstAttribute="leading" secondItem="FOf-cM-sfu" secondAttribute="leading" constant="10" id="Yom-gO-4Qv"/>
+                                    <constraint firstAttribute="height" constant="200" id="bf8-Jx-hY1"/>
+                                    <constraint firstItem="ws2-D9-kdq" firstAttribute="leading" secondItem="FOf-cM-sfu" secondAttribute="leading" constant="75" id="cPz-Yu-a8a"/>
+                                    <constraint firstAttribute="trailing" secondItem="DjK-3g-1gJ" secondAttribute="trailing" constant="10" id="eTw-Mf-gJo"/>
+                                    <constraint firstAttribute="trailing" secondItem="ws2-D9-kdq" secondAttribute="trailing" constant="75" id="uUV-GY-1ht"/>
+                                    <constraint firstAttribute="width" constant="375" id="ums-F8-ffI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wla-Fc-fLh" secondAttribute="trailing" id="yY1-LC-uu1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.70980392160000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cNP-qR-ZeT" firstAttribute="bottom" secondItem="O97-S1-qyq" secondAttribute="bottom" id="0n3-Ac-dMW"/>
+                            <constraint firstItem="cNP-qR-ZeT" firstAttribute="bottom" secondItem="FOf-cM-sfu" secondAttribute="bottom" id="BlH-W1-aB3"/>
                             <constraint firstItem="O97-S1-qyq" firstAttribute="leading" secondItem="NJB-Jr-kKR" secondAttribute="leading" id="CRs-eH-U8f"/>
                             <constraint firstItem="cNP-qR-ZeT" firstAttribute="trailing" secondItem="O97-S1-qyq" secondAttribute="trailing" id="DCI-bs-CdY"/>
                             <constraint firstItem="O97-S1-qyq" firstAttribute="top" secondItem="NJB-Jr-kKR" secondAttribute="top" id="PR0-fj-mhm"/>
+                            <constraint firstItem="FOf-cM-sfu" firstAttribute="centerX" secondItem="NJB-Jr-kKR" secondAttribute="centerX" constant="-1000" id="ZDu-0N-jtv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cNP-qR-ZeT"/>
                     </view>
                     <navigationItem key="navigationItem" id="xWK-ZG-nae"/>
                     <connections>
+                        <outlet property="centerX" destination="ZDu-0N-jtv" id="RjK-VK-NjU"/>
                         <outlet property="tableView" destination="O97-S1-qyq" id="c9v-sL-361"/>
                         <segue destination="Rch-Uj-Fwe" kind="show" id="xKc-rp-dgb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cml-1B-CQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="358" y="152"/>
+            <point key="canvasLocation" x="357.60000000000002" y="151.57421289355324"/>
         </scene>
         <!--Archive View Controller-->
         <scene sceneID="GXn-XL-Onh">
@@ -378,7 +455,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycc-sq-aJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1684" y="484"/>
+            <point key="canvasLocation" x="-1855" y="806"/>
         </scene>
         <!--List-->
         <scene sceneID="42V-aI-Gbh">

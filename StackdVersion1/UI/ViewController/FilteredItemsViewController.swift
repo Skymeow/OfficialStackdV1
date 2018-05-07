@@ -20,6 +20,8 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     @IBOutlet weak var archiveBtn: UIButton!
     @IBOutlet weak var CenterX: NSLayoutConstraint!
     @IBOutlet weak var backFromPopupView: UIView!
+    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var sourceHostLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +77,7 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     @objc func archiveTapped() {
         CenterX.constant = 1000
         self.selected?.setValue(true, forKey: "archived")
-        self.coreDataStack.saveTo(context: self.coreDataStack.viewContext)
+        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
         self.configureArchivedModal()
     }
     

@@ -47,6 +47,7 @@
 		F964CDC6207C3F810064E40C /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F964CDC4207C3F810064E40C /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F97EC34120A0029100CED0F5 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34020A0029100CED0F5 /* UIImageExtension.swift */; };
 		F97EC34320A005B700CED0F5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34220A005B700CED0F5 /* UIColorExtension.swift */; };
+		F97EC34520A0DB4C00CED0F5 /* ArchiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */; };
 		F9BA2A3E206DCAC60059ECBA /* CoreDataInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C9206DC884007CE630 /* CoreDataInitializable.swift */; };
 		F9BA2A3F206DCAC90059ECBA /* CoredataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CA206DC884007CE630 /* CoredataStack.swift */; };
 		F9BA2A40206DCACB0059ECBA /* FetchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CB206DC884007CE630 /* FetchHelper.swift */; };
@@ -150,6 +151,7 @@
 		F964CDC4207C3F810064E40C /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		F97EC34020A0029100CED0F5 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		F97EC34220A005B700CED0F5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveHeaderView.swift; sourceTree = "<group>"; };
 		F9BA2A48206DCB120059ECBA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		F9BA2A4C206DCB190059ECBA /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
 		F9BA2A4F206DCB1E0059ECBA /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			children = (
 				F940B5BE206DC884007CE630 /* CustomHeaderView.swift */,
 				F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */,
+				F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */,
 			);
 			path = UICustomClass;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				F9EBFF7C207AC9E100B0B0F3 /* PrepareForPresentingViews.swift in Sources */,
 				F90CF79A2072E16700174AA2 /* HomeListViewController.swift in Sources */,
 				F97EC34320A005B700CED0F5 /* UIColorExtension.swift in Sources */,
+				F97EC34520A0DB4C00CED0F5 /* ArchiveHeaderView.swift in Sources */,
 				F940B5D7206DC884007CE630 /* DataConverter.swift in Sources */,
 				F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */,
 				F9EBFF78207AB45600B0B0F3 /* ArchiveViewController.swift in Sources */,

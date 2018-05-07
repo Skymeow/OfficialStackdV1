@@ -15,6 +15,7 @@ import Kingfisher
 
 class HomeListViewController: UIViewController, OpenedViewDelegate {
    
+    @IBOutlet weak var centerX: NSLayoutConstraint!
     let coreDataStack = CoreDataStack.instance
     var selected: AllItem!
     var allItems: [AllItem]? {
@@ -30,7 +31,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.setEditing(true, animated: true)
-    
+        centerX.constant = -1000
 //        self.tableView.dragDelegate = self
         self.tableView.dragInteractionEnabled = true
         
@@ -47,7 +48,32 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     }
     
     func changeXis() {
-        print("")
+        centerX.constant = 0
+    }
+    
+    //    delete from coredata
+    @objc func deleteTapped() {
+        centerX.constant = -1000
+        if let allObjects = self.allItems {
+            for object in allObjects {
+                self.coreDataStack.privateContext.delete(object)
+            }
+        }
+    }
+    
+    //    set selected item's coredata archive to be true
+    @objc func archiveTapped() {
+        centerX.constant = 1000
+        self.selected?.setValue(true, forKey: "archived")
+        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+        self.configureArchivedModal()
+    }
+    
+    func configureArchivedModal() {
+        guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
+        successView.configureView(title: "Saved to Stacked", at: self.view.center)
+        self.view.addSubview(successView)
+        successView.hide()
     }
 }
 

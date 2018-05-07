@@ -96,6 +96,8 @@ func fetchAllArchived<T: NSManagedObject>(_ entityName: T.Type, route: Route, so
     fetchRequest.predicate = result
     if sortDescriptor != nil {
         fetchRequest.sortDescriptors = sortDescriptor!
+    }else {
+        fetchRequest.sortDescriptors = route.setSortDescriptor()
     }
     
     fetchRequest.returnsObjectsAsFaults = false
