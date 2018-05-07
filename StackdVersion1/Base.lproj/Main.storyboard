@@ -40,7 +40,6 @@
                                                             <constraint firstAttribute="width" constant="70" id="E6v-2e-rXs"/>
                                                             <constraint firstAttribute="height" constant="80" id="b0k-Ze-yUB"/>
                                                         </constraints>
-                                                        <state key="normal" backgroundImage="read_default"/>
                                                     </button>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3t-OL-ONP">
                                                         <rect key="frame" x="158.5" y="83" width="58.5" height="28"/>
@@ -59,7 +58,6 @@
                                                             <constraint firstAttribute="width" constant="90" id="V5H-Fe-GGV"/>
                                                             <constraint firstAttribute="height" constant="80" id="l6a-JY-pPT"/>
                                                         </constraints>
-                                                        <state key="normal" backgroundImage="watch_default"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvj-pk-LEq">
                                                         <rect key="frame" x="161.5" y="83" width="52.5" height="28.5"/>
@@ -78,7 +76,6 @@
                                                             <constraint firstAttribute="width" constant="80" id="0v1-vt-QMf"/>
                                                             <constraint firstAttribute="height" constant="80" id="dSC-Oi-hpb"/>
                                                         </constraints>
-                                                        <state key="normal" backgroundImage="listen_default"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podcasts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WZ-MT-ial">
                                                         <rect key="frame" x="152" y="83" width="71" height="28"/>
@@ -115,9 +112,12 @@
                     <navigationItem key="navigationItem" id="4je-vH-lL2"/>
                     <connections>
                         <outlet property="articleButton" destination="P6M-Qf-sfU" id="iOj-zt-nkg"/>
+                        <outlet property="articleLabel" destination="o3t-OL-ONP" id="MRw-hB-5Jg"/>
                         <outlet property="headerView" destination="cNk-mw-qya" id="NoK-c1-3Lp"/>
                         <outlet property="podcastButton" destination="heE-83-Js2" id="chL-ox-aHW"/>
+                        <outlet property="podcastLabel" destination="9WZ-MT-ial" id="RLx-cc-rhS"/>
                         <outlet property="videoButton" destination="fyL-my-BCY" id="qij-C1-axs"/>
+                        <outlet property="videoLabel" destination="Tvj-pk-LEq" id="C6w-n8-77D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDc-fq-FJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,7 +159,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCq-Yg-xw1">
-                                <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                                <rect key="frame" x="1000" y="467" width="375" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sue-Qh-i2c" userLabel="Top Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
@@ -231,7 +231,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="7dS-hr-pHl" firstAttribute="bottom" secondItem="TDK-pY-5Ir" secondAttribute="bottom" id="IuP-BR-6OA"/>
-                            <constraint firstItem="uCq-Yg-xw1" firstAttribute="centerX" secondItem="2tz-fk-2Xt" secondAttribute="centerX" id="bDF-zR-YpO"/>
+                            <constraint firstItem="uCq-Yg-xw1" firstAttribute="centerX" secondItem="2tz-fk-2Xt" secondAttribute="centerX" constant="1000" id="bDF-zR-YpO"/>
                             <constraint firstItem="TDK-pY-5Ir" firstAttribute="top" secondItem="2tz-fk-2Xt" secondAttribute="top" id="dW9-hs-1Xn"/>
                             <constraint firstItem="7dS-hr-pHl" firstAttribute="trailing" secondItem="TDK-pY-5Ir" secondAttribute="trailing" id="ssh-ab-jfS"/>
                             <constraint firstItem="TDK-pY-5Ir" firstAttribute="leading" secondItem="7dS-hr-pHl" secondAttribute="leading" id="v4b-wd-S8m"/>
@@ -420,12 +420,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="listen_default" width="70" height="73"/>
         <image name="popup_archive" width="31" height="25"/>
         <image name="popup_delete" width="25" height="25"/>
-        <image name="read_default" width="58" height="73"/>
         <image name="tabbar_archive" width="25" height="25"/>
         <image name="tabbar_list" width="25" height="21"/>
-        <image name="watch_default" width="70" height="73"/>
     </resources>
 </document>

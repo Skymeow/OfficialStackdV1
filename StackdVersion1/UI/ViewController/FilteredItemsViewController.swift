@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreData
+import Kingfisher
 
 class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     
     let coreDataStack = CoreDataStack.instance
-    var sharedItems: TabelViewCellItemType?
-    var selected: NSManagedObject!
+    var items: [AllItem]?
+    var selected: AllItem?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var archiveBtn: UIButton!
@@ -22,7 +23,7 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CenterX.constant = -400
+        CenterX.constant = 1000
         self.tableView.sectionHeaderHeight = 150
         
         let nibCell = UINib(nibName: "SharedTableViewCell", bundle: Bundle.main)
@@ -41,7 +42,7 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     }
     
     @objc func dismissXis() {
-        self.CenterX.constant = -400
+        self.CenterX.constant = 1000
     }
     
     func openInApp(_ urlStr: String) {
@@ -62,8 +63,8 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     
 //    delete from coredata
     @objc func deleteTapped() {
-        CenterX.constant = -400
-        if let allObjects = self.sharedItems?.item {
+        CenterX.constant = 1000
+        if let allObjects = self.items {
             for object in allObjects {
                 self.coreDataStack.viewContext.delete(object)
             }
@@ -72,8 +73,8 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     
 //    set selected item's coredata archive to be true
     @objc func archiveTapped() {
-        CenterX.constant = -400
-        self.selected.setValue(true, forKey: "archived")
+        CenterX.constant = 1000
+        self.selected?.setValue(true, forKey: "archived")
         self.coreDataStack.saveTo(context: self.coreDataStack.viewContext)
         self.configureArchivedModal()
     }
@@ -88,7 +89,7 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
 
 extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let items = self.sharedItems?.item {
+        if let items = self.items {
             return items.count
         } else {
             return 0
@@ -97,20 +98,42 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var genericCell: UITableViewCell?
-        let type = self.sharedItems!.type
-        print(type)
+        let item = self.items![indexPath.row]
+        let type = item.cellType!
+        //        item.rearrangedRow = Int64(indexPath.row)
+        //        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
         switch type {
         case "podcast":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
                 genericCell = cell
+                cell.duration.text = item.duration
+                cell.sourceLabel.text = "apple.itunes.com"
+                let img = UIImage(named: "listen_small")
+                cell.sourceLogo.image = img
+                cell.sourceTitle.text = item.title
+                
             }
         case "safari":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
                 genericCell = cell
+                let duration = item.duration?.formatDurationForArticle()
+                cell.duration.text = duration
+                cell.sourceLabel.text = item.urlStr?.getSafariSource()
+                let img = UIImage(named: "read_small")
+                cell.sourceLogo.image = img
+                cell.sourceTitle.text = item.title
             }
         case "youtube":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
                 genericCell = cell
+                cell.duration.text = item.duration
+                cell.sourceLabel.text = "www.youtube.com"
+                cell.sourceImg.kf.indicatorType = .activity
+                let url = URL(string: item.videoThumbnail!)
+                cell.sourceImg.kf.setImage(with: url, options: [.cacheSerializer(FormatIndicatedCacheSerializer.jpeg), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
+                let img = UIImage(named: "watch_small")
+                cell.sourceLogo.image = img
+                cell.sourceTitle.text = item.title
             }
         default:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
@@ -122,16 +145,16 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selected = self.sharedItems!.item[indexPath.row]
-        let url = selected.value(forKeyPath: "urlStr") as! String
-        let selectedType = self.sharedItems!.type
+        selected = self.items![indexPath.row]
+        let url = selected?.urlStr!
+        let selectedType = (selected?.cellType)!
         switch selectedType {
         case "podcast":
-            self.redirectToPodcast(url)
+            PrepareForPresentingViews.shared.redirectToPodcast(url!)
         case "youtube":
-            self.openInApp(url)
+            PrepareForPresentingViews.shared.openInApp(url!, viewController: self, navigationController: self.navigationController)
         case "safari":
-            self.openInApp(url)
+            PrepareForPresentingViews.shared.openInApp(url!, viewController: self, navigationController: self.navigationController)
         default:
             print("exception in didselect")
         }
@@ -139,9 +162,9 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 150)
-        let customizedHeaderView = CustomHeaderView(frame: frame)
-        
-        return customizedHeaderView
+        let filterHeaderView = FilterHeaderView(frame: frame)
+        filterHeaderView.filterHeaderDelegate = self
+        return filterHeaderView
     }
 }
 

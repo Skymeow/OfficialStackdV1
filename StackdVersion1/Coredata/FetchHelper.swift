@@ -18,14 +18,17 @@ enum Route {
     func setSortDescriptor() -> [NSSortDescriptor]? {
         switch self {
         case .podcast:
-            let descriptor = NSSortDescriptor(key: #keyPath(Podcast.date), ascending: true)
-            return [descriptor]
+            let dateDescriptor = NSSortDescriptor(key: #keyPath(Podcast.date), ascending: true)
+            let rowDescriptor = NSSortDescriptor(key: #keyPath(Podcast.rearrangedRow), ascending: true)
+            return [rowDescriptor, dateDescriptor]
         case .youtube:
-            let descriptor = NSSortDescriptor(key: #keyPath(Youtube.date), ascending: true)
-            return [descriptor]
+            let dateDescriptor = NSSortDescriptor(key: #keyPath(Youtube.date), ascending: true)
+            let rowDescriptor = NSSortDescriptor(key: #keyPath(Youtube.rearrangedRow), ascending: true)
+            return [rowDescriptor, dateDescriptor]
         case .safari:
-            let descriptor = NSSortDescriptor(key: #keyPath(Safari.date), ascending: true)
-            return [descriptor]
+            let dateDescriptor = NSSortDescriptor(key: #keyPath(Safari.date), ascending: true)
+            let rowDescriptor = NSSortDescriptor(key: #keyPath(Safari.rearrangedRow), ascending: true)
+            return [rowDescriptor, dateDescriptor]
         case .allItem:
             let rowDescriptor = NSSortDescriptor(key: #keyPath(AllItem.rearrangedRow), ascending: true)
             let dateDescriptor = NSSortDescriptor(key: #keyPath(AllItem.date), ascending: false)

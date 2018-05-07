@@ -18,12 +18,11 @@ class CustomHeaderView: UIView {
     var titleLabel: UILabel!
     var subTitleLabel: UILabel!
     var filterButton: UIButton!
+     var backgroundImg: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .green
         layoutNewSubviews()
-//        setGradient()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,6 +31,11 @@ class CustomHeaderView: UIView {
     
     func layoutNewSubviews() {
         self.isUserInteractionEnabled = true
+        
+        backgroundImg = UIImageView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        backgroundImg.contentMode = .scaleAspectFill
+        backgroundImg.image = #imageLiteral(resourceName: "homepge_background")
+        backgroundImg.isUserInteractionEnabled = true
         
         titleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
         titleLabel.text = "Stacked"
@@ -53,19 +57,27 @@ class CustomHeaderView: UIView {
         subTitleLabel.sizeToFit()
         
         filterButton = UIButton(type: .custom)
-        let filterImg = UIImage(named: "Filter")
+        let filterImg = #imageLiteral(resourceName: "Filter")
         filterButton.imageView?.contentMode = .scaleAspectFit
         filterButton.setBackgroundImage(filterImg, for: .normal)
         filterButton.addTarget(self, action: #selector(filterTapped), for: .touchUpInside)
         
-        self.addSubview(filterButton)
-        self.addSubview(titleLabel)
-        self.addSubview(subTitleLabel)
+        self.addSubview(backgroundImg)
+        backgroundImg.addSubview(filterButton)
+        backgroundImg.addSubview(titleLabel)
+        backgroundImg.addSubview(subTitleLabel)
        
         setConstraints()
     }
     
     func setConstraints() {
+        
+        backgroundImg.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
         
         titleLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
@@ -77,7 +89,7 @@ class CustomHeaderView: UIView {
         
         subTitleLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().offset(-5)
             make.height.equalTo(35)
             make.width.equalTo(150)
         }

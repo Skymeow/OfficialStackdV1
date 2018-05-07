@@ -17,9 +17,6 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
    
     let coreDataStack = CoreDataStack.instance
     var selected: AllItem!
-    var podcasts = [Podcast]()
-    var safaris = [Safari]()
-    var youtubes = [Youtube]()
     var allItems: [AllItem]? {
         didSet {
             DispatchQueue.main.async {
@@ -45,13 +42,8 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         
         let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
-        
-//        self.podcasts = fetchAll(Podcast.self, route: .podcast)
-//        self.safaris = fetchAll(Safari.self, route: .safari)
-//        self.youtubes = fetchAll(Youtube.self, route: .youtube)
+
         self.allItems = fetchAll(AllItem.self, route: .allItem)
-        
-        
     }
     
     func changeXis() {
@@ -177,9 +169,6 @@ extension HomeListViewController: HeaderActionDelegate {
     func filterTapped() {
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "filterVC") as! FilterViewController
-        vc.podcasts = self.podcasts
-        vc.youtubes = self.youtubes
-        vc.safaris = self.safaris
        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
