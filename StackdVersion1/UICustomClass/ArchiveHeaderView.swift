@@ -41,6 +41,9 @@ class ArchiveHeaderView: UIView {
         titleLabel.numberOfLines = 1
         titleLabel.sizeToFit()
         
+        self.addSubview(backgroundImg)
+        backgroundImg.addSubview(titleLabel)
+        
         setConstraints()
     }
     

@@ -14,8 +14,13 @@ import CoreData
 import Kingfisher
 
 class HomeListViewController: UIViewController, OpenedViewDelegate {
-   
+    
+    @IBOutlet weak var backFromPopupView: UIView!
+    @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var archiveBtn: UIButton!
     @IBOutlet weak var centerX: NSLayoutConstraint!
+    
+    var selectedIndex: IndexPath?
     let coreDataStack = CoreDataStack.instance
     var selected: AllItem!
     var allItems: [AllItem]? {
@@ -43,7 +48,11 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         
         let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
-
+        
+        backFromPopupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissXis)))
+        deleteBtn.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
+        archiveBtn.addTarget(self, action: #selector(archiveTapped), for: .touchUpInside)
+        
         self.allItems = fetchAll(AllItem.self, route: .allItem)
     }
     
@@ -51,19 +60,30 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         centerX.constant = 0
     }
     
+    @objc func dismissXis() {
+        self.centerX.constant = 1000
+    }
+    
     //    delete from coredata
     @objc func deleteTapped() {
         centerX.constant = -1000
-        if let allObjects = self.allItems {
-            for object in allObjects {
-                self.coreDataStack.privateContext.delete(object)
-            }
+        if let index = self.selectedIndex {
+            self.allItems?.remove(at: index.row)
+            tableView.deleteRows(at: [index], with: .automatic)
         }
+        
+        self.coreDataStack.privateContext.delete(self.selected)
+        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+        configureDeletedModal()
     }
     
     //    set selected item's coredata archive to be true
     @objc func archiveTapped() {
         centerX.constant = 1000
+        if let index = self.selectedIndex {
+            self.allItems?.remove(at: index.row)
+            tableView.deleteRows(at: [index], with: .automatic)
+        }
         self.selected?.setValue(true, forKey: "archived")
         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
         self.configureArchivedModal()
@@ -72,6 +92,13 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     func configureArchivedModal() {
         guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
         successView.configureView(title: "Saved to Stacked", at: self.view.center)
+        self.view.addSubview(successView)
+        successView.hide()
+    }
+    
+    func configureDeletedModal() {
+        guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
+        successView.configureView(title: "Deleted", at: self.view.center)
         self.view.addSubview(successView)
         successView.hide()
     }
@@ -122,6 +149,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         var genericCell: UITableViewCell?
         let item = self.allItems![indexPath.row]
         let type = item.cellType!
+        self.selectedIndex = indexPath
 //        item.rearrangedRow = Int64(indexPath.row) 
 //        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
         switch type {
@@ -170,6 +198,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         selected = self.allItems![indexPath.row]
         let url = selected.urlStr!
         let selectedType = selected.cellType!
+        self.selectedIndex = indexPath
         switch selectedType {
         case "podcast":
             PrepareForPresentingViews.shared.redirectToPodcast(url)

@@ -12,6 +12,7 @@ import Kingfisher
 
 class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     
+    var selectedIndex: IndexPath?
     let coreDataStack = CoreDataStack.instance
     var items: [AllItem]?
     var selected: AllItem?
@@ -66,16 +67,23 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
 //    delete from coredata
     @objc func deleteTapped() {
         CenterX.constant = 1000
-        if let allObjects = self.items {
-            for object in allObjects {
-                self.coreDataStack.viewContext.delete(object)
-            }
+        if let index = self.selectedIndex {
+            self.items?.remove(at: index.row)
+            tableView.deleteRows(at: [index], with: .automatic)
         }
+        
+        self.coreDataStack.privateContext.delete(self.selected!)
+        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+        configureDeletedModal()
     }
     
 //    set selected item's coredata archive to be true
     @objc func archiveTapped() {
         CenterX.constant = 1000
+        if let index = self.selectedIndex {
+            self.items?.remove(at: index.row)
+            tableView.deleteRows(at: [index], with: .automatic)
+        }
         self.selected?.setValue(true, forKey: "archived")
         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
         self.configureArchivedModal()
@@ -84,6 +92,13 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     func configureArchivedModal() {
         guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
         successView.configureView(title: "Saved to Stacked", at: self.view.center)
+        self.view.addSubview(successView)
+        successView.hide()
+    }
+    
+    func configureDeletedModal() {
+        guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
+        successView.configureView(title: "Deleted", at: self.view.center)
         self.view.addSubview(successView)
         successView.hide()
     }
@@ -148,6 +163,7 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = self.items![indexPath.row]
+        self.selectedIndex = indexPath
         let url = selected?.urlStr!
         let selectedType = (selected?.cellType)!
         switch selectedType {

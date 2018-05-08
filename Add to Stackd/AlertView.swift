@@ -34,12 +34,10 @@ class AlertView: UIView {
     }
     
     func hide() {
-        UIView.animate(withDuration: 2, delay: 3, options: [], animations: {
+        UIView.animate(withDuration: 1, delay: 3, options: [], animations: {
             self.alpha = 0
         }) { (completed) in
-            if completed {
                 self.removeFromSuperview()
-            }
         }
     }
 
