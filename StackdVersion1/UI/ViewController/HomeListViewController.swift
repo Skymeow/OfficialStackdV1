@@ -20,6 +20,8 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     @IBOutlet weak var archiveBtn: UIButton!
     @IBOutlet weak var centerX: NSLayoutConstraint!
     
+    var initialIndexPath: IndexPath? = nil
+    
     var selectedIndex: IndexPath?
     let coreDataStack = CoreDataStack.instance
     var selected: AllItem!
@@ -35,7 +37,9 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.setEditing(true, animated: true)
+//        tableView.setEditing(flase, animated: true)
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
+        tableView.addGestureRecognizer(longpress)
         centerX.constant = -1000
 //        self.tableView.dragDelegate = self
         self.tableView.dragInteractionEnabled = true
@@ -55,6 +59,44 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         
         self.allItems = fetchAll(AllItem.self, route: .allItem)
     }
+    
+   @objc func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
+        let longPress = gestureRecognizer as! UILongPressGestureRecognizer
+        let state = longPress.state
+        var locationInView = longPress.location(in: tableView)
+//        this is the indexpath of the start of drag
+        var indexPath = tableView.indexPathForRow(at: locationInView)
+        
+        switch state{
+        case UIGestureRecognizerState.began:
+            if indexPath != nil {
+                self.initialIndexPath = indexPath
+                
+            }
+        case UIGestureRecognizerState.changed:
+            break
+        case .ended:
+            if ((indexPath != nil) && (indexPath != self.initialIndexPath)) {
+//                print(indexPath!, initialIndexPath!)
+                let movedObject = self.allItems![initialIndexPath!.row]
+                let beMovedObject = self.allItems![indexPath!.row]
+                self.allItems?.remove(at: initialIndexPath!.row)
+                self.allItems?.insert(movedObject, at: indexPath!.row)
+                movedObject.rearrangedRow = Int64(indexPath!.row)
+                beMovedObject.rearrangedRow = Int64(indexPath!.row)
+                self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+            }
+        case .cancelled:
+            break
+        case .failed:
+            break
+        case .possible:
+            break
+        }
+        
+    }
+    
+    
     
     func changeXis() {
         centerX.constant = 0
@@ -126,18 +168,18 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
-    //    TODO: update coredata with rearraged items
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        tableView.beginUpdates()
-        let movedObject = self.allItems![sourceIndexPath.row]
-        let beMovedObject = self.allItems![destinationIndexPath.row]
-        self.allItems?.remove(at: sourceIndexPath.row)
-        self.allItems?.insert(movedObject, at: destinationIndexPath.row)
-        movedObject.rearrangedRow = Int64(destinationIndexPath.row)
-        beMovedObject.rearrangedRow = Int64(sourceIndexPath.row)
-        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
-        tableView.endUpdates()
-    }
+//     UPdate: update coredata with rearraged items
+//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        tableView.beginUpdates()
+//        let movedObject = self.allItems![sourceIndexPath.row]
+//        let beMovedObject = self.allItems![destinationIndexPath.row]
+//        self.allItems?.remove(at: sourceIndexPath.row)
+//        self.allItems?.insert(movedObject, at: destinationIndexPath.row)
+//        movedObject.rearrangedRow = Int64(destinationIndexPath.row)
+//        beMovedObject.rearrangedRow = Int64(sourceIndexPath.row)
+//        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+//        tableView.endUpdates()
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -145,13 +187,13 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         return rowHeight
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
+        UITableViewCell {
+//        cell.delegate = self
         var genericCell: UITableViewCell?
         let item = self.allItems![indexPath.row]
         let type = item.cellType!
         self.selectedIndex = indexPath
-//        item.rearrangedRow = Int64(indexPath.row) 
-//        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
         switch type {
         case "podcast":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
@@ -218,6 +260,73 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return customizedHeaderView
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        print(tableView.isEditing)
+    }
+    
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
+//    {
+//        let tagAction = UITableViewRowAction(style: .normal, title: "tag") {
+//            (action, indexpath) in
+//            print("tag tapped")
+//        }
+//        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexpath) in
+//            print("Delete Action Tapped")
+//        }
+//        deleteAction.backgroundColor = .red
+//        tagAction.backgroundColor = .white
+//        return [tagAction, deleteAction]
+//    }
+    
+    @available(iOS 11.0, *)
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Add") { (action, view, handler) in
+            print("Add Action Tapped")
+        }
+        deleteAction.backgroundColor = .green
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
+    }
+    
+    @available(iOS 11.0, *)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let tagAction = self.toogleTag(forRowAtIndexPath: indexPath)
+        let swipeConfig = UISwipeActionsConfiguration(actions: [tagAction])
+        swipeConfig.performsFirstActionWithFullSwipe = false
+        return swipeConfig
+    }
+    
+    func toogleTag(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "Tag") { (action, view, completionHandler: (Bool) -> Void) in
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let tagVC = storyboard.instantiateViewController(withIdentifier: "tagVC") as! TagsViewController
+            self.navigationController?.present(tagVC, animated: false, completion: nil)
+            completionHandler(true)
+        }
+        action.image = #imageLiteral(resourceName: "tag")
+        action.backgroundColor = UIColor.lightGray
+        
+        return action
+    }
+    
+//    func toogleDelete(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+//
+//    }
+//
+//    func toogleUp(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+//
+//    }
+//
+//    func toogleDown(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+//
+//    }
 }
 
 extension HomeListViewController: HeaderActionDelegate {

@@ -393,14 +393,222 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "StackdVersion1/UI/ViewController/FilteredItemsViewController.swift"
-            timestampString = "547416837.401468"
+            filePath = "StackdVersion1/UI/ViewController/HomeListViewController.swift"
+            timestampString = "547686948.748068"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "tableView(_:trailingSwipeActionsConfigurationForRowAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackdVersion1/UI/ViewController/HomeListViewController.swift"
+            timestampString = "547686948.748606"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
+            landmarkName = "toogleTag(forRowAtIndexPath:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StackdVersion1.HomeListViewController.toogleTag(forRowAtIndexPath: Foundation.IndexPath) -&gt; __ObjC.UIContextualAction"
+                  moduleName = "StackdVersion1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyxu/code/IOS/StackdVersion1/StackdVersion1/UI/ViewController/HomeListViewController.swift"
+                  timestampString = "547686266.7028069"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "317"
+                  endingLineNumber = "317"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.UIContextualAction, __ObjC.UIView, (Swift.Bool) -&gt; ()) -&gt; () in StackdVersion1.HomeListViewController.toogleTag(forRowAtIndexPath: Foundation.IndexPath) -&gt; __ObjC.UIContextualAction"
+                  moduleName = "StackdVersion1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyxu/code/IOS/StackdVersion1/StackdVersion1/UI/ViewController/HomeListViewController.swift"
+                  timestampString = "547686266.704772"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "317"
+                  endingLineNumber = "317"
+                  offsetFromSymbolStart = "888">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackdVersion1/UI/ViewController/HomeListViewController.swift"
+            timestampString = "547686948.748893"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
+            landmarkName = "toogleTag(forRowAtIndexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackdVersion1/UI/ViewController/HomeListViewController.swift"
+            timestampString = "547686948.74915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
+            landmarkName = "tableView(_:trailingSwipeActionsConfigurationForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackdVersion1/UI/ViewController/HomeListViewController.swift"
+            timestampString = "547686948.749396"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
+            landmarkName = "toogleTag(forRowAtIndexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackdVersion1/UI/ViewController/HomeListViewController.swift"
+            timestampString = "547686948.749647"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "tableView(_:leadingSwipeActionsConfigurationForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StackdVersion1.HomeListViewController.tableView(__ObjC.UITableView, leadingSwipeActionsConfigurationForRowAt: Foundation.IndexPath) -&gt; Swift.Optional&lt;__ObjC.UISwipeActionsConfiguration&gt;"
+                  moduleName = "StackdVersion1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyxu/code/IOS/StackdVersion1/StackdVersion1/UI/ViewController/HomeListViewController.swift"
+                  timestampString = "547686266.7177171"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "295"
+                  endingLineNumber = "295"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.UIContextualAction, __ObjC.UIView, (Swift.Bool) -&gt; ()) -&gt; () in StackdVersion1.HomeListViewController.tableView(__ObjC.UITableView, leadingSwipeActionsConfigurationForRowAt: Foundation.IndexPath) -&gt; Swift.Optional&lt;__ObjC.UISwipeActionsConfiguration&gt;"
+                  moduleName = "StackdVersion1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyxu/code/IOS/StackdVersion1/StackdVersion1/UI/ViewController/HomeListViewController.swift"
+                  timestampString = "547686266.719725"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "296"
+                  endingLineNumber = "296"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackdVersion1/UI/ViewController/HomeListViewController.swift"
+            timestampString = "547686948.749892"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "tableView(_:leadingSwipeActionsConfigurationForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StackdVersion1.HomeListViewController.tableView(__ObjC.UITableView, leadingSwipeActionsConfigurationForRowAt: Foundation.IndexPath) -&gt; Swift.Optional&lt;__ObjC.UISwipeActionsConfiguration&gt;"
+                  moduleName = "StackdVersion1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyxu/code/IOS/StackdVersion1/StackdVersion1/UI/ViewController/HomeListViewController.swift"
+                  timestampString = "547686266.723369"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "297"
+                  endingLineNumber = "297"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.UIContextualAction, __ObjC.UIView, (Swift.Bool) -&gt; ()) -&gt; () in StackdVersion1.HomeListViewController.tableView(__ObjC.UITableView, leadingSwipeActionsConfigurationForRowAt: Foundation.IndexPath) -&gt; Swift.Optional&lt;__ObjC.UISwipeActionsConfiguration&gt;"
+                  moduleName = "StackdVersion1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/skyxu/code/IOS/StackdVersion1/StackdVersion1/UI/ViewController/HomeListViewController.swift"
+                  timestampString = "547686266.724908"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "297"
+                  endingLineNumber = "297"
+                  offsetFromSymbolStart = "216">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackdVersion1/UI/ViewController/HomeListViewController.swift"
+            timestampString = "547686948.750214"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
+            landmarkName = "HomeListViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -2,4 +2,4 @@ github "soffes/CommonCrypto"
 github "Alamofire/Alamofire" ~> 4.7
 github "SnapKit/SnapKit" ~> 4.0.0
 github "onevcat/Kingfisher" ~> 4.0
-github "lukaskubanek/OrderedDictionary"
+

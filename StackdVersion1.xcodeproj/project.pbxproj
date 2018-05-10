@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		945E49DE2E63E4CC643B484C /* Pods_Add_to_Stackd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B204B7E5377F10366E1A9FFA /* Pods_Add_to_Stackd.framework */; };
+		C7DAA258C409CAEBA42B5544 /* Pods_StackdVersion1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DBF93FBCCB75E691317882 /* Pods_StackdVersion1.framework */; };
 		F905BF582075873C00C7B94F /* apple-app-site-association in Resources */ = {isa = PBXBuildFile; fileRef = F905BF572075873B00C7B94F /* apple-app-site-association */; };
 		F905BF5A2075875100C7B94F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905BF592075875100C7B94F /* WebViewController.swift */; };
 		F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
@@ -48,6 +50,7 @@
 		F97EC34120A0029100CED0F5 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34020A0029100CED0F5 /* UIImageExtension.swift */; };
 		F97EC34320A005B700CED0F5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34220A005B700CED0F5 /* UIColorExtension.swift */; };
 		F97EC34520A0DB4C00CED0F5 /* ArchiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */; };
+		F99418D120A290FA008A4966 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99418D020A290FA008A4966 /* TagsViewController.swift */; };
 		F9BA2A3E206DCAC60059ECBA /* CoreDataInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C9206DC884007CE630 /* CoreDataInitializable.swift */; };
 		F9BA2A3F206DCAC90059ECBA /* CoredataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CA206DC884007CE630 /* CoredataStack.swift */; };
 		F9BA2A40206DCACB0059ECBA /* FetchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CB206DC884007CE630 /* FetchHelper.swift */; };
@@ -109,6 +112,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3AE85DC5CFD8EBFD5164AAFE /* Pods-Add to Stackd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Add to Stackd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Add to Stackd/Pods-Add to Stackd.debug.xcconfig"; sourceTree = "<group>"; };
+		42306EA02D3C071834C08C60 /* Pods-StackdVersion1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackdVersion1.release.xcconfig"; path = "Pods/Target Support Files/Pods-StackdVersion1/Pods-StackdVersion1.release.xcconfig"; sourceTree = "<group>"; };
+		4B3BDEE85054DBCB1C5F8954 /* Pods-Add to Stackd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Add to Stackd.release.xcconfig"; path = "Pods/Target Support Files/Pods-Add to Stackd/Pods-Add to Stackd.release.xcconfig"; sourceTree = "<group>"; };
+		60DBF93FBCCB75E691317882 /* Pods_StackdVersion1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackdVersion1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		908D1828EAAB81E1BB3C3EA6 /* Pods-StackdVersion1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackdVersion1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StackdVersion1/Pods-StackdVersion1.debug.xcconfig"; sourceTree = "<group>"; };
+		B204B7E5377F10366E1A9FFA /* Pods_Add_to_Stackd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Add_to_Stackd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F905BF572075873B00C7B94F /* apple-app-site-association */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
 		F905BF592075875100C7B94F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistantContainer.swift; sourceTree = "<group>"; };
@@ -152,6 +161,7 @@
 		F97EC34020A0029100CED0F5 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		F97EC34220A005B700CED0F5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveHeaderView.swift; sourceTree = "<group>"; };
+		F99418D020A290FA008A4966 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		F9BA2A48206DCB120059ECBA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		F9BA2A4C206DCB190059ECBA /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
 		F9BA2A4F206DCB1E0059ECBA /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -170,6 +180,7 @@
 				F9BA2A4D206DCB190059ECBA /* CommonCrypto.framework in Frameworks */,
 				F964CDC5207C3F810064E40C /* Kingfisher.framework in Frameworks */,
 				F9BA2A49206DCB120059ECBA /* Alamofire.framework in Frameworks */,
+				C7DAA258C409CAEBA42B5544 /* Pods_StackdVersion1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,12 +189,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9BA2A52206DCB260059ECBA /* CommonCrypto.framework in Frameworks */,
+				945E49DE2E63E4CC643B484C /* Pods_Add_to_Stackd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E6F48AE908215BEFF1D85CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B204B7E5377F10366E1A9FFA /* Pods_Add_to_Stackd.framework */,
+				60DBF93FBCCB75E691317882 /* Pods_StackdVersion1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3DD154CB7B8D7E3516524A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3AE85DC5CFD8EBFD5164AAFE /* Pods-Add to Stackd.debug.xcconfig */,
+				4B3BDEE85054DBCB1C5F8954 /* Pods-Add to Stackd.release.xcconfig */,
+				908D1828EAAB81E1BB3C3EA6 /* Pods-StackdVersion1.debug.xcconfig */,
+				42306EA02D3C071834C08C60 /* Pods-StackdVersion1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F936C4B8208131D3002D4E4D /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +252,8 @@
 				F940B591206DC156007CE630 /* StackdVersion1 */,
 				F940B5A9206DC174007CE630 /* Add to Stackd */,
 				F940B590206DC156007CE630 /* Products */,
+				D3DD154CB7B8D7E3516524A7 /* Pods */,
+				9E6F48AE908215BEFF1D85CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -302,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				F90CF7992072E16700174AA2 /* HomeListViewController.swift */,
+				F99418D020A290FA008A4966 /* TagsViewController.swift */,
 				F90CF7972072E13A00174AA2 /* FilterViewController.swift */,
 				F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */,
 				F905BF592075875100C7B94F /* WebViewController.swift */,
@@ -367,12 +402,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F940B5A1206DC156007CE630 /* Build configuration list for PBXNativeTarget "StackdVersion1" */;
 			buildPhases = (
+				712FE6303CE8FDA3C7486367 /* [CP] Check Pods Manifest.lock */,
 				F940B58B206DC156007CE630 /* Sources */,
 				F940B58C206DC156007CE630 /* Frameworks */,
 				F940B58D206DC156007CE630 /* Resources */,
 				F940B5B6206DC174007CE630 /* Embed App Extensions */,
 				F9BA2A3D206DCA4F0059ECBA /* ShellScript */,
 				F9BA2A4B206DCB120059ECBA /* Embed Frameworks */,
+				FDB0AC0172DB0CBD4F4E2BEE /* [CP] Embed Pods Frameworks */,
+				BCB9A4E5AF5E6F0A5B143F55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -388,9 +426,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F940B5B3206DC174007CE630 /* Build configuration list for PBXNativeTarget "Add to Stackd" */;
 			buildPhases = (
+				08AC222CDAB49C33EA59CA65 /* [CP] Check Pods Manifest.lock */,
 				F940B5A4206DC174007CE630 /* Sources */,
 				F940B5A5206DC174007CE630 /* Frameworks */,
 				F940B5A6206DC174007CE630 /* Resources */,
+				CF2C826A95AB410801B9925C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -481,6 +521,72 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		08AC222CDAB49C33EA59CA65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Add to Stackd-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		712FE6303CE8FDA3C7486367 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StackdVersion1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCB9A4E5AF5E6F0A5B143F55 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StackdVersion1/Pods-StackdVersion1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF2C826A95AB410801B9925C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Add to Stackd/Pods-Add to Stackd-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F9BA2A3D206DCA4F0059ECBA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -501,6 +607,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "";
+		};
+		FDB0AC0172DB0CBD4F4E2BEE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StackdVersion1/Pods-StackdVersion1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StackdVersion1/Pods-StackdVersion1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -526,6 +650,7 @@
 				F90CF79A2072E16700174AA2 /* HomeListViewController.swift in Sources */,
 				F97EC34320A005B700CED0F5 /* UIColorExtension.swift in Sources */,
 				F97EC34520A0DB4C00CED0F5 /* ArchiveHeaderView.swift in Sources */,
+				F99418D120A290FA008A4966 /* TagsViewController.swift in Sources */,
 				F940B5D7206DC884007CE630 /* DataConverter.swift in Sources */,
 				F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */,
 				F9EBFF78207AB45600B0B0F3 /* ArchiveViewController.swift in Sources */,
@@ -707,8 +832,9 @@
 		};
 		F940B5A2206DC156007CE630 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 908D1828EAAB81E1BB3C3EA6 /* Pods-StackdVersion1.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StackdVersion1/StackdVersion1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -729,8 +855,9 @@
 		};
 		F940B5A3206DC156007CE630 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42306EA02D3C071834C08C60 /* Pods-StackdVersion1.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = StackdVersion1/StackdVersion1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -751,6 +878,7 @@
 		};
 		F940B5B4206DC174007CE630 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AE85DC5CFD8EBFD5164AAFE /* Pods-Add to Stackd.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Add to Stackd/Add to Stackd.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -772,6 +900,7 @@
 		};
 		F940B5B5206DC174007CE630 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B3BDEE85054DBCB1C5F8954 /* Pods-Add to Stackd.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Add to Stackd/Add to Stackd.entitlements";
 				CODE_SIGN_STYLE = Automatic;
