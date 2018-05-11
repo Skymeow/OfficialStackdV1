@@ -10,6 +10,7 @@
 		945E49DE2E63E4CC643B484C /* Pods_Add_to_Stackd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B204B7E5377F10366E1A9FFA /* Pods_Add_to_Stackd.framework */; };
 		C7DAA258C409CAEBA42B5544 /* Pods_StackdVersion1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DBF93FBCCB75E691317882 /* Pods_StackdVersion1.framework */; };
 		F902E9BC20A61F5000DE8690 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902E9BB20A61F5000DE8690 /* ListItem.swift */; };
+		F902E9BE20A632BE00DE8690 /* ListItemDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902E9BD20A632BE00DE8690 /* ListItemDisplayManager.swift */; };
 		F905BF582075873C00C7B94F /* apple-app-site-association in Resources */ = {isa = PBXBuildFile; fileRef = F905BF572075873B00C7B94F /* apple-app-site-association */; };
 		F905BF5A2075875100C7B94F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905BF592075875100C7B94F /* WebViewController.swift */; };
 		F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
@@ -120,6 +121,7 @@
 		908D1828EAAB81E1BB3C3EA6 /* Pods-StackdVersion1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackdVersion1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StackdVersion1/Pods-StackdVersion1.debug.xcconfig"; sourceTree = "<group>"; };
 		B204B7E5377F10366E1A9FFA /* Pods_Add_to_Stackd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Add_to_Stackd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F902E9BB20A61F5000DE8690 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		F902E9BD20A632BE00DE8690 /* ListItemDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemDisplayManager.swift; sourceTree = "<group>"; };
 		F905BF572075873B00C7B94F /* apple-app-site-association */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
 		F905BF592075875100C7B94F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistantContainer.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				F905BF592075875100C7B94F /* WebViewController.swift */,
 				F9EBFF77207AB45600B0B0F3 /* ArchiveViewController.swift */,
 				F902E9BB20A61F5000DE8690 /* ListItem.swift */,
+				F902E9BD20A632BE00DE8690 /* ListItemDisplayManager.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				F97EC34520A0DB4C00CED0F5 /* ArchiveHeaderView.swift in Sources */,
 				F99418D120A290FA008A4966 /* TagsViewController.swift in Sources */,
 				F940B5D7206DC884007CE630 /* DataConverter.swift in Sources */,
+				F902E9BE20A632BE00DE8690 /* ListItemDisplayManager.swift in Sources */,
 				F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */,
 				F9EBFF78207AB45600B0B0F3 /* ArchiveViewController.swift in Sources */,
 				F90CF7982072E13A00174AA2 /* FilterViewController.swift in Sources */,

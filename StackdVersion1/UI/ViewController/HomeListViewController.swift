@@ -37,11 +37,10 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.setEditing(flase, animated: true)
+
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
         centerX.constant = -1000
-//        self.tableView.dragDelegate = self
         self.tableView.dragInteractionEnabled = true
         
         self.navigationController?.navigationBar.isHidden = true
@@ -167,20 +166,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
 
         return true
     }
-    
-//     UPdate: update coredata with rearraged items
-//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        tableView.beginUpdates()
-//        let movedObject = self.allItems![sourceIndexPath.row]
-//        let beMovedObject = self.allItems![destinationIndexPath.row]
-//        self.allItems?.remove(at: sourceIndexPath.row)
-//        self.allItems?.insert(movedObject, at: destinationIndexPath.row)
-//        movedObject.rearrangedRow = Int64(destinationIndexPath.row)
-//        beMovedObject.rearrangedRow = Int64(sourceIndexPath.row)
-//        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
-//        tableView.endUpdates()
-//    }
-    
+ 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let rowHeight = CGFloat(120)
@@ -292,9 +278,9 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func toogleDelete(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] (action, view, completionHandler: (Bool) -> Void) in
+                let removeItem = self.allItems![indexPath.row]
                 self.allItems?.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                let removeItem = self.allItems![indexPath.row]
                 self.coreDataStack.privateContext.delete(removeItem)
                 self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
 
@@ -349,68 +335,3 @@ extension HomeListViewController: HeaderActionDelegate {
        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-//extension HomeListViewController: UITableViewDragDelegate {
-//    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-//        let dragItem = self.dragItem(forItemAt: indexPath)
-//
-//        return [dragItem]
-//    }
-//
-//    private func dragItem(forItemAt indexPath: IndexPath) -> UIDragItem {
-//        let dragObject = self.allItems?[indexPath.row]
-//        let dragItemData = dragObject?.title
-//        let itemProvider = NSItemProvider(object: dragItemData as! NSItemProviderWriting)
-//        let dragItem = UIDragItem(itemProvider: itemProvider)
-//        dragItem.localObject = dragObject
-//
-//        return dragItem
-//    }
-//
-//    func tableView(_ tableView: UITableView, dragPreviewParametersForRowAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-//
-//        return previewParam(forItemAt:indexPath)
-//    }
-//
-//    private func previewParam(forItemAt indexPath: IndexPath) -> UIDragPreviewParameters {
-//        var cell: UITableViewCell
-//        if self.allItems?[indexPath.row].cellType == "podcast" || self.allItems?[indexPath.row].cellType == "safari" {
-//            cell = self.tableView.cellForRow(at: indexPath) as! SharedTableViewCell
-//        } else {
-//            cell = self.tableView.cellForRow(at: indexPath) as! YoutubeTableViewCell
-//        }
-//
-//        let previewParameters = UIDragPreviewParameters()
-//        previewParameters.visiblePath = UIBezierPath(rect: (cell.textLabel?.frame)!)
-//
-//        return previewParameters
-//    }
-//}
-
-//extension HomeListViewController: UITableViewDropDelegate {
-//
-//    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-//        let destinationIndexPath: IndexPath
-//        if let indexPath = coordinator.destinationIndexPath
-//        {
-//            destinationIndexPath = indexPath
-//        }
-//        else
-//        {
-//            // Get last index path of collection view.
-//            let section = tableView.numberOfSections - 1
-//            let row = tableView.numberOfRows(inSection: section)
-//            destinationIndexPath = IndexPath(row: row, section: section)
-//        }
-//
-//    }
-//
-//    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
-//        if session.localDragSession != nil {
-//            return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
-//        } else {
-//            return UITableViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)
-//        }
-//    }
-//}
-

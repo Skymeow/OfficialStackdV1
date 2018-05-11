@@ -24,7 +24,8 @@ struct ListItem: Equatable {
 func ==(lhs: ListItem, rhs: ListItem) -> Bool {
     return lhs.archive == rhs.archive && lhs.cellType == rhs.cellType && lhs.date == rhs.date && lhs.duration == rhs.duration && lhs.rearrangedRow == rhs.rearrangedRow && lhs.title == rhs.title && lhs.urlStr == rhs.urlStr && lhs.videoThumbnail == rhs.videoThumbnail
 }
-//map NSManagedObject into generic model 
+
+//map NSManagedObject into generic model, this is to avoid mutable state
 extension ListItem {
     init(managedItem: NSManagedObject) {
         self.archive = managedItem.value(forKey: "archive") as! Bool
