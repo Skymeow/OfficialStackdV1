@@ -54,9 +54,13 @@ class Networking {
                         print("parse reading time from api failed")
                     }
                 }
+                else{
+                    completion(false, "unable to analyze time")
+                }
             }
             else {
-                // Failure
+                // Failure\
+                completion(false, "unable to analyze time")
                 print("URL Session Task Failed: %@", error!.localizedDescription);
             }
         })

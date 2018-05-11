@@ -266,39 +266,13 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-        print(tableView.isEditing)
-    }
-    
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
-//    {
-//        let tagAction = UITableViewRowAction(style: .normal, title: "tag") {
-//            (action, indexpath) in
-//            print("tag tapped")
-//        }
-//        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexpath) in
-//            print("Delete Action Tapped")
-//        }
-//        deleteAction.backgroundColor = .red
-//        tagAction.backgroundColor = .white
-//        return [tagAction, deleteAction]
-//    }
-    
-    @available(iOS 11.0, *)
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-    {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Add") { (action, view, handler) in
-            print("Add Action Tapped")
-        }
-        deleteAction.backgroundColor = .green
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
-        return configuration
-    }
-    
     @available(iOS 11.0, *)
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let tagAction = self.toogleTag(forRowAtIndexPath: indexPath)
-        let swipeConfig = UISwipeActionsConfiguration(actions: [tagAction])
+        let deleteAction = self.toogleDelete(forRowAtIndexPath: indexPath)
+        let topAction = self.toogleTop(forRowAtIndexPath: indexPath)
+        let bottomAction = self.toogleBottom(forRowAtIndexPath: indexPath)
+        let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction, tagAction, bottomAction, topAction])
         swipeConfig.performsFirstActionWithFullSwipe = false
         return swipeConfig
     }
@@ -310,23 +284,62 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.present(tagVC, animated: false, completion: nil)
             completionHandler(true)
         }
-        action.image = #imageLiteral(resourceName: "tag")
-        action.backgroundColor = UIColor.lightGray
         
+        action.image = #imageLiteral(resourceName: "tag")
+        action.backgroundColor = .lightGray
         return action
     }
     
-//    func toogleDelete(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
-//
-//    }
-//
-//    func toogleUp(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
-//
-//    }
-//
-//    func toogleDown(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
-//
-//    }
+    func toogleDelete(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] (action, view, completionHandler: (Bool) -> Void) in
+                self.allItems?.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                let removeItem = self.allItems![indexPath.row]
+                self.coreDataStack.privateContext.delete(removeItem)
+                self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+
+                completionHandler(true)
+        }
+        action.image = #imageLiteral(resourceName: "popup_delete")
+        action.backgroundColor = .lightGray
+        return action
+    }
+
+    func toogleTop(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "Top") { [unowned self] (action, view, completionHandler: (Bool) -> Void) in
+            let movedObject = self.allItems![indexPath.row]
+            let beMovedObject = self.allItems![0]
+            self.allItems?.remove(at: indexPath.row)
+            self.allItems?.insert(movedObject, at: 0)
+            movedObject.rearrangedRow = Int64(0)
+            beMovedObject.rearrangedRow = Int64(indexPath.row)
+            self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+            
+            completionHandler(true)
+        }
+        
+        action.image = #imageLiteral(resourceName: "top")
+        action.backgroundColor = .lightGray
+        return action
+    }
+
+    func toogleBottom(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "Bottom") { [unowned self] (action, view, completionHandler: (Bool) -> Void) in
+            let movedObject = self.allItems![indexPath.row]
+            let bottomIndex = (self.allItems?.count)! - 1
+            let beMovedObject = self.allItems![bottomIndex]
+            self.allItems?.remove(at: indexPath.row)
+            self.allItems?.insert(movedObject, at: bottomIndex)
+            movedObject.rearrangedRow = Int64(bottomIndex)
+            beMovedObject.rearrangedRow = Int64(indexPath.row)
+            self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+            
+            completionHandler(true)
+        }
+        action.image = #imageLiteral(resourceName: "bottom")
+        action.backgroundColor = .lightGray
+        return action
+    }
 }
 
 extension HomeListViewController: HeaderActionDelegate {

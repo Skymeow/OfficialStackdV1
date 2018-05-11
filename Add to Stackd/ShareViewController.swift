@@ -17,10 +17,11 @@ import CoreData
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
         successView.configureView(title: "Saved to Stacked", at: self.view.center)
         self.view.addSubview(successView)
-        successView.hide()
+        
         
         let extensionItem = extensionContext?.inputItems.first as! NSExtensionItem
 
@@ -39,7 +40,13 @@ import CoreData
                                 youtube.cellType = "youtube"
                                 youtube.date = Date()
                                 youtube.rearrangedRow = -1
-                                self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+//                                run these three task in serial queue async
+                                let queue = DispatchQueue(label: "synctask")
+                                queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                                    self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+                                    successView.hide()
+                                    self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+                                })
                             }
                         }
                         
@@ -59,7 +66,12 @@ import CoreData
                         podcast.cellType = "podcast"
                         podcast.date = Date()
                         podcast.rearrangedRow = -1
-                        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+                        let queue = DispatchQueue(label: "synctask")
+                        queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                            self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+                            successView.hide()
+                            self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+                        })
                     }
                 })
                 // safari
@@ -82,7 +94,12 @@ import CoreData
                                     } else {
                                          safari.duration = "unable to analyze time"
                                     }
-                                    self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+                                    let queue = DispatchQueue(label: "synctask")
+                                    queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                                        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+                                        successView.hide()
+                                        self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+                                    })
                                 }
                                 
                             }
@@ -93,6 +110,9 @@ import CoreData
                 
             }
         }
+    }
+    deinit {
+        
     }
     
 }

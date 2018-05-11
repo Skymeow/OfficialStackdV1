@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		945E49DE2E63E4CC643B484C /* Pods_Add_to_Stackd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B204B7E5377F10366E1A9FFA /* Pods_Add_to_Stackd.framework */; };
 		C7DAA258C409CAEBA42B5544 /* Pods_StackdVersion1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DBF93FBCCB75E691317882 /* Pods_StackdVersion1.framework */; };
+		F902E9BC20A61F5000DE8690 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902E9BB20A61F5000DE8690 /* ListItem.swift */; };
 		F905BF582075873C00C7B94F /* apple-app-site-association in Resources */ = {isa = PBXBuildFile; fileRef = F905BF572075873B00C7B94F /* apple-app-site-association */; };
 		F905BF5A2075875100C7B94F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905BF592075875100C7B94F /* WebViewController.swift */; };
 		F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
@@ -118,6 +119,7 @@
 		60DBF93FBCCB75E691317882 /* Pods_StackdVersion1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackdVersion1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		908D1828EAAB81E1BB3C3EA6 /* Pods-StackdVersion1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackdVersion1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StackdVersion1/Pods-StackdVersion1.debug.xcconfig"; sourceTree = "<group>"; };
 		B204B7E5377F10366E1A9FFA /* Pods_Add_to_Stackd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Add_to_Stackd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F902E9BB20A61F5000DE8690 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		F905BF572075873B00C7B94F /* apple-app-site-association */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
 		F905BF592075875100C7B94F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistantContainer.swift; sourceTree = "<group>"; };
@@ -219,6 +221,8 @@
 		F936C4B8208131D3002D4E4D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F940B5BD206DC884007CE630 /* UICustomClass */,
+				F936C4B9208131E5002D4E4D /* UIHelper */,
 				F940B5BF206DC884007CE630 /* ViewController */,
 				F940B5B9206DC883007CE630 /* Cell */,
 			);
@@ -282,7 +286,6 @@
 				F940B5C5206DC884007CE630 /* Helpers */,
 				F940B5BB206DC883007CE630 /* Model */,
 				F940B5C1206DC884007CE630 /* Service */,
-				F940B5BD206DC884007CE630 /* UICustomClass */,
 			);
 			path = StackdVersion1;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */,
 				F905BF592075875100C7B94F /* WebViewController.swift */,
 				F9EBFF77207AB45600B0B0F3 /* ArchiveViewController.swift */,
+				F902E9BB20A61F5000DE8690 /* ListItem.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -357,7 +361,6 @@
 		F940B5C5206DC884007CE630 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F936C4B9208131E5002D4E4D /* UIHelper */,
 				F97EC33F20A0026B00CED0F5 /* extensions */,
 				F9EBFF7B207AC9E100B0B0F3 /* PrepareForPresentingViews.swift */,
 			);
@@ -661,6 +664,7 @@
 				F940B5DA206DC884007CE630 /* CoredataStack.swift in Sources */,
 				F905BF5A2075875100C7B94F /* WebViewController.swift in Sources */,
 				F940B5D0206DC884007CE630 /* SharedTableViewCell.swift in Sources */,
+				F902E9BC20A61F5000DE8690 /* ListItem.swift in Sources */,
 				F940B5D4206DC884007CE630 /* Networking.swift in Sources */,
 				F90CF7A220730DA100174AA2 /* FilterHeaderView.swift in Sources */,
 			);
