@@ -90,14 +90,14 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     }
     
     func configureArchivedModal() {
-        guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
+        guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
         successView.configureView(title: "Saved to Stacked", at: self.view.center)
         self.view.addSubview(successView)
         successView.hide()
     }
     
     func configureDeletedModal() {
-        guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
+        guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
         successView.configureView(title: "Deleted", at: self.view.center)
         self.view.addSubview(successView)
         successView.hide()

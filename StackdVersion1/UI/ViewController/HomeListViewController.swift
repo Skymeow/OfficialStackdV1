@@ -19,7 +19,8 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var archiveBtn: UIButton!
     @IBOutlet weak var centerX: NSLayoutConstraint!
-    
+    @IBOutlet weak var popupComeFrom: UILabel!
+    @IBOutlet weak var popupSource: UILabel!
     var initialIndexPath: IndexPath? = nil
     
     var selectedIndex: IndexPath?
@@ -53,6 +54,8 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
         
         backFromPopupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissXis)))
+//        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissXis)))
+
         deleteBtn.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
         archiveBtn.addTarget(self, action: #selector(archiveTapped), for: .touchUpInside)
         
@@ -121,24 +124,24 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     //    set selected item's coredata archive to be true
     @objc func archiveTapped() {
         centerX.constant = 1000
+        self.selected?.setValue(true, forKey: "archived")
+        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+        self.configureArchivedModal()
         if let index = self.selectedIndex {
             self.allItems?.remove(at: index.row)
             tableView.deleteRows(at: [index], with: .automatic)
         }
-        self.selected?.setValue(true, forKey: "archived")
-        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
-        self.configureArchivedModal()
     }
     
     func configureArchivedModal() {
-        guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
+        guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
         successView.configureView(title: "Saved to Stacked", at: self.view.center)
         self.view.addSubview(successView)
         successView.hide()
     }
     
     func configureDeletedModal() {
-        guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
+        guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
         successView.configureView(title: "Deleted", at: self.view.center)
         self.view.addSubview(successView)
         successView.hide()
@@ -229,10 +232,16 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         self.selectedIndex = indexPath
         switch selectedType {
         case "podcast":
+            self.popupSource.text = selected.urlStr?.getSafariSource()
+            self.popupComeFrom.text = selected.title
             PrepareForPresentingViews.shared.redirectToPodcast(url)
         case "youtube":
+            self.popupSource.text = selected.urlStr?.getSafariSource()
+            self.popupComeFrom.text = selected.title
             PrepareForPresentingViews.shared.openInApp(url, viewController: self, navigationController: self.navigationController)
         case "safari":
+            self.popupSource.text = selected.urlStr?.getSafariSource()
+            self.popupComeFrom.text = selected.title
             PrepareForPresentingViews.shared.openInApp(url, viewController: self, navigationController: self.navigationController)
         default:
             print("exception in didselect")
@@ -267,7 +276,9 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         let action = UIContextualAction(style: .normal, title: "Tag") { (action, view, completionHandler: (Bool) -> Void) in
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let tagVC = storyboard.instantiateViewController(withIdentifier: "tagVC") as! TagsViewController
-            self.navigationController?.present(tagVC, animated: false, completion: nil)
+            tagVC.selected = self.allItems?[indexPath.row]
+            self.navigationController?.pushViewController(tagVC, animated: false)
+//            (tagVC, animated: false, completion: nil)
             completionHandler(true)
         }
         

@@ -11,6 +11,8 @@ import CoreData
 
 let coreDataStack = CoreDataStack.instance
 struct ListItem: Equatable {
+    
+//    fileprivate var mo: NSManagedObject
     let archive: Bool
     let cellType: String
     let date: Date
@@ -22,6 +24,9 @@ struct ListItem: Equatable {
 }
 
 func ==(lhs: ListItem, rhs: ListItem) -> Bool {
+//    [String]().index { (aString) -> Bool in
+//        return aString == "b"
+//    }
     return lhs.archive == rhs.archive && lhs.cellType == rhs.cellType && lhs.date == rhs.date && lhs.duration == rhs.duration && lhs.rearrangedRow == rhs.rearrangedRow && lhs.title == rhs.title && lhs.urlStr == rhs.urlStr && lhs.videoThumbnail == rhs.videoThumbnail
 }
 

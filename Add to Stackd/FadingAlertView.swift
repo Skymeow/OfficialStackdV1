@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlertView: UIView {
+class FadingAlertView: UIView {
     
     
     @IBOutlet weak var alertMsg: UILabel!

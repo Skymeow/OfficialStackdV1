@@ -18,7 +18,7 @@ import CoreData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let successView = Bundle.main.loadNibNamed("AlertView", owner: self, options: nil)![0] as? AlertView else { return }
+        guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
         successView.configureView(title: "Saved to Stacked", at: self.view.center)
         self.view.addSubview(successView)
         

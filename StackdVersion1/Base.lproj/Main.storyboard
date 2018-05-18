@@ -453,6 +453,8 @@
                         <outlet property="backFromPopupView" destination="FOf-cM-sfu" id="tjy-AW-gBi"/>
                         <outlet property="centerX" destination="ZDu-0N-jtv" id="RjK-VK-NjU"/>
                         <outlet property="deleteBtn" destination="CvK-e3-54R" id="bxe-JD-5pC"/>
+                        <outlet property="popupComeFrom" destination="S2r-nK-PdE" id="VRk-fc-UIp"/>
+                        <outlet property="popupSource" destination="QiV-qi-tkP" id="rkj-58-1t2"/>
                         <outlet property="tableView" destination="O97-S1-qyq" id="c9v-sL-361"/>
                         <segue destination="Rch-Uj-Fwe" kind="show" id="xKc-rp-dgb"/>
                     </connections>
