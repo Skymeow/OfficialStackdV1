@@ -44,19 +44,21 @@ class ArchiveViewController: UIViewController {
 
 extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items?.count ?? 0
         
-//        if let items = self.items {
-//            return items.count
-//        } else {
-//            return 0
-//        }
+        return self.items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let rowHeight = CGFloat(120)
         
-        let rowHeight = CGFloat(180)
         return rowHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 150)
+        let customizedHeaderView = ArchiveHeaderView(frame: frame)
+        
+        return customizedHeaderView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,12 +106,6 @@ extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
         
         return genericCell!
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 150)
-        let customizedHeaderView = ArchiveHeaderView(frame: frame)
-        
-        return customizedHeaderView
-    }
+
 }
 

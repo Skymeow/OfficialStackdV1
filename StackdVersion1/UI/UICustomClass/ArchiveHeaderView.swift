@@ -17,7 +17,6 @@ class ArchiveHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         layoutNewSubviews()
     }
     
@@ -27,10 +26,11 @@ class ArchiveHeaderView: UIView {
     
     func layoutNewSubviews() {
         self.isUserInteractionEnabled = true
-        
+ 
         backgroundImg = UIImageView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         backgroundImg.contentMode = .scaleAspectFill
         backgroundImg.image = #imageLiteral(resourceName: "archive_background")
+        backgroundImg.isUserInteractionEnabled = true
         
         titleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 30))
         titleLabel.text = "ARCHIVE"
