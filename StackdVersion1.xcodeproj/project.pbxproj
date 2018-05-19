@@ -76,6 +76,7 @@
 		F9EBFF7A207ABB8000B0B0F3 /* FadingAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F940B5DF206DC89D007CE630 /* FadingAlertView.xib */; };
 		F9EBFF7C207AC9E100B0B0F3 /* PrepareForPresentingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EBFF7B207AC9E100B0B0F3 /* PrepareForPresentingViews.swift */; };
 		F9ECEBAA20AF721900ADC134 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECEBA920AF721900ADC134 /* AlertView.swift */; };
+		F9ECEBAC20AFE1B600ADC134 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECEBAB20AFE1B600ADC134 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		F9EBFF77207AB45600B0B0F3 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		F9EBFF7B207AC9E100B0B0F3 /* PrepareForPresentingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareForPresentingViews.swift; sourceTree = "<group>"; };
 		F9ECEBA920AF721900ADC134 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		F9ECEBAB20AFE1B600ADC134 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +347,7 @@
 		F940B5BF206DC884007CE630 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F9ECEBAB20AFE1B600ADC134 /* HomeViewController.swift */,
 				F90CF7992072E16700174AA2 /* HomeListViewController.swift */,
 				F99418D020A290FA008A4966 /* TagsViewController.swift */,
 				F90CF7972072E13A00174AA2 /* FilterViewController.swift */,
@@ -647,6 +650,7 @@
 				F940B5D2206DC884007CE630 /* CustomHeaderView.swift in Sources */,
 				F940B5D5206DC884007CE630 /* PodcastDataServer.swift in Sources */,
 				F940B5D8206DC884007CE630 /* Reg.swift in Sources */,
+				F9ECEBAC20AFE1B600ADC134 /* HomeViewController.swift in Sources */,
 				F940B5DD206DC884007CE630 /* KeyCenter.swift in Sources */,
 				F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */,
 				F97EC34120A0029100CED0F5 /* UIImageExtension.swift in Sources */,

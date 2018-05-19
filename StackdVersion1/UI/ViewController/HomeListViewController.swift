@@ -248,13 +248,6 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 150)
-        let customizedHeaderView = CustomHeaderView(frame: frame)
-        customizedHeaderView.customedHeaderDelegate = self
-        
-        return customizedHeaderView
-    }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
@@ -339,10 +332,4 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeListViewController: HeaderActionDelegate {
-    func filterTapped() {
-        let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "filterVC") as! FilterViewController
-       self.navigationController?.pushViewController(vc, animated: true)
-    }
-}
+

@@ -11,7 +11,6 @@ import UIKit
 
 class FilterViewController: UIViewController {
     
-    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var articleButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
     @IBOutlet weak var podcastButton: UIButton!
@@ -28,9 +27,6 @@ class FilterViewController: UIViewController {
     let greyCategoryButtons = [#imageLiteral(resourceName: "read_default"), #imageLiteral(resourceName: "watch_default"), #imageLiteral(resourceName: "listen_default")]
     override func viewDidLoad() {
         super.viewDidLoad()
-        let frame = CGRect(x: 0, y: 0, width: headerView.frame.size.width, height: 150)
-        let customizedHeaderView = CustomHeaderView(frame: frame)
-        headerView.addSubview(customizedHeaderView)
         
         articleButton.setBackgroundImage(greyCategoryButtons[0], for: .normal)
         videoButton.setBackgroundImage(greyCategoryButtons[1], for: .normal)

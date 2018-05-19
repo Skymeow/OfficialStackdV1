@@ -84,10 +84,11 @@ class FilterHeaderView: UIView {
         }
         
         titleLabel.snp.makeConstraints { (make) in
+            let height = self.bounds.size.height * 0.15
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(45)
             make.centerY.equalToSuperview()
-            make.height.equalTo(55)
+            make.height.equalTo(height)
             make.width.equalTo(200)
         }
         
@@ -99,10 +100,12 @@ class FilterHeaderView: UIView {
         }
         
         backButton.snp.makeConstraints { (make) in
+            let height = self.bounds.size.height * 0.17
+            let width = height
             make.left.equalToSuperview().offset(20)
             make.centerY.equalTo(titleLabel.snp.centerY)
-            make.height.equalTo(40)
-            make.width.equalTo(40)
+            make.height.equalTo(height)
+            make.width.equalTo(width)
         }
         
     }
