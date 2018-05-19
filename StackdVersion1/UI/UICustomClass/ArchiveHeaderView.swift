@@ -34,8 +34,8 @@ class ArchiveHeaderView: UIView {
         
         titleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 30))
         titleLabel.text = "ARCHIVE"
-        titleLabel.textColor = .white
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        titleLabel.textColor = .darkGray
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 29)
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 1

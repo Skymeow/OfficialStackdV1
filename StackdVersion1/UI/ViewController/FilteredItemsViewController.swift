@@ -113,6 +113,12 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let rowHeight = CGFloat(120)
+        return rowHeight
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var genericCell: UITableViewCell?
         let item = self.items![indexPath.row]
