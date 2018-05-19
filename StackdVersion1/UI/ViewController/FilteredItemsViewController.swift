@@ -16,6 +16,8 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     let coreDataStack = CoreDataStack.instance
     var items: [AllItem]?
     var selected: AllItem?
+    var initialIndexPath: IndexPath? = nil
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var archiveBtn: UIButton!
@@ -26,6 +28,11 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
+        tableView.addGestureRecognizer(longpress)
+        self.tableView.dragInteractionEnabled = true
+        
         CenterX.constant = 1000
         self.tableView.sectionHeaderHeight = 150
         
@@ -64,6 +71,43 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
         }
     }
     
+//    for drag and drop
+    @objc func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
+        let longPress = gestureRecognizer as! UILongPressGestureRecognizer
+        let state = longPress.state
+        let locationInView = longPress.location(in: tableView)
+        //        this is the indexpath of the start of drag
+        var indexPath = tableView.indexPathForRow(at: locationInView)
+        
+        switch state{
+        case UIGestureRecognizerState.began:
+            if indexPath != nil {
+                self.initialIndexPath = indexPath
+                
+            }
+        case UIGestureRecognizerState.changed:
+            break
+        case .ended:
+            if ((indexPath != nil) && (indexPath != self.initialIndexPath)) {
+                //                print(indexPath!, initialIndexPath!)
+                let movedObject = self.items![initialIndexPath!.row]
+                let beMovedObject = self.items![indexPath!.row]
+                self.items?.remove(at: initialIndexPath!.row)
+                self.items?.insert(movedObject, at: indexPath!.row)
+                movedObject.rearrangedRow = Int64(indexPath!.row)
+                beMovedObject.rearrangedRow = Int64(indexPath!.row)
+                self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+            }
+        case .cancelled:
+            break
+        case .failed:
+            break
+        case .possible:
+            break
+        }
+        
+    }
+    
 //    delete from coredata
     @objc func deleteTapped() {
         CenterX.constant = 1000
@@ -91,7 +135,7 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     
     func configureArchivedModal() {
         guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
-        successView.configureView(title: "Saved to Stacked", at: self.view.center)
+        successView.configureView(title: "Archived", at: self.view.center)
         self.view.addSubview(successView)
         successView.hide()
     }
@@ -117,6 +161,24 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
         
         let rowHeight = CGFloat(120)
         return rowHeight
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -172,10 +234,16 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
         let selectedType = (selected?.cellType)!
         switch selectedType {
         case "podcast":
+            self.sourceHostLabel.text = selected?.urlStr?.getSafariSource()
+            self.sourceLabel.text = selected?.title
             PrepareForPresentingViews.shared.redirectToPodcast(url!)
         case "youtube":
+            self.sourceHostLabel.text = selected?.urlStr?.getSafariSource()
+            self.sourceLabel.text = selected?.title
             PrepareForPresentingViews.shared.openInApp(url!, viewController: self, navigationController: self.navigationController)
         case "safari":
+            self.sourceHostLabel.text = selected?.urlStr?.getSafariSource()
+            self.sourceLabel.text = selected?.title
             PrepareForPresentingViews.shared.openInApp(url!, viewController: self, navigationController: self.navigationController)
         default:
             print("exception in didselect")
@@ -188,6 +256,7 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
         filterHeaderView.filterHeaderDelegate = self
         return filterHeaderView
     }
+
 }
 
 //for the back button
@@ -196,5 +265,6 @@ extension FilteredItemsViewController: FilterHeaderActionDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
 }
+
+

@@ -10,6 +10,7 @@ import CoreData
 
 class TagsViewController: UIViewController, UITextFieldDelegate {
     
+    var initialIndexPath: IndexPath? = nil
     let coreDataStack = CoreDataStack.instance
     var selected: AllItem?
     override func viewDidLoad() {

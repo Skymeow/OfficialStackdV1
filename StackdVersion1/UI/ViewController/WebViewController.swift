@@ -23,12 +23,12 @@ class WebViewController: UIViewController, WKUIDelegate {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
-        view = webView
-        let frame = CGRect(x: 0, y: 0, width: 45, height: 45)
-        btn = UIButton(frame: frame)
-        btn.backgroundColor = UIColor.red
-        view.addSubview(btn)
         
+        view = webView
+        let frame = CGRect(x: 0, y: 0, width: 85, height: 45)
+        let customizedBackView = StackdWebLabelView(frame: frame)
+        customizedBackView.delegate = self
+        view.addSubview(customizedBackView)
     }
     
     override func viewDidLoad() {
@@ -50,9 +50,6 @@ class WebViewController: UIViewController, WKUIDelegate {
                 }
             }).resume()
         }
-
-        btn.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
-        
     }
     
     func addLoadingIndicator(){
@@ -72,8 +69,11 @@ class WebViewController: UIViewController, WKUIDelegate {
             }
         }
     }
-    
-    @objc func backTapped() {
+
+}
+
+extension WebViewController: WebActionDelegate {
+    func backTapped() {
         if(webView.canGoBack) {
             //Go back in webview history
             webView.goBack()
@@ -83,5 +83,4 @@ class WebViewController: UIViewController, WKUIDelegate {
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
 }

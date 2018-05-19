@@ -54,7 +54,6 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
         
         backFromPopupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissXis)))
-//        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissXis)))
 
         deleteBtn.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
         archiveBtn.addTarget(self, action: #selector(archiveTapped), for: .touchUpInside)
@@ -135,7 +134,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     func configureArchivedModal() {
         guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
-        successView.configureView(title: "Saved to Stacked", at: self.view.center)
+        successView.configureView(title: "Archived", at: self.view.center)
         self.view.addSubview(successView)
         successView.hide()
     }
