@@ -26,7 +26,8 @@ class ArchiveViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+//        navigationBar.isHidden = true
         self.tableView.sectionHeaderHeight = 150
         
         let nibCell = UINib(nibName: "SharedTableViewCell", bundle: Bundle.main)
@@ -43,11 +44,19 @@ class ArchiveViewController: UIViewController {
 
 extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let items = self.items {
-            return items.count
-        } else {
-            return 0
-        }
+        return self.items?.count ?? 0
+        
+//        if let items = self.items {
+//            return items.count
+//        } else {
+//            return 0
+//        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let rowHeight = CGFloat(180)
+        return rowHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

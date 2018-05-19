@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDc-fq-FJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="152"/>
+            <point key="canvasLocation" x="1113" y="152"/>
         </scene>
         <!--Filtered Items View Controller-->
         <scene sceneID="md5-g0-fuB">
@@ -440,7 +440,7 @@
                         <constraints>
                             <constraint firstItem="cNP-qR-ZeT" firstAttribute="bottom" secondItem="O97-S1-qyq" secondAttribute="bottom" id="0n3-Ac-dMW"/>
                             <constraint firstItem="cNP-qR-ZeT" firstAttribute="bottom" secondItem="FOf-cM-sfu" secondAttribute="bottom" id="BlH-W1-aB3"/>
-                            <constraint firstItem="O97-S1-qyq" firstAttribute="leading" secondItem="NJB-Jr-kKR" secondAttribute="leading" id="CRs-eH-U8f"/>
+                            <constraint firstItem="O97-S1-qyq" firstAttribute="leading" secondItem="cNP-qR-ZeT" secondAttribute="leading" id="CRs-eH-U8f"/>
                             <constraint firstItem="cNP-qR-ZeT" firstAttribute="trailing" secondItem="O97-S1-qyq" secondAttribute="trailing" id="DCI-bs-CdY"/>
                             <constraint firstItem="O97-S1-qyq" firstAttribute="top" secondItem="NJB-Jr-kKR" secondAttribute="top" id="PR0-fj-mhm"/>
                             <constraint firstItem="FOf-cM-sfu" firstAttribute="centerX" secondItem="NJB-Jr-kKR" secondAttribute="centerX" constant="-1000" id="ZDu-0N-jtv"/>
@@ -471,8 +471,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XCM-n2-u7s">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XCM-n2-u7s">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="regularcell" rowHeight="120" id="yEB-as-zbr" customClass="SharedTableViewCell" customModule="StackdVersion1" customModuleProvider="target">
@@ -500,10 +500,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XCM-n2-u7s" firstAttribute="top" secondItem="jio-8G-QDa" secondAttribute="top" id="2SV-5m-Xw9"/>
+                            <constraint firstItem="XCM-n2-u7s" firstAttribute="top" secondItem="pk1-Ht-bQn" secondAttribute="top" id="2SV-5m-Xw9"/>
                             <constraint firstItem="XCM-n2-u7s" firstAttribute="leading" secondItem="jio-8G-QDa" secondAttribute="leading" id="Abc-eV-Y99"/>
                             <constraint firstItem="jio-8G-QDa" firstAttribute="bottom" secondItem="XCM-n2-u7s" secondAttribute="bottom" id="RPN-cI-JwJ"/>
-                            <constraint firstAttribute="trailing" secondItem="XCM-n2-u7s" secondAttribute="trailing" id="RyE-eb-Iat"/>
+                            <constraint firstItem="jio-8G-QDa" firstAttribute="trailing" secondItem="XCM-n2-u7s" secondAttribute="trailing" id="RyE-eb-Iat"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jio-8G-QDa"/>
                     </view>
