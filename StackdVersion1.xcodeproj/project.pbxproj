@@ -28,6 +28,9 @@
 		F90CF7A220730DA100174AA2 /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */; };
 		F936C4BD20813219002D4E4D /* LoadingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = F936C4BB20813219002D4E4D /* LoadingIndicator.xib */; };
 		F936C4BE20813219002D4E4D /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */; };
+		F9408EEF20B1FD50003BB8B1 /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9408EED20B1FD4F003BB8B1 /* TagsCell.swift */; };
+		F9408EF020B1FD50003BB8B1 /* TagsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9408EEE20B1FD4F003BB8B1 /* TagsCell.xib */; };
+		F9408EF220B25653003BB8B1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9408EF120B25653003BB8B1 /* SettingViewController.swift */; };
 		F940B593206DC156007CE630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B592206DC156007CE630 /* AppDelegate.swift */; };
 		F940B598206DC156007CE630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F940B596206DC156007CE630 /* Main.storyboard */; };
 		F940B59A206DC156007CE630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F940B599206DC156007CE630 /* Assets.xcassets */; };
@@ -141,6 +144,9 @@
 		F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHeaderView.swift; sourceTree = "<group>"; };
 		F936C4BB20813219002D4E4D /* LoadingIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingIndicator.xib; sourceTree = "<group>"; };
 		F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
+		F9408EED20B1FD4F003BB8B1 /* TagsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsCell.swift; sourceTree = "<group>"; };
+		F9408EEE20B1FD4F003BB8B1 /* TagsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagsCell.xib; sourceTree = "<group>"; };
+		F9408EF120B25653003BB8B1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		F940B58F206DC156007CE630 /* StackdVersion1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackdVersion1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F940B592206DC156007CE630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F940B597206DC156007CE630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -243,7 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				F936C4BA20813219002D4E4D /* LoadingIndicator */,
-				F9ECEBA920AF721900ADC134 /* AlertView.swift */,
+				F9408EF320B25859003BB8B1 /* AlertView */,
 			);
 			path = UIHelper;
 			sourceTree = "<group>";
@@ -255,6 +261,14 @@
 				F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */,
 			);
 			path = LoadingIndicator;
+			sourceTree = "<group>";
+		};
+		F9408EF320B25859003BB8B1 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				F9ECEBA920AF721900ADC134 /* AlertView.swift */,
+			);
+			path = AlertView;
 			sourceTree = "<group>";
 		};
 		F940B586206DC156007CE630 = {
@@ -318,6 +332,8 @@
 		F940B5B9206DC883007CE630 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				F9408EED20B1FD4F003BB8B1 /* TagsCell.swift */,
+				F9408EEE20B1FD4F003BB8B1 /* TagsCell.xib */,
 				F940B5BA206DC883007CE630 /* SharedTableViewCell.swift */,
 				F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */,
 				F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */,
@@ -357,6 +373,7 @@
 				F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */,
 				F905BF592075875100C7B94F /* WebViewController.swift */,
 				F9EBFF77207AB45600B0B0F3 /* ArchiveViewController.swift */,
+				F9408EF120B25653003BB8B1 /* SettingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -518,6 +535,7 @@
 				F9EBFF7A207ABB8000B0B0F3 /* FadingAlertView.xib in Resources */,
 				F936C4BD20813219002D4E4D /* LoadingIndicator.xib in Resources */,
 				F90CF77420708BF600174AA2 /* YoutubeTableViewCell.xib in Resources */,
+				F9408EF020B1FD50003BB8B1 /* TagsCell.xib in Resources */,
 				F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */,
 				F940B59A206DC156007CE630 /* Assets.xcassets in Resources */,
 				F90CF77220708BE500174AA2 /* SharedTableViewCell.xib in Resources */,
@@ -667,6 +685,7 @@
 				F940B593206DC156007CE630 /* AppDelegate.swift in Sources */,
 				F9EBFF7C207AC9E100B0B0F3 /* PrepareForPresentingViews.swift in Sources */,
 				F9ECEBAA20AF721900ADC134 /* AlertView.swift in Sources */,
+				F9408EF220B25653003BB8B1 /* SettingViewController.swift in Sources */,
 				F90CF79A2072E16700174AA2 /* HomeListViewController.swift in Sources */,
 				F97EC34320A005B700CED0F5 /* UIColorExtension.swift in Sources */,
 				F97EC34520A0DB4C00CED0F5 /* ArchiveHeaderView.swift in Sources */,
@@ -674,6 +693,7 @@
 				F940B5D7206DC884007CE630 /* DataConverter.swift in Sources */,
 				F902E9BE20A632BE00DE8690 /* ListItemDisplayManager.swift in Sources */,
 				F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */,
+				F9408EEF20B1FD50003BB8B1 /* TagsCell.swift in Sources */,
 				F9EBFF78207AB45600B0B0F3 /* ArchiveViewController.swift in Sources */,
 				F90CF7982072E13A00174AA2 /* FilterViewController.swift in Sources */,
 				F940B5DC206DC884007CE630 /* SharedItems.xcdatamodeld in Sources */,

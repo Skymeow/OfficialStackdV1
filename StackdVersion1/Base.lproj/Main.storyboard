@@ -13,7 +13,6 @@
         <!--Filtered Items View Controller-->
         <scene sceneID="md5-g0-fuB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lR6-5N-23J" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="filteredItemsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="exU-4y-ai4" customClass="FilteredItemsViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2tz-fk-2Xt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -139,6 +138,7 @@
                         <outlet property="tableView" destination="TDK-pY-5Ir" id="SCu-MO-sbL"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lR6-5N-23J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2380" y="-251"/>
         </scene>
@@ -623,6 +623,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBound" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="emailButtonTapped:" destination="IX8-gb-MbH" eventType="touchUpInside" id="cpn-Ai-rLZ"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PMy-iv-joR">
                                 <rect key="frame" x="90" y="497" width="195" height="91"/>
