@@ -18,6 +18,7 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func emailButtonTapped(_ sender: UIButton) {
+        self.sendEmail()
     }
 
 }

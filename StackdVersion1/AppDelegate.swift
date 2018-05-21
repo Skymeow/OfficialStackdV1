@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let defaults = UserDefaults.standard
+        let initialViewController: UIViewController
+        let onboarded = defaults.bool(forKey: "saw_onboarding")
+        
+        if onboarded{
+            // MARK: Instantiate with custom NavController here
+            initialViewController = UIStoryboard.initialViewController(for: .main)
+        } else {
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "pageVC") as! OnboardingPageViewController
+        }
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
+        
         UIApplication.shared.statusBarStyle = .lightContent
         UITabBar.appearance().unselectedItemTintColor = UIColor(red:0.73, green:0.73, blue:0.73, alpha:1.0)
 //            = UIColor(red:0.25, green:0.58, blue:0.58, alpha:1.0)

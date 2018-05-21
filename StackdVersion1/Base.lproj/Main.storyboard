@@ -510,10 +510,10 @@
             </objects>
             <point key="canvasLocation" x="1357" y="-209"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--main-->
         <scene sceneID="UvE-IM-YYv">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tPz-02-LNG" sceneMemberID="viewController">
+                <tabBarController title="main" automaticallyAdjustsScrollViewInsets="NO" id="tPz-02-LNG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kvg-2b-9Gs">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -619,9 +619,9 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBound" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="emailButtonTapped:" destination="IX8-gb-MbH" eventType="touchUpInside" id="cpn-Ai-rLZ"/>
@@ -717,6 +717,118 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKn-V9-kX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-825" y="1295"/>
+        </scene>
+        <!--Onboarding Page View Controller-->
+        <scene sceneID="8cA-dW-aQx">
+            <objects>
+                <pageViewController storyboardIdentifier="pageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="psi-jg-mBf" customClass="OnboardingPageViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H5a-Hg-SIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2661" y="3038"/>
+        </scene>
+        <!--Gif1 View Controller-->
+        <scene sceneID="tVK-v8-TXy">
+            <objects>
+                <viewController storyboardIdentifier="gif1VC" id="W3C-yb-m18" customClass="Gif1ViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xj0-Ch-PyO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ekD-eW-P8g" customClass="GIFImageView" customModule="Gifu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vUg-qa-0Bp" firstAttribute="bottom" secondItem="ekD-eW-P8g" secondAttribute="bottom" id="Nhy-XS-TQ0"/>
+                            <constraint firstItem="vUg-qa-0Bp" firstAttribute="trailing" secondItem="ekD-eW-P8g" secondAttribute="trailing" id="h1g-wo-oge"/>
+                            <constraint firstItem="ekD-eW-P8g" firstAttribute="leading" secondItem="vUg-qa-0Bp" secondAttribute="leading" id="oDd-e2-IMh"/>
+                            <constraint firstItem="ekD-eW-P8g" firstAttribute="top" secondItem="vUg-qa-0Bp" secondAttribute="top" id="udQ-ef-BAa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vUg-qa-0Bp"/>
+                    </view>
+                    <connections>
+                        <outlet property="gifView" destination="ekD-eW-P8g" id="OxS-gW-vcl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e4G-vb-CIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1905" y="3037"/>
+        </scene>
+        <!--Gif2 View Controller-->
+        <scene sceneID="KUv-Hk-TzO">
+            <objects>
+                <viewController storyboardIdentifier="gif2VC" id="QO6-LU-j75" customClass="Gif2ViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2uZ-Qi-cDu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5jM-pD-FBa" customClass="GIFImageView" customModule="Gifu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5jM-pD-FBa" firstAttribute="top" secondItem="CEP-cP-HXt" secondAttribute="top" id="0Mm-71-f0o"/>
+                            <constraint firstItem="CEP-cP-HXt" firstAttribute="bottom" secondItem="5jM-pD-FBa" secondAttribute="bottom" id="KbJ-cI-zTp"/>
+                            <constraint firstItem="CEP-cP-HXt" firstAttribute="trailing" secondItem="5jM-pD-FBa" secondAttribute="trailing" id="eWp-Hc-ecP"/>
+                            <constraint firstItem="5jM-pD-FBa" firstAttribute="leading" secondItem="CEP-cP-HXt" secondAttribute="leading" id="hfG-y7-Cp7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CEP-cP-HXt"/>
+                    </view>
+                    <connections>
+                        <outlet property="gifView" destination="5jM-pD-FBa" id="J5t-kQ-uOu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zbR-5Y-h6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1182" y="3037"/>
+        </scene>
+        <!--Gif3 View Controller-->
+        <scene sceneID="ZZk-DU-0qg">
+            <objects>
+                <viewController storyboardIdentifier="gif3VC" id="1gA-WL-sxs" customClass="Gif3ViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="COb-7v-1Iu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ETf-C8-RUx" customClass="GIFImageView" customModule="Gifu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRb-KY-VH9">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="0.14744755993150685" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ltq-42-9Sg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="GOT IT!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmTapped:" destination="1gA-WL-sxs" eventType="touchUpInside" id="71V-9e-a8K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lUG-op-m6p" firstAttribute="trailing" secondItem="PRb-KY-VH9" secondAttribute="trailing" id="D8v-08-DER"/>
+                            <constraint firstItem="PRb-KY-VH9" firstAttribute="leading" secondItem="lUG-op-m6p" secondAttribute="leading" id="NBO-wt-nCC"/>
+                            <constraint firstItem="lUG-op-m6p" firstAttribute="bottom" secondItem="ETf-C8-RUx" secondAttribute="bottom" id="UJ7-KZ-cGK"/>
+                            <constraint firstItem="lUG-op-m6p" firstAttribute="trailing" secondItem="ETf-C8-RUx" secondAttribute="trailing" id="W9w-OB-JFc"/>
+                            <constraint firstItem="ETf-C8-RUx" firstAttribute="top" secondItem="lUG-op-m6p" secondAttribute="top" id="WFC-5S-9Ba"/>
+                            <constraint firstItem="ETf-C8-RUx" firstAttribute="leading" secondItem="lUG-op-m6p" secondAttribute="leading" id="hwC-cQ-n8j"/>
+                            <constraint firstItem="lUG-op-m6p" firstAttribute="bottom" secondItem="PRb-KY-VH9" secondAttribute="bottom" id="nkC-vT-X1R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lUG-op-m6p"/>
+                    </view>
+                    <connections>
+                        <outlet property="gifView" destination="ETf-C8-RUx" id="GOi-Kg-7DB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="20n-Pi-5g7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-474" y="3036"/>
         </scene>
         <!--Setting-->
         <scene sceneID="Vk0-Rj-7Ce">

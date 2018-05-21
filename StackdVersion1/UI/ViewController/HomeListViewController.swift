@@ -14,7 +14,7 @@ import CoreData
 import Kingfisher
 
 class HomeListViewController: UIViewController, OpenedViewDelegate {
-    
+ 
     @IBOutlet weak var backFromPopupView: UIView!
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var archiveBtn: UIButton!
@@ -330,5 +330,4 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         return action
     }
 }
-
 

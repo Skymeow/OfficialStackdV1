@@ -85,7 +85,7 @@
                                                         <constraint firstItem="PQu-x4-ofJ" firstAttribute="height" secondItem="p89-tc-8d1" secondAttribute="height" multiplier="1:3.5" id="acs-jV-9YY"/>
                                                     </constraints>
                                                 </stackView>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="imP-g5-hLz">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="253" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="imP-g5-hLz">
                                                     <rect key="frame" x="0.0" y="88.5" width="243.5" height="23.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VeE-sw-4ps">

@@ -7,6 +7,7 @@ target 'Add to Stackd' do
 
   # Pods for Add to Stackd
   pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'develop'
+ pod 'Gifu'
 end
 
 target 'StackdVersion1' do
