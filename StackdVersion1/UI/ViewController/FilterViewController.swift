@@ -20,9 +20,9 @@ class FilterViewController: UIViewController {
     @IBOutlet weak var podcastLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var podcasts = [Podcast]()
-    var safaris = [Safari]()
-    var youtubes = [Youtube]()
+    var podcasts: [Podcast]?
+    var safaris: [Safari]?
+    var youtubes: [Youtube]?
     let categories = ["Articles", "Videos", "Podcasts"]
     let categoryButtons = [#imageLiteral(resourceName: "read_tapped"), #imageLiteral(resourceName: "watch_tapped"), #imageLiteral(resourceName: "listen_tapped")]
     let greyCategoryButtons = [#imageLiteral(resourceName: "read_default"), #imageLiteral(resourceName: "watch_default"), #imageLiteral(resourceName: "listen_default")]
@@ -43,9 +43,7 @@ class FilterViewController: UIViewController {
         articleButton.addTarget(self, action: #selector(articleTapped), for: .touchUpInside)
         videoButton.addTarget(self, action: #selector(videoTapped), for: .touchUpInside)
         podcastButton.addTarget(self, action: #selector(podcastTapped), for: .touchUpInside)
-        self.articleLabel.text = "\(safarisNum) Articles"
-        self.videoLabel.text = "\(youtubeNum) Videos"
-        self.podcastLabel.text = "\(podcastNum) Podcasts"
+        
         self.articleLabel.textColor = UIColor.gray
         self.videoLabel.textColor = UIColor.gray
         self.podcastLabel.textColor = UIColor.gray
@@ -54,21 +52,24 @@ class FilterViewController: UIViewController {
     @objc func observePodcastChange(notification: NSNotification) {
         if let podcasts = notification.userInfo?["podcasts"] as? [Podcast] {
             self.podcasts = podcasts
-            podcastNum = podcasts.count ?? 0
+            podcastNum = self.podcasts?.count ?? 0
+            self.podcastLabel.text = "\(podcastNum!) Podcasts"
         }
     }
     
     @objc func observeYoutubeChange(notification: NSNotification) {
         if let youtubes = notification.userInfo?["youtubes"] as? [Youtube] {
             self.youtubes = youtubes
-            youtubeNum = youtubes.count ?? 0
+            youtubeNum = self.youtubes?.count ?? 0
+            self.videoLabel.text = "\(String(describing: youtubeNum!)) Videos"
         }
     }
     
     @objc func observeSafarisChange(notification: NSNotification) {
         if let safaris = notification.userInfo?["safaris"] as? [Safari] {
             self.safaris = safaris
-            safarisNum = safaris.count ?? 0
+            safarisNum = self.safaris?.count ?? 0
+            self.articleLabel.text = "\(String(describing: safarisNum!)) Articles"
         }
     }
     
@@ -100,17 +101,4 @@ class FilterViewController: UIViewController {
     }
 }
 
-//extension FilterViewController: HomeDelegate {
-//    func passItems(podcasts: [Podcast]?, safaris: [Safari]?, youtubes: [Youtube]?) {
-//        if let podcast = podcasts {
-//            self.podcasts = podcast
-//        }
-//        if let safari = safaris {
-//            self.safaris = safari
-//        }
-//        if let youtube = youtubes {
-//            self.youtubes = youtube
-//        }
-//    }
-//}
 
