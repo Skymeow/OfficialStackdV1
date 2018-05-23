@@ -232,7 +232,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWa-d3-FUM" userLabel="Filter Container View">
                                 <rect key="frame" x="0.0" y="214" width="375" height="404"/>
                                 <connections>
-                                    <segue destination="KDn-r9-VG3" kind="embed" id="RJJ-y0-e10"/>
+                                    <segue destination="KDn-r9-VG3" kind="embed" identifier="homeToFilter" id="RJJ-y0-e10"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRg-S4-24O" userLabel="Home Container View">
@@ -409,7 +409,7 @@
         <!--Filter View Controller-->
         <scene sceneID="q0u-vz-oVw">
             <objects>
-                <viewController storyboardIdentifier="filterVC" id="KDn-r9-VG3" customClass="FilterViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="filterVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KDn-r9-VG3" customClass="FilterViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lMd-Se-PtL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="404"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

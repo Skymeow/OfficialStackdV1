@@ -26,29 +26,50 @@ class FilterViewController: UIViewController {
     let categories = ["Articles", "Videos", "Podcasts"]
     let categoryButtons = [#imageLiteral(resourceName: "read_tapped"), #imageLiteral(resourceName: "watch_tapped"), #imageLiteral(resourceName: "listen_tapped")]
     let greyCategoryButtons = [#imageLiteral(resourceName: "read_default"), #imageLiteral(resourceName: "watch_default"), #imageLiteral(resourceName: "listen_default")]
-    
+    var podcastNum: Int?
+    var youtubeNum: Int?
+    var safarisNum: Int?
     private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let homeVC = HomeViewController()
-     
+        NotificationCenter.default.addObserver(self, selector: #selector(observePodcastChange(notification:)), name: .podcasts, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(observeYoutubeChange(notification:)), name: .youtubes, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(observeSafarisChange(notification:)), name: .safaris, object: nil)
+        
         articleButton.setBackgroundImage(greyCategoryButtons[0], for: .normal)
         videoButton.setBackgroundImage(greyCategoryButtons[1], for: .normal)
         podcastButton.setBackgroundImage(greyCategoryButtons[2], for: .normal)
         articleButton.addTarget(self, action: #selector(articleTapped), for: .touchUpInside)
         videoButton.addTarget(self, action: #selector(videoTapped), for: .touchUpInside)
         podcastButton.addTarget(self, action: #selector(podcastTapped), for: .touchUpInside)
-        
-        let podcastNum = self.podcasts.count ?? 0
-        let safarisNum = self.safaris.count ?? 0
-        let youtubesNum = self.youtubes.count ?? 0
         self.articleLabel.text = "\(safarisNum) Articles"
-        self.videoLabel.text = "\(youtubesNum) Videos"
+        self.videoLabel.text = "\(youtubeNum) Videos"
         self.podcastLabel.text = "\(podcastNum) Podcasts"
         self.articleLabel.textColor = UIColor.gray
         self.videoLabel.textColor = UIColor.gray
         self.podcastLabel.textColor = UIColor.gray
+    }
+    
+    @objc func observePodcastChange(notification: NSNotification) {
+        if let podcasts = notification.userInfo?["podcasts"] as? [Podcast] {
+            self.podcasts = podcasts
+            podcastNum = podcasts.count ?? 0
+        }
+    }
+    
+    @objc func observeYoutubeChange(notification: NSNotification) {
+        if let youtubes = notification.userInfo?["youtubes"] as? [Youtube] {
+            self.youtubes = youtubes
+            youtubeNum = youtubes.count ?? 0
+        }
+    }
+    
+    @objc func observeSafarisChange(notification: NSNotification) {
+        if let safaris = notification.userInfo?["safaris"] as? [Safari] {
+            self.safaris = safaris
+            safarisNum = safaris.count ?? 0
+        }
     }
     
     @objc func articleTapped() {
@@ -79,16 +100,17 @@ class FilterViewController: UIViewController {
     }
 }
 
-extension FilterViewController: HomeDelegate {
-    func passItems(podcasts: [Podcast]?, safaris: [Safari]?, youtubes: [Youtube]?) {
-        if let podcast = podcasts {
-            self.podcasts = podcast
-        }
-        if let safari = safaris {
-            self.safaris = safari
-        }
-        if let youtube = youtubes {
-            self.youtubes = youtube
-        }
-    }
-}
+//extension FilterViewController: HomeDelegate {
+//    func passItems(podcasts: [Podcast]?, safaris: [Safari]?, youtubes: [Youtube]?) {
+//        if let podcast = podcasts {
+//            self.podcasts = podcast
+//        }
+//        if let safari = safaris {
+//            self.safaris = safari
+//        }
+//        if let youtube = youtubes {
+//            self.youtubes = youtube
+//        }
+//    }
+//}
+
