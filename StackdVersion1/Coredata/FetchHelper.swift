@@ -13,7 +13,8 @@ enum Route {
     case podcast
     case youtube
     case safari
-    case allItem
+    case allItemArchived
+    case allItemUnArchived
     
     func setSortDescriptor() -> [NSSortDescriptor]? {
         switch self {
@@ -29,7 +30,7 @@ enum Route {
             let dateDescriptor = NSSortDescriptor(key: #keyPath(Safari.date), ascending: true)
             let rowDescriptor = NSSortDescriptor(key: #keyPath(Safari.rearrangedRow), ascending: true)
             return [rowDescriptor, dateDescriptor]
-        case .allItem:
+        case .allItemArchived, .allItemUnArchived:
             let rowDescriptor = NSSortDescriptor(key: #keyPath(AllItem.rearrangedRow), ascending: true)
             let dateDescriptor = NSSortDescriptor(key: #keyPath(AllItem.date), ascending: false)
             return [rowDescriptor, dateDescriptor]
@@ -69,6 +70,17 @@ func fetchAll<T: NSManagedObject>(_ entityName: T.Type, route: Route, sortDescri
     let coreDataStack = CoreDataStack.instance
     let fetchRequest = NSFetchRequest<T>(entityName: NSStringFromClass(T.self))
     
+    if route == .allItemArchived {
+        let result = NSPredicate(format: "archived == true")
+        fetchRequest.predicate = result
+    } else if route == .allItemUnArchived {
+        let result = NSPredicate(format: "archived == false")
+        fetchRequest.predicate = result
+    } else {
+        let result = NSPredicate(format: "archived == false")
+        fetchRequest.predicate = result
+    }
+    
     if sortDescriptor != nil {
         fetchRequest.sortDescriptors = sortDescriptor!
     } else {
@@ -85,34 +97,3 @@ func fetchAll<T: NSManagedObject>(_ entityName: T.Type, route: Route, sortDescri
     
     return results!
 }
-
-//  fetch all archived items
-func fetchAllArchived<T: NSManagedObject>(_ entityName: T.Type, route: Route, sortDescriptor: [NSSortDescriptor]? = nil) -> [T] {
-    var results: [T]?
-    let coreDataStack = CoreDataStack.instance
-    let fetchRequest = NSFetchRequest<T>(entityName: NSStringFromClass(T.self))
-    
-    let result = NSPredicate(format: "archived == true")
-    fetchRequest.predicate = result
-    if sortDescriptor != nil {
-        fetchRequest.sortDescriptors = sortDescriptor!
-    }else {
-        fetchRequest.sortDescriptors = route.setSortDescriptor()
-    }
-    
-    fetchRequest.returnsObjectsAsFaults = false
-    
-    do {
-        results = try coreDataStack.privateContext.fetch(fetchRequest)
-    } catch {
-        assert(false, error.localizedDescription)
-    }
-    
-    return results!
-}
-
-
-
-
-
-

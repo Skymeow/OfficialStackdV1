@@ -19,7 +19,7 @@ import CoreData
         super.viewDidLoad()
         
         guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
-        successView.configureView(title: "Saved to Stacked", at: self.view.center)
+        successView.configureView(title: "Saved", at: self.view.center)
         self.view.addSubview(successView)
         
         
@@ -40,6 +40,7 @@ import CoreData
                                 youtube.cellType = "youtube"
                                 youtube.date = Date()
                                 youtube.rearrangedRow = -1
+                                youtube.archived = false
 //                                run these three task in serial queue async
                                 let queue = DispatchQueue(label: "synctask")
                                 queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
@@ -66,6 +67,7 @@ import CoreData
                         podcast.cellType = "podcast"
                         podcast.date = Date()
                         podcast.rearrangedRow = -1
+                        podcast.archived = false
                         let queue = DispatchQueue(label: "synctask")
                         queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
                             self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
@@ -88,6 +90,7 @@ import CoreData
                                 safari.cellType = "safari"
                                 safari.date = Date()
                                 safari.rearrangedRow = -1
+                                safari.archived = false
                                 Networking.instance.analyzeTime(url: urlStr) { (success, timeStr) in
                                     if success {
                                        safari.duration = timeStr

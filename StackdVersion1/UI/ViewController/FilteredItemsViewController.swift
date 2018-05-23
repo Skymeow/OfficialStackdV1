@@ -184,7 +184,7 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var genericCell: UITableViewCell?
         let item = self.items![indexPath.row]
-        let type = item.cellType!
+        let type = item.cellType ?? "podcast"
         switch type {
         case "podcast":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {

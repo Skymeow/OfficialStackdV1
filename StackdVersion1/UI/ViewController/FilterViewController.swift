@@ -18,6 +18,7 @@ class FilterViewController: UIViewController {
     @IBOutlet weak var articleLabel: UILabel!
     @IBOutlet weak var videoLabel: UILabel!
     @IBOutlet weak var podcastLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var podcasts = [Podcast]()
     var safaris = [Safari]()
@@ -25,9 +26,13 @@ class FilterViewController: UIViewController {
     let categories = ["Articles", "Videos", "Podcasts"]
     let categoryButtons = [#imageLiteral(resourceName: "read_tapped"), #imageLiteral(resourceName: "watch_tapped"), #imageLiteral(resourceName: "listen_tapped")]
     let greyCategoryButtons = [#imageLiteral(resourceName: "read_default"), #imageLiteral(resourceName: "watch_default"), #imageLiteral(resourceName: "listen_default")]
+    
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let homeVC = HomeViewController()
+     
         articleButton.setBackgroundImage(greyCategoryButtons[0], for: .normal)
         videoButton.setBackgroundImage(greyCategoryButtons[1], for: .normal)
         podcastButton.setBackgroundImage(greyCategoryButtons[2], for: .normal)
@@ -35,12 +40,9 @@ class FilterViewController: UIViewController {
         videoButton.addTarget(self, action: #selector(videoTapped), for: .touchUpInside)
         podcastButton.addTarget(self, action: #selector(podcastTapped), for: .touchUpInside)
         
-        self.podcasts = fetchAll(Podcast.self, route: .podcast)
-        self.safaris = fetchAll(Safari.self, route: .safari)
-        self.youtubes = fetchAll(Youtube.self, route: .youtube)
-        let podcastNum = self.podcasts.count
-        let safarisNum = self.safaris.count
-        let youtubesNum = self.youtubes.count
+        let podcastNum = self.podcasts.count ?? 0
+        let safarisNum = self.safaris.count ?? 0
+        let youtubesNum = self.youtubes.count ?? 0
         self.articleLabel.text = "\(safarisNum) Articles"
         self.videoLabel.text = "\(youtubesNum) Videos"
         self.podcastLabel.text = "\(podcastNum) Podcasts"
@@ -74,5 +76,19 @@ class FilterViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "filteredItemsVC") as! FilteredItemsViewController
         vc.items = self.podcasts
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+}
+
+extension FilterViewController: HomeDelegate {
+    func passItems(podcasts: [Podcast]?, safaris: [Safari]?, youtubes: [Youtube]?) {
+        if let podcast = podcasts {
+            self.podcasts = podcast
+        }
+        if let safari = safaris {
+            self.safaris = safari
+        }
+        if let youtube = youtubes {
+            self.youtubes = youtube
+        }
     }
 }

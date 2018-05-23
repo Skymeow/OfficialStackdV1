@@ -20,15 +20,22 @@ extension String {
         replace = replace.replacingOccurrences(of: "M", with: " Min, ")
         replace = replace.replacingOccurrences(of: "S", with: " Sec")
         replace = replace.replacingOccurrences(of: "PT", with: "")
-        
+//        let replace = self.split(separator: "H")
+//        let arrMins = replace[1].split(separator: "M")
+//        let onlyMins = arrMins[0]
+//        let mins = String(onlyMins)
+//
+//        return mins
         return replace
     }
     
     func formatDurationForArticle() -> String {
-        var replace = self.replacingOccurrences(of: ":", with: " Min, ")
-        replace = replace + " Sec"
-        print(replace)
-        return replace
+//        var replace = self.replacingOccurrences(of: ":", with: " Min, ")
+        let replace = self.split(separator: ":")
+        let mins = replace[0] + " Min"
+        let fullStr = String(mins)
+        
+        return fullStr
     }
     
     func getSafariSource() -> String {

@@ -22,10 +22,10 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     @IBOutlet weak var popupComeFrom: UILabel!
     @IBOutlet weak var popupSource: UILabel!
     var initialIndexPath: IndexPath? = nil
-    
     var selectedIndex: IndexPath?
     let coreDataStack = CoreDataStack.instance
     var selected: AllItem!
+    private let refreshControl = UIRefreshControl()
     var allItems: [AllItem]? {
         didSet {
             DispatchQueue.main.async {
@@ -38,7 +38,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
         centerX.constant = -1000
@@ -52,13 +52,28 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         
         let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
+        self.loadItems()
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for:  .valueChanged)
         
         backFromPopupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissXis)))
 
         deleteBtn.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
         archiveBtn.addTarget(self, action: #selector(archiveTapped), for: .touchUpInside)
         
-        self.allItems = fetchAll(AllItem.self, route: .allItem)
+    }
+    
+    func loadItems() {
+       self.allItems = fetchAll(AllItem.self, route: .allItemUnArchived)
+    }
+    
+    @objc private func refreshData(_ sender: Any) {
+        self.loadItems()
     }
     
    @objc func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
@@ -191,6 +206,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 let img = UIImage(named: "listen_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
+                cell.createdAt.text = item.date?.toString()
                 
             }
         case "safari":
@@ -202,6 +218,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 let img = UIImage(named: "read_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
+                cell.createdAt.text = item.date?.toString()
             }
         case "youtube":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
@@ -214,6 +231,9 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 let img = UIImage(named: "watch_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
+                cell.createdDate.text = item.date?.toString()
+                let tags = item.tag
+                print(tags)
             }
         default:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {

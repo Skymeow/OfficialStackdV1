@@ -61,6 +61,7 @@
 		F940B5DD206DC884007CE630 /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CF206DC884007CE630 /* KeyCenter.swift */; };
 		F940B5E0206DC89D007CE630 /* FadingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5DE206DC89D007CE630 /* FadingAlertView.swift */; };
 		F940B5E1206DC89D007CE630 /* FadingAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F940B5DF206DC89D007CE630 /* FadingAlertView.xib */; };
+		F947AE1B20B2B05D00B138B5 /* DateToStr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F947AE1A20B2B05D00B138B5 /* DateToStr.swift */; };
 		F964CDC5207C3F810064E40C /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F964CDC4207C3F810064E40C /* Kingfisher.framework */; };
 		F964CDC6207C3F810064E40C /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F964CDC4207C3F810064E40C /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F97EC34120A0029100CED0F5 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34020A0029100CED0F5 /* UIImageExtension.swift */; };
@@ -190,6 +191,7 @@
 		F940B5CF206DC884007CE630 /* KeyCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCenter.swift; sourceTree = "<group>"; };
 		F940B5DE206DC89D007CE630 /* FadingAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadingAlertView.swift; sourceTree = "<group>"; };
 		F940B5DF206DC89D007CE630 /* FadingAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FadingAlertView.xib; sourceTree = "<group>"; };
+		F947AE1A20B2B05D00B138B5 /* DateToStr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStr.swift; sourceTree = "<group>"; };
 		F964CDC4207C3F810064E40C /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		F97EC34020A0029100CED0F5 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		F97EC34220A005B700CED0F5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 				F97EC34020A0029100CED0F5 /* UIImageExtension.swift */,
 				F97EC34220A005B700CED0F5 /* UIColorExtension.swift */,
 				F9076CF720B27F57001C43AF /* Storyboad & Utility.swift */,
+				F947AE1A20B2B05D00B138B5 /* DateToStr.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				F936C4BE20813219002D4E4D /* LoadingIndicatorView.swift in Sources */,
 				F9076CF320B277ED001C43AF /* Gif2ViewController.swift in Sources */,
 				F940B5D1206DC884007CE630 /* Video.swift in Sources */,
+				F947AE1B20B2B05D00B138B5 /* DateToStr.swift in Sources */,
 				F9076CF820B27F57001C43AF /* Storyboad & Utility.swift in Sources */,
 				F9076CEF20B27782001C43AF /* OnboardingPageViewController.swift in Sources */,
 				F940B5D9206DC884007CE630 /* CoreDataInitializable.swift in Sources */,

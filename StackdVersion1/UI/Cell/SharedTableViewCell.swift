@@ -10,6 +10,8 @@ import UIKit
 
 class SharedTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var createdAt: UILabel!
     @IBOutlet weak var sourceLogo: UIImageView!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var duration: UILabel!

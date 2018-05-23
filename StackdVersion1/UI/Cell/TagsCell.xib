@@ -19,8 +19,8 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXk-Us-HcQ">
-                        <rect key="frame" x="15" y="56.5" width="225" height="16"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                        <rect key="frame" x="15" y="1" width="225" height="126"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -28,14 +28,16 @@
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="kXk-Us-HcQ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="8xl-5a-m2n"/>
+                <constraint firstAttribute="bottom" secondItem="kXk-Us-HcQ" secondAttribute="bottom" constant="1" id="KSq-mV-SZ2"/>
                 <constraint firstAttribute="trailing" secondItem="kXk-Us-HcQ" secondAttribute="trailing" constant="15" id="WZo-Nf-cN1"/>
                 <constraint firstItem="kXk-Us-HcQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="hUF-Mw-K9c"/>
+                <constraint firstItem="kXk-Us-HcQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="uNa-9t-UgO"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="234" height="128"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                    <integer key="value" value="15"/>
+                    <integer key="value" value="5"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
             </userDefinedRuntimeAttributes>

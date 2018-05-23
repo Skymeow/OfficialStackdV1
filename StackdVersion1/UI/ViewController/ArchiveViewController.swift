@@ -22,6 +22,8 @@ class ArchiveViewController: UIViewController {
         }
     }
     
+    private let refreshControl = UIRefreshControl()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -36,8 +38,24 @@ class ArchiveViewController: UIViewController {
         let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
         
-//        fetch all archived Items
-        self.items = fetchAllArchived(AllItem.self, route: .allItem)
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for:  .valueChanged)
+        
+        self.loadItems()
+    }
+    
+    func loadItems() {
+        //        fetch all archived Items
+        self.items = fetchAll(AllItem.self, route: .allItemArchived)
+    }
+    
+    @objc func refreshData(_ sender: Any) {
+        self.loadItems()
     }
     
 }

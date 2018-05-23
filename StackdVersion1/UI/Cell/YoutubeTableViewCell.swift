@@ -22,29 +22,35 @@ class YoutubeTableViewCell: UITableViewCell {
     var tagsData = ["politics", "cucumber kalalalala", "dsdsfdsfadsf", "sdfsd"]
     override func awakeFromNib() {
         super.awakeFromNib()
-//        let tagCell = UINib(nibName: "TagsCell", bundle: Bundle.main)
-//        collectionView.register(tagCell, forCellWithReuseIdentifier: "TagsCell")
-//
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
-//        layout.itemSize = CGSize(width: 45, height: 20)
-//        collectionView.setCollectionViewLayout(layout, animated: false)
+        let tagCell = UINib(nibName: "TagsCell", bundle: Bundle.main)
+    
+
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
+        layout.itemSize = CGSize(width: 45, height: 20)
+        layout.sectionInset = .zero
+        collectionView.collectionViewLayout = layout
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(tagCell, forCellWithReuseIdentifier: "TagsCell")
 //        collectionView.reloadData()
         
     }
     
     override func layoutSubviews() {
-        let tagCell = UINib(nibName: "TagsCell", bundle: Bundle.main)
-        collectionView.register(tagCell, forCellWithReuseIdentifier: "TagsCell")
+//        let tagCell = UINib(nibName: "TagsCell", bundle: Bundle.main)
+//
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
+//        layout.itemSize = CGSize(width: 45, height: 20)
+//        collectionView.setCollectionViewLayout(layout, animated: false)
+//
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
+//        collectionView.register(tagCell, forCellWithReuseIdentifier: "TagsCell")
+//
+////        collectionView.reloadData()
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
-        layout.itemSize = CGSize(width: 45, height: 20)
-        collectionView.setCollectionViewLayout(layout, animated: false)
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.reloadData()
     }
     
 }
@@ -56,7 +62,7 @@ extension YoutubeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return tagsData.count
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
