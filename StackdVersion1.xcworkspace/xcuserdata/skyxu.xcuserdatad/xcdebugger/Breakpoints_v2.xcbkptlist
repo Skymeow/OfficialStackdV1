@@ -211,53 +211,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "StackdVersion1/UI/Cell/YoutubeTableViewCell.swift"
-            timestampString = "548890318.909564"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "layoutSubviews()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "StackdVersion1.YoutubeTableViewCell.layoutSubviews() -&gt; ()"
-                  moduleName = "StackdVersion1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyxu/code/IOS/StackdVersion1/StackdVersion1/UI/Cell/YoutubeTableViewCell.swift"
-                  timestampString = "548889907.4407949"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "276">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.String in StackdVersion1.YoutubeTableViewCell.layoutSubviews() -&gt; ()"
-                  moduleName = "StackdVersion1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/skyxu/code/IOS/StackdVersion1/StackdVersion1/UI/Cell/YoutubeTableViewCell.swift"
-                  timestampString = "548889907.4440759"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

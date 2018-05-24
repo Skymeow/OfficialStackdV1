@@ -27,8 +27,6 @@
 		F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
 		F90CF76E2070770F00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
 		F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */; };
-		F90CF77220708BE500174AA2 /* SharedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */; };
-		F90CF77420708BF600174AA2 /* YoutubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90CF77320708BF600174AA2 /* YoutubeTableViewCell.xib */; };
 		F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7762070961600174AA2 /* TabelViewCellItem.swift */; };
 		F90CF7982072E13A00174AA2 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7972072E13A00174AA2 /* FilterViewController.swift */; };
 		F90CF79A2072E16700174AA2 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7992072E16700174AA2 /* HomeListViewController.swift */; };
@@ -65,6 +63,8 @@
 		F947AE1B20B2B05D00B138B5 /* DateToStr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F947AE1A20B2B05D00B138B5 /* DateToStr.swift */; };
 		F964CDC5207C3F810064E40C /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F964CDC4207C3F810064E40C /* Kingfisher.framework */; };
 		F964CDC6207C3F810064E40C /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F964CDC4207C3F810064E40C /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F9727ECA20B771F20015AC07 /* YoutubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9727EC920B771F20015AC07 /* YoutubeTableViewCell.xib */; };
+		F9727ECC20B7807F0015AC07 /* SharedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9727ECB20B7807F0015AC07 /* SharedTableViewCell.xib */; };
 		F97EC34120A0029100CED0F5 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34020A0029100CED0F5 /* UIImageExtension.swift */; };
 		F97EC34320A005B700CED0F5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34220A005B700CED0F5 /* UIColorExtension.swift */; };
 		F97EC34520A0DB4C00CED0F5 /* ArchiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */; };
@@ -154,8 +154,6 @@
 		F9076CF720B27F57001C43AF /* Storyboad & Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboad & Utility.swift"; sourceTree = "<group>"; };
 		F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistantContainer.swift; sourceTree = "<group>"; };
 		F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTableViewCell.swift; sourceTree = "<group>"; };
-		F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedTableViewCell.xib; sourceTree = "<group>"; };
-		F90CF77320708BF600174AA2 /* YoutubeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubeTableViewCell.xib; sourceTree = "<group>"; };
 		F90CF7762070961600174AA2 /* TabelViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabelViewCellItem.swift; sourceTree = "<group>"; };
 		F90CF7972072E13A00174AA2 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		F90CF7992072E16700174AA2 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +193,8 @@
 		F940B5DF206DC89D007CE630 /* FadingAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FadingAlertView.xib; sourceTree = "<group>"; };
 		F947AE1A20B2B05D00B138B5 /* DateToStr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStr.swift; sourceTree = "<group>"; };
 		F964CDC4207C3F810064E40C /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		F9727EC920B771F20015AC07 /* YoutubeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YoutubeTableViewCell.xib; path = "../../../../../../Downloads/OfficialStackdV1-0608ca2689572219678a1b228bc4ab15b2e6a3c1/StackdVersion1/UI/Cell/YoutubeTableViewCell.xib"; sourceTree = "<group>"; };
+		F9727ECB20B7807F0015AC07 /* SharedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SharedTableViewCell.xib; path = "../../../../../../Downloads/OfficialStackdV1-871b8144ce6bf15b190bbaa9ecc674675b6c64e4/StackdVersion1/UI/Cell/SharedTableViewCell.xib"; sourceTree = "<group>"; };
 		F97EC34020A0029100CED0F5 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		F97EC34220A005B700CED0F5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveHeaderView.swift; sourceTree = "<group>"; };
@@ -388,10 +388,10 @@
 			children = (
 				F9408EED20B1FD4F003BB8B1 /* TagsCell.swift */,
 				F9408EEE20B1FD4F003BB8B1 /* TagsCell.xib */,
+				F9727ECB20B7807F0015AC07 /* SharedTableViewCell.xib */,
 				F940B5BA206DC883007CE630 /* SharedTableViewCell.swift */,
+				F9727EC920B771F20015AC07 /* YoutubeTableViewCell.xib */,
 				F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */,
-				F90CF77120708BE500174AA2 /* SharedTableViewCell.xib */,
-				F90CF77320708BF600174AA2 /* YoutubeTableViewCell.xib */,
 				F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */,
 			);
 			path = Cell;
@@ -591,14 +591,14 @@
 			files = (
 				F9EBFF7A207ABB8000B0B0F3 /* FadingAlertView.xib in Resources */,
 				F936C4BD20813219002D4E4D /* LoadingIndicator.xib in Resources */,
+				F9727ECC20B7807F0015AC07 /* SharedTableViewCell.xib in Resources */,
 				F9076CEB20B271D3001C43AF /* giffirst.gif in Resources */,
 				F9076CEA20B271D3001C43AF /* giftrd.gif in Resources */,
-				F90CF77420708BF600174AA2 /* YoutubeTableViewCell.xib in Resources */,
 				F9408EF020B1FD50003BB8B1 /* TagsCell.xib in Resources */,
 				F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */,
 				F940B59A206DC156007CE630 /* Assets.xcassets in Resources */,
-				F90CF77220708BE500174AA2 /* SharedTableViewCell.xib in Resources */,
 				F9076CEC20B271D3001C43AF /* gifsec.gif in Resources */,
+				F9727ECA20B771F20015AC07 /* YoutubeTableViewCell.xib in Resources */,
 				F905BF582075873C00C7B94F /* apple-app-site-association in Resources */,
 				F940B598206DC156007CE630 /* Main.storyboard in Resources */,
 			);
