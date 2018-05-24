@@ -56,6 +56,7 @@ class ArchiveViewController: UIViewController {
     
     @objc func refreshData(_ sender: Any) {
         self.loadItems()
+        self.refreshControl.endRefreshing()
     }
     
 }
@@ -92,7 +93,13 @@ extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
                 let img = UIImage(named: "listen_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
-                
+                if let id = item.id {
+                    let tags = fetchAll(Tags.self, route: .tags(itemId: id))
+                    cell.tagsData = tags
+                    if tags.count != 0 {
+                        print("tags babe", tags[0].content!)
+                    }
+                }
             }
         case "safari":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
@@ -103,6 +110,13 @@ extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
                 let img = UIImage(named: "read_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
+                if let id = item.id {
+                    let tags = fetchAll(Tags.self, route: .tags(itemId: id))
+                    cell.tagsData = tags
+                    if tags.count != 0 {
+                        print("tags babe", tags[0].content!)
+                    }
+                }
             }
         case "youtube":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
@@ -115,6 +129,13 @@ extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
                 let img = UIImage(named: "watch_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
+                if let id = item.id {
+                    let tags = fetchAll(Tags.self, route: .tags(itemId: id))
+                    cell.tagsData = tags
+                    if tags.count != 0 {
+                        print("tags babe", tags[0].content!)
+                    }
+                }
             }
         default:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {

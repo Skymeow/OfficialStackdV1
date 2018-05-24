@@ -15,7 +15,7 @@ class Gif3ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gifView.animate(withGIFNamed: "giftrd") {
-            print("It's animating!")
+//            print("It's animating!")
         }
     }
 

@@ -74,6 +74,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     @objc private func refreshData(_ sender: Any) {
         self.loadItems()
+        self.refreshControl.endRefreshing()
     }
     
    @objc func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
@@ -207,7 +208,13 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
                 cell.createdAt.text = item.date?.toString()
-                
+                if let id = item.id {
+                    let tags = fetchAll(Tags.self, route: .tags(itemId: id))
+                    cell.tagsData = tags
+                    if tags.count != 0 {
+                        print("tags babe", tags[0].content!)
+                    }
+                }
             }
         case "safari":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
@@ -219,6 +226,13 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
                 cell.createdAt.text = item.date?.toString()
+                if let id = item.id {
+                    let tags = fetchAll(Tags.self, route: .tags(itemId: id))
+                    cell.tagsData = tags
+                    if tags.count != 0 {
+                        print("tags babe", tags[0].content!)
+                    }
+                }
             }
         case "youtube":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
@@ -232,8 +246,13 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
                 cell.createdDate.text = item.date?.toString()
-                let tags = item.tag
-                print(tags)
+                if let id = item.id {
+                    let tags = fetchAll(Tags.self, route: .tags(itemId: id))
+                    cell.tagsData = tags
+                    if tags.count != 0 {
+                        print("tags babe", tags[0].content!)
+                    }
+                }
             }
         default:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {

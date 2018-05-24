@@ -15,6 +15,7 @@ enum Route {
     case safari
     case allItemArchived
     case allItemUnArchived
+    case tags(itemId: String)
     
     func setSortDescriptor() -> [NSSortDescriptor]? {
         switch self {
@@ -34,10 +35,27 @@ enum Route {
             let rowDescriptor = NSSortDescriptor(key: #keyPath(AllItem.rearrangedRow), ascending: true)
             let dateDescriptor = NSSortDescriptor(key: #keyPath(AllItem.date), ascending: false)
             return [rowDescriptor, dateDescriptor]
+        case let .tags(itemId):
+            return nil
         default:
             let dateDescriptor = NSSortDescriptor(key: #keyPath(AllItem.date), ascending: true)
             return [dateDescriptor]
         }
+    }
+    
+    func setPredicate() -> NSPredicate? {
+        switch self {
+        case .allItemArchived:
+             let result = NSPredicate(format: "archived == true")
+             return result
+        case .allItemUnArchived, .podcast, .safari, .youtube:
+            let result = NSPredicate(format: "archived == false")
+            return result
+        case let .tags(itemId):
+            let result = NSPredicate(format: "itemId == %@", itemId)
+            return result
+        }
+        
     }
 }
 
@@ -69,18 +87,9 @@ func fetchAll<T: NSManagedObject>(_ entityName: T.Type, route: Route, sortDescri
     var results: [T]?
     let coreDataStack = CoreDataStack.instance
     let fetchRequest = NSFetchRequest<T>(entityName: NSStringFromClass(T.self))
-    
-    if route == .allItemArchived {
-        let result = NSPredicate(format: "archived == true")
-        fetchRequest.predicate = result
-    } else if route == .allItemUnArchived {
-        let result = NSPredicate(format: "archived == false")
-        fetchRequest.predicate = result
-    } else {
-        let result = NSPredicate(format: "archived == false")
-        fetchRequest.predicate = result
-    }
-    
+    let predicate = route.setPredicate()
+    fetchRequest.predicate = predicate
+   
     if sortDescriptor != nil {
         fetchRequest.sortDescriptors = sortDescriptor!
     } else {

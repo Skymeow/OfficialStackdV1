@@ -27,16 +27,25 @@ class TagsViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func cancelTapped(_ sender: UIButton) {
-//        self.dismiss(animated: true, completion: nil)
          self.navigationController?.popViewController(animated: false)
+    }
+    
+    func configureTagedModal() {
+        guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
+        successView.configureView(title: "Taged", at: self.view.center)
+        self.view.addSubview(successView)
+        successView.hide()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         tagTextField.resignFirstResponder()
         if tagTextField.text?.isEmpty == false {
             let tag = tagTextField.text
-            self.selected?.setValue(tag, forKey: "tag")
+            let coredataTag = Tags(context: coreDataStack.privateContext)
+            coredataTag.content = tag
+            coredataTag.itemId = selected?.id
             self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+            self.configureTagedModal()
         } else {
 //            show alert view that the tag field is empty
             AlertView.instance.presentAlertView("Please enter a valid tag keyword", self)

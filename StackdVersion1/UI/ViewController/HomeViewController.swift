@@ -9,9 +9,6 @@
 import UIKit
 import CoreData
 
-//protocol HomeDelegate: class {
-//    func passItems(podcasts: [Podcast]?, safaris: [Safari]?, youtubes: [Youtube]?)
-//}
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var filterContainerView: UIView!
@@ -20,7 +17,7 @@ class HomeViewController: UIViewController {
     var isFilterTagged = false
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UserDefaults.standard.set(true, forKey: "saw_onboarding")
         self.navigationController?.navigationBar.isHidden = true
         let frame = CGRect(x: 0, y: 0, width: headerView.frame.size.width, height: 150)
         let customizedHeaderView = CustomHeaderView(frame: frame)

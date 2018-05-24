@@ -34,6 +34,8 @@ import CoreData
                         youtube.urlStr = string
                         Networking.instance.getYoutubeDetail(youtubeUrl: string) { (success, result) in
                             if success {
+                                let id = UUID().uuidString
+                                youtube.id = id
                                 youtube.duration  = result.duration
                                 youtube.videoThumbnail = result.thumbnailUrl
                                 youtube.title = result.videoTitle
@@ -59,6 +61,7 @@ import CoreData
                     if let url = item as? NSURL {
                         let title = url.cutStringPath()
                         let urlStr = url.absoluteString
+                        let id = UUID().uuidString
                         //   instantiate coredata MO for podcast
                         let podcast = Podcast(context: self.coreDataStack.privateContext)
                         podcast.urlStr = urlStr
@@ -68,6 +71,7 @@ import CoreData
                         podcast.date = Date()
                         podcast.rearrangedRow = -1
                         podcast.archived = false
+                        podcast.id = id
                         let queue = DispatchQueue(label: "synctask")
                         queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
                             self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
@@ -85,6 +89,8 @@ import CoreData
                                 let title = results["title"] as? String,
                                 let urlStr = results["URL"] as? String {
                                 let safari = Safari(context: self.coreDataStack.privateContext)
+                                let id = UUID().uuidString
+                                safari.id = id
                                 safari.urlStr = urlStr
                                 safari.title = title
                                 safari.cellType = "safari"

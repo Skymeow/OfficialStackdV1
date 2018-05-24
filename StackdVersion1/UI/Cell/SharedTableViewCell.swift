@@ -16,16 +16,23 @@ class SharedTableViewCell: UITableViewCell {
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var sourceTitle: UILabel!
-    
-    var sharedItems: [Any]? {
-        didSet {
-            guard let sharedItems = (sharedItems as? [Podcast])
-            else { return }
-        }
-    }
+    @IBOutlet weak var tagLabel1: UILabel!
+    @IBOutlet weak var tagLabel2: UILabel!
+    @IBOutlet weak var tagLabel3: UILabel!
+    var tagsData: [Tags]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        if let tags = self.tagsData {
+            for tag in tags{
+                tagLabel1.text = tag.content ?? ""
+                tagLabel1.adjustsFontSizeToFitWidth = true
+                tagLabel2.text = tag.content ?? ""
+                tagLabel2.adjustsFontSizeToFitWidth = true
+                tagLabel3.text = tag.content ?? ""
+                tagLabel3.adjustsFontSizeToFitWidth = true
+            }
+        }
     }
 }
