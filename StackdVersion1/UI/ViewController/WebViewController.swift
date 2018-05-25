@@ -27,6 +27,7 @@ class WebViewController: UIViewController, WKUIDelegate {
         view = webView
         let frame = CGRect(x: 0, y: 0, width: 85, height: 45)
         let customizedBackView = StackdWebLabelView(frame: frame)
+        customizedBackView.backgroundColor = .white
         customizedBackView.delegate = self
         view.addSubview(customizedBackView)
     }

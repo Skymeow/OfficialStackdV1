@@ -197,9 +197,9 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-                    if tags.count != 0 {
-                        print("tags babe", tags[0].content!)
-                    }
+//                    if tags.count != 0 {
+//                        print("tags babe", tags[0].content!)
+//                    }
                 }
             }
         case "safari":
@@ -214,9 +214,9 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-                    if tags.count != 0 {
-                        print("tags babe", tags[0].content!)
-                    }
+//                    if tags.count != 0 {
+//                        print("tags babe", tags[0].content!)
+//                    }
                 }
             }
         case "youtube":
@@ -233,9 +233,9 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-                    if tags.count != 0 {
-                        print("tags babe", tags[0].content!)
-                    }
+//                    if tags.count != 0 {
+//                        print("tags babe", tags[0].content!)
+//                    }
                 }
             }
         default:

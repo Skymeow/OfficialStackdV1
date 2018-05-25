@@ -96,9 +96,9 @@ extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-                    if tags.count != 0 {
-                        print("tags babe", tags[0].content!)
-                    }
+//                    if tags.count != 0 {
+//                        print("tags babe", tags[0].content!)
+//                    }
                 }
             }
         case "safari":
@@ -113,9 +113,9 @@ extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-                    if tags.count != 0 {
-                        print("tags babe", tags[0].content!)
-                    }
+//                    if tags.count != 0 {
+//                        print("tags babe", tags[0].content!)
+//                    }
                 }
             }
         case "youtube":
@@ -132,9 +132,9 @@ extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-                    if tags.count != 0 {
-                        print("tags babe", tags[0].content!)
-                    }
+//                    if tags.count != 0 {
+//                        print("tags babe", tags[0].content!)
+//                    }
                 }
             }
         default:

@@ -53,12 +53,11 @@ class StackdWebLabelView: UIView {
     func setConstraints() {
         
         btn.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(1)
-            make.bottom.equalToSuperview().offset(1)
+            make.centerY.equalTo(titleLabel.snp.centerY)
             make.left.equalToSuperview().offset(3)
             make.right.equalTo(titleLabel.snp.left).offset(1)
             make.width.equalTo(25)
-            make.height.equalTo(self.bounds.height - 2)
+            make.height.equalTo(self.bounds.height * 0.5)
         }
         
         titleLabel.snp.makeConstraints { (make) in
