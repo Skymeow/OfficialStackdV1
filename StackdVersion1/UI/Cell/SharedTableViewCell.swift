@@ -25,7 +25,8 @@ class SharedTableViewCell: UITableViewCell {
         let tagCell = UINib(nibName: "TagsCell", bundle: Bundle.main)
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionViewScrollDirection.horizontal
-        layout.itemSize = CGSize(width: 45, height: 20)
+//        layout.itemSize = CGSize(width: 45, height: 20)
+        layout.estimatedItemSize = CGSize(width: 50, height: 20)
         layout.sectionInset = .zero
         collectionView.collectionViewLayout = layout
         collectionView.delegate = self
@@ -54,13 +55,3 @@ extension SharedTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
 }
-
-//extension YoutubeTableViewCell: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = CGFloat(25)
-//
-//        return CGSize(width: width, height: collectionView.bounds.height - 2)
-//    }
-//}
-
-

@@ -25,9 +25,20 @@ class TagsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tagTextField: UITextField!
     
-    
+//    CHANGED INTO SAVE TAPPED
     @IBAction func cancelTapped(_ sender: UIButton) {
-         self.navigationController?.popViewController(animated: false)
+        if tagTextField.text?.isEmpty == false {
+            let tag = tagTextField.text
+            let coredataTag = Tags(context: coreDataStack.privateContext)
+            coredataTag.content = tag
+            coredataTag.itemId = selected?.id
+            self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+            self.configureTagedModal()
+        } else {
+            //            show alert view that the tag field is empty
+            AlertView.instance.presentAlertView("Please enter a valid tag keyword", self)
+        }
+        self.navigationController?.popViewController(animated: false)
     }
     
     func configureTagedModal() {

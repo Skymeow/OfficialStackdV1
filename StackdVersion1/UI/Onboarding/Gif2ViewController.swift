@@ -10,15 +10,19 @@ import UIKit
 import Gifu
 
 class Gif2ViewController: UIViewController {
-
-
     @IBOutlet weak var gifView: GIFImageView!
+    
+    @IBAction func skipTapped(_ sender: UIButton) {
+        let initialViewController = UIStoryboard.initialViewController(for: .main)
+        self.view.window?.rootViewController = initialViewController
+        self.view.window?.makeKeyAndVisible()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gifView.animate(withGIFNamed: "gifsec") {
             print("It's animating!")
         }
-
     }
 
   

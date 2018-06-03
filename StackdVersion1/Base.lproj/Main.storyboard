@@ -47,7 +47,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCq-Yg-xw1">
-                                <rect key="frame" x="1000" y="467" width="375" height="200"/>
+                                <rect key="frame" x="-1000" y="467" width="375" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sue-Qh-i2c" userLabel="Top Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
@@ -120,7 +120,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="7dS-hr-pHl" firstAttribute="bottom" secondItem="TDK-pY-5Ir" secondAttribute="bottom" id="IuP-BR-6OA"/>
-                            <constraint firstItem="uCq-Yg-xw1" firstAttribute="centerX" secondItem="2tz-fk-2Xt" secondAttribute="centerX" constant="1000" id="bDF-zR-YpO"/>
+                            <constraint firstItem="uCq-Yg-xw1" firstAttribute="centerX" secondItem="2tz-fk-2Xt" secondAttribute="centerX" constant="-1000" id="bDF-zR-YpO"/>
                             <constraint firstItem="TDK-pY-5Ir" firstAttribute="top" secondItem="7dS-hr-pHl" secondAttribute="top" id="dW9-hs-1Xn"/>
                             <constraint firstItem="7dS-hr-pHl" firstAttribute="trailing" secondItem="TDK-pY-5Ir" secondAttribute="trailing" id="ssh-ab-jfS"/>
                             <constraint firstItem="TDK-pY-5Ir" firstAttribute="leading" secondItem="7dS-hr-pHl" secondAttribute="leading" id="v4b-wd-S8m"/>
@@ -173,13 +173,16 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uq0-QA-nXf">
-                                        <rect key="frame" x="325" y="37" width="40" height="55"/>
+                                    <button opaque="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uq0-QA-nXf">
+                                        <rect key="frame" x="320" y="36.5" width="45" height="55"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="R7Y-kh-U9D"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="cLf-Fe-zwM"/>
                                             <constraint firstAttribute="height" constant="55" id="i6H-Fw-s78"/>
                                         </constraints>
-                                        <state key="normal" image="cancel"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="cancelTapped:" destination="79F-Fs-Ngz" eventType="touchUpInside" id="C1b-oe-LFr"/>
                                         </connections>
@@ -735,15 +738,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ekD-eW-P8g" customClass="GIFImageView" customModule="Gifu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmX-s2-qql">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="0.1474475599" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="et2-LL-O2C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="GOT IT!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmTapped:" destination="1gA-WL-sxs" eventType="touchUpInside" id="Q2V-NX-orI"/>
+                                    <action selector="skipTapped:" destination="W3C-yb-m18" eventType="touchUpInside" id="NBk-re-xIM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="SmX-s2-qql" secondAttribute="trailing" id="4ei-Fh-fnk"/>
+                            <constraint firstItem="SmX-s2-qql" firstAttribute="leading" secondItem="vUg-qa-0Bp" secondAttribute="leading" id="N6x-8k-sV3"/>
                             <constraint firstItem="vUg-qa-0Bp" firstAttribute="bottom" secondItem="ekD-eW-P8g" secondAttribute="bottom" id="Nhy-XS-TQ0"/>
                             <constraint firstItem="vUg-qa-0Bp" firstAttribute="trailing" secondItem="ekD-eW-P8g" secondAttribute="trailing" id="h1g-wo-oge"/>
+                            <constraint firstItem="vUg-qa-0Bp" firstAttribute="bottom" secondItem="SmX-s2-qql" secondAttribute="bottom" id="kUv-N0-7rw"/>
                             <constraint firstItem="ekD-eW-P8g" firstAttribute="leading" secondItem="vUg-qa-0Bp" secondAttribute="leading" id="oDd-e2-IMh"/>
-                            <constraint firstItem="ekD-eW-P8g" firstAttribute="top" secondItem="vUg-qa-0Bp" secondAttribute="top" id="udQ-ef-BAa"/>
+                            <constraint firstItem="ekD-eW-P8g" firstAttribute="top" secondItem="Xj0-Ch-PyO" secondAttribute="top" id="udQ-ef-BAa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vUg-qa-0Bp"/>
                     </view>
@@ -764,15 +785,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5jM-pD-FBa" customClass="GIFImageView" customModule="Gifu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I85-17-JJk">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="0.1474475599" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9cU-NN-eiV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="GOT IT!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmTapped:" destination="1gA-WL-sxs" eventType="touchUpInside" id="QV1-Mw-LY0"/>
+                                    <action selector="skipTapped:" destination="QO6-LU-j75" eventType="touchUpInside" id="wiK-no-NIC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5jM-pD-FBa" firstAttribute="top" secondItem="CEP-cP-HXt" secondAttribute="top" id="0Mm-71-f0o"/>
+                            <constraint firstItem="5jM-pD-FBa" firstAttribute="top" secondItem="2uZ-Qi-cDu" secondAttribute="top" id="0Mm-71-f0o"/>
+                            <constraint firstItem="I85-17-JJk" firstAttribute="leading" secondItem="CEP-cP-HXt" secondAttribute="leading" id="Egz-hg-weC"/>
                             <constraint firstItem="CEP-cP-HXt" firstAttribute="bottom" secondItem="5jM-pD-FBa" secondAttribute="bottom" id="KbJ-cI-zTp"/>
                             <constraint firstItem="CEP-cP-HXt" firstAttribute="trailing" secondItem="5jM-pD-FBa" secondAttribute="trailing" id="eWp-Hc-ecP"/>
+                            <constraint firstAttribute="trailing" secondItem="I85-17-JJk" secondAttribute="trailing" id="fl1-mX-Axx"/>
                             <constraint firstItem="5jM-pD-FBa" firstAttribute="leading" secondItem="CEP-cP-HXt" secondAttribute="leading" id="hfG-y7-Cp7"/>
+                            <constraint firstItem="CEP-cP-HXt" firstAttribute="bottom" secondItem="I85-17-JJk" secondAttribute="bottom" id="pJ0-mk-Nor"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CEP-cP-HXt"/>
                     </view>
@@ -793,7 +832,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ETf-C8-RUx" customClass="GIFImageView" customModule="Gifu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRb-KY-VH9">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -816,7 +855,7 @@
                             <constraint firstItem="PRb-KY-VH9" firstAttribute="leading" secondItem="lUG-op-m6p" secondAttribute="leading" id="NBO-wt-nCC"/>
                             <constraint firstItem="lUG-op-m6p" firstAttribute="bottom" secondItem="ETf-C8-RUx" secondAttribute="bottom" id="UJ7-KZ-cGK"/>
                             <constraint firstItem="lUG-op-m6p" firstAttribute="trailing" secondItem="ETf-C8-RUx" secondAttribute="trailing" id="W9w-OB-JFc"/>
-                            <constraint firstItem="ETf-C8-RUx" firstAttribute="top" secondItem="lUG-op-m6p" secondAttribute="top" id="WFC-5S-9Ba"/>
+                            <constraint firstItem="ETf-C8-RUx" firstAttribute="top" secondItem="COb-7v-1Iu" secondAttribute="top" id="WFC-5S-9Ba"/>
                             <constraint firstItem="ETf-C8-RUx" firstAttribute="leading" secondItem="lUG-op-m6p" secondAttribute="leading" id="hwC-cQ-n8j"/>
                             <constraint firstItem="lUG-op-m6p" firstAttribute="bottom" secondItem="PRb-KY-VH9" secondAttribute="bottom" id="nkC-vT-X1R"/>
                         </constraints>
@@ -853,7 +892,6 @@
     <resources>
         <image name="archive_background" width="256" height="75"/>
         <image name="back_grey" width="13" height="20"/>
-        <image name="cancel" width="14" height="14"/>
         <image name="popup_archive" width="31" height="25"/>
         <image name="popup_delete" width="25" height="25"/>
         <image name="setting_stackd" width="128" height="108"/>

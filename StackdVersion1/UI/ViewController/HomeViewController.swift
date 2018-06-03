@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Gifu
+import SnapKit
 
 class HomeViewController: UIViewController {
 
@@ -15,8 +17,17 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var homeContainerView: UIView!
     @IBOutlet weak var headerView: UIView!
     var isFilterTagged = false
+    var placeHolderView: ShowIfEmptyView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        let allItems = fetchAll(AllItem.self, route: .allItemUnArchived)
+        if allItems.count == 0 {
+            self.placeHolderView = ShowIfEmptyView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+            self.view.addSubview(placeHolderView!)
+        } else {
+            self.placeHolderView?.removeFromSuperview()
+        }
+        
         UserDefaults.standard.set(true, forKey: "saw_onboarding")
         self.navigationController?.navigationBar.isHidden = true
         let frame = CGRect(x: 0, y: 0, width: headerView.frame.size.width, height: 150)

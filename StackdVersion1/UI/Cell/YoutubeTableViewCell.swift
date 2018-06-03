@@ -25,7 +25,8 @@ class YoutubeTableViewCell: UITableViewCell {
         let tagCell = UINib(nibName: "TagsCell", bundle: Bundle.main)
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionViewScrollDirection.horizontal
-        layout.itemSize = CGSize(width: 45, height: 20)
+//        layout.itemSize = CGSize(width: 45, height: 20)
+        layout.estimatedItemSize = CGSize(width: 50, height: 20)
         layout.sectionInset = .zero
         collectionView.collectionViewLayout = layout
         collectionView.delegate = self

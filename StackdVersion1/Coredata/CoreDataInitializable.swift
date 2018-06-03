@@ -1,11 +1,3 @@
-//
-//  CoreDataInitializable.swift
-//  StackedV1
-//
-//  Created by Sky Xu on 3/28/18.
-//  Copyright © 2018 Sky Xu. All rights reserved.
-//
-
 import Foundation
 import CoreData
 

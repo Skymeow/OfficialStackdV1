@@ -38,7 +38,9 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let dismissPopUp = UITapGestureRecognizer(target: self, action: #selector(dismissXis))
+        self.view.addGestureRecognizer(dismissPopUp)
+        dismissPopUp.cancelsTouchesInView = false
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
         centerX.constant = -1000
@@ -61,7 +63,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for:  .valueChanged)
         
-        backFromPopupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissXis)))
+//        backFromPopupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissXis)))
 
         deleteBtn.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
         archiveBtn.addTarget(self, action: #selector(archiveTapped), for: .touchUpInside)
@@ -120,7 +122,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     }
     
     @objc func dismissXis() {
-        self.centerX.constant = 1000
+        self.centerX.constant = -1000
     }
     
     //    delete from coredata

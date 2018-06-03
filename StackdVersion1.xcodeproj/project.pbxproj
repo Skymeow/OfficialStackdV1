@@ -61,10 +61,11 @@
 		F940B5E0206DC89D007CE630 /* FadingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5DE206DC89D007CE630 /* FadingAlertView.swift */; };
 		F940B5E1206DC89D007CE630 /* FadingAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F940B5DF206DC89D007CE630 /* FadingAlertView.xib */; };
 		F947AE1B20B2B05D00B138B5 /* DateToStr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F947AE1A20B2B05D00B138B5 /* DateToStr.swift */; };
-		F964CDC5207C3F810064E40C /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F964CDC4207C3F810064E40C /* Kingfisher.framework */; };
-		F964CDC6207C3F810064E40C /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F964CDC4207C3F810064E40C /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F9727ECA20B771F20015AC07 /* YoutubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9727EC920B771F20015AC07 /* YoutubeTableViewCell.xib */; };
 		F9727ECC20B7807F0015AC07 /* SharedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9727ECB20B7807F0015AC07 /* SharedTableViewCell.xib */; };
+		F9727F0020B9E93D0015AC07 /* SearchTagHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9727EFF20B9E93D0015AC07 /* SearchTagHelper.swift */; };
+		F9727F0F20BCBBFA0015AC07 /* showIfEmpty.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9727F0E20BCBBFA0015AC07 /* showIfEmpty.gif */; };
+		F9727F1120BCCA7F0015AC07 /* ShowIfEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9727F1020BCCA7F0015AC07 /* ShowIfEmptyView.swift */; };
 		F97EC34120A0029100CED0F5 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34020A0029100CED0F5 /* UIImageExtension.swift */; };
 		F97EC34320A005B700CED0F5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34220A005B700CED0F5 /* UIColorExtension.swift */; };
 		F97EC34520A0DB4C00CED0F5 /* ArchiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */; };
@@ -78,12 +79,6 @@
 		F9BA2A44206DCAD90059ECBA /* Reg.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C7206DC884007CE630 /* Reg.swift */; };
 		F9BA2A45206DCADD0059ECBA /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5BC206DC883007CE630 /* Video.swift */; };
 		F9BA2A46206DCAE20059ECBA /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C2206DC884007CE630 /* Networking.swift */; };
-		F9BA2A49206DCB120059ECBA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A48206DCB120059ECBA /* Alamofire.framework */; };
-		F9BA2A4A206DCB120059ECBA /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A48206DCB120059ECBA /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F9BA2A4D206DCB190059ECBA /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4C206DCB190059ECBA /* CommonCrypto.framework */; };
-		F9BA2A4E206DCB190059ECBA /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4C206DCB190059ECBA /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F9BA2A50206DCB1E0059ECBA /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4F206DCB1E0059ECBA /* SnapKit.framework */; };
-		F9BA2A51206DCB1E0059ECBA /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4F206DCB1E0059ECBA /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F9BA2A52206DCB260059ECBA /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4C206DCB190059ECBA /* CommonCrypto.framework */; };
 		F9EBFF78207AB45600B0B0F3 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EBFF77207AB45600B0B0F3 /* ArchiveViewController.swift */; };
 		F9EBFF79207ABB7200B0B0F3 /* FadingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5DE206DC89D007CE630 /* FadingAlertView.swift */; };
@@ -114,20 +109,6 @@
 				F940B5B2206DC174007CE630 /* Add to Stackd.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9BA2A4B206DCB120059ECBA /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F9BA2A51206DCB1E0059ECBA /* SnapKit.framework in Embed Frameworks */,
-				F9BA2A4E206DCB190059ECBA /* CommonCrypto.framework in Embed Frameworks */,
-				F964CDC6207C3F810064E40C /* Kingfisher.framework in Embed Frameworks */,
-				F9BA2A4A206DCB120059ECBA /* Alamofire.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -195,6 +176,9 @@
 		F964CDC4207C3F810064E40C /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		F9727EC920B771F20015AC07 /* YoutubeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YoutubeTableViewCell.xib; path = "../../../../../../Downloads/OfficialStackdV1-0608ca2689572219678a1b228bc4ab15b2e6a3c1/StackdVersion1/UI/Cell/YoutubeTableViewCell.xib"; sourceTree = "<group>"; };
 		F9727ECB20B7807F0015AC07 /* SharedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SharedTableViewCell.xib; path = "../../../../../../Downloads/OfficialStackdV1-871b8144ce6bf15b190bbaa9ecc674675b6c64e4/StackdVersion1/UI/Cell/SharedTableViewCell.xib"; sourceTree = "<group>"; };
+		F9727EFF20B9E93D0015AC07 /* SearchTagHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTagHelper.swift; sourceTree = "<group>"; };
+		F9727F0E20BCBBFA0015AC07 /* showIfEmpty.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = showIfEmpty.gif; sourceTree = "<group>"; };
+		F9727F1020BCCA7F0015AC07 /* ShowIfEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowIfEmptyView.swift; sourceTree = "<group>"; };
 		F97EC34020A0029100CED0F5 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		F97EC34220A005B700CED0F5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveHeaderView.swift; sourceTree = "<group>"; };
@@ -216,10 +200,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9BA2A50206DCB1E0059ECBA /* SnapKit.framework in Frameworks */,
-				F9BA2A4D206DCB190059ECBA /* CommonCrypto.framework in Frameworks */,
-				F964CDC5207C3F810064E40C /* Kingfisher.framework in Frameworks */,
-				F9BA2A49206DCB120059ECBA /* Alamofire.framework in Frameworks */,
 				C7DAA258C409CAEBA42B5544 /* Pods_StackdVersion1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +250,7 @@
 				F9076CE820B271D2001C43AF /* giffirst.gif */,
 				F9076CE920B271D3001C43AF /* gifsec.gif */,
 				F9076CE720B271D1001C43AF /* giftrd.gif */,
+				F9727F0E20BCBBFA0015AC07 /* showIfEmpty.gif */,
 			);
 			path = "Gif Resource";
 			sourceTree = "<group>";
@@ -413,6 +394,7 @@
 				F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */,
 				F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */,
 				F9ECEBAD20AFEE4800ADC134 /* StackdWebLabelView.swift */,
+				F9727F1020BCCA7F0015AC07 /* ShowIfEmptyView.swift */,
 			);
 			path = UICustomClass;
 			sourceTree = "<group>";
@@ -446,6 +428,7 @@
 			children = (
 				F97EC33F20A0026B00CED0F5 /* extensions */,
 				F9EBFF7B207AC9E100B0B0F3 /* PrepareForPresentingViews.swift */,
+				F9727EFF20B9E93D0015AC07 /* SearchTagHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -499,7 +482,7 @@
 				F940B58D206DC156007CE630 /* Resources */,
 				F940B5B6206DC174007CE630 /* Embed App Extensions */,
 				F9BA2A3D206DCA4F0059ECBA /* ShellScript */,
-				F9BA2A4B206DCB120059ECBA /* Embed Frameworks */,
+				F9727EFD20B9DF540015AC07 /* ShellScript */,
 				FDB0AC0172DB0CBD4F4E2BEE /* [CP] Embed Pods Frameworks */,
 				BCB9A4E5AF5E6F0A5B143F55 /* [CP] Copy Pods Resources */,
 			);
@@ -597,6 +580,7 @@
 				F9408EF020B1FD50003BB8B1 /* TagsCell.xib in Resources */,
 				F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */,
 				F940B59A206DC156007CE630 /* Assets.xcassets in Resources */,
+				F9727F0F20BCBBFA0015AC07 /* showIfEmpty.gif in Resources */,
 				F9076CEC20B271D3001C43AF /* gifsec.gif in Resources */,
 				F9727ECA20B771F20015AC07 /* YoutubeTableViewCell.xib in Resources */,
 				F905BF582075873C00C7B94F /* apple-app-site-association in Resources */,
@@ -682,9 +666,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Add to Stackd/Pods-Add to Stackd-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F9727EFD20B9DF540015AC07 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Target architectures: $ARCHS\"\n\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\necho $(lipo -info \"$FRAMEWORK_EXECUTABLE_PATH\")\n\nFRAMEWORK_TMP_PATH=\"$FRAMEWORK_EXECUTABLE_PATH-tmp\"\n\n# remove simulator's archs if location is not simulator's directory\ncase \"${TARGET_BUILD_DIR}\" in\n*\"iphonesimulator\")\necho \"No need to remove archs\"\n;;\n*)\nif $(lipo \"$FRAMEWORK_EXECUTABLE_PATH\" -verify_arch \"i386\") ; then\nlipo -output \"$FRAMEWORK_TMP_PATH\" -remove \"i386\" \"$FRAMEWORK_EXECUTABLE_PATH\"\necho \"i386 architecture removed\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_TMP_PATH\" \"$FRAMEWORK_EXECUTABLE_PATH\"\nfi\nif $(lipo \"$FRAMEWORK_EXECUTABLE_PATH\" -verify_arch \"x86_64\") ; then\nlipo -output \"$FRAMEWORK_TMP_PATH\" -remove \"x86_64\" \"$FRAMEWORK_EXECUTABLE_PATH\"\necho \"x86_64 architecture removed\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_TMP_PATH\" \"$FRAMEWORK_EXECUTABLE_PATH\"\nfi\n;;\nesac\n\necho \"Completed for executable $FRAMEWORK_EXECUTABLE_PATH\"\necho $(lipo -info \"$FRAMEWORK_EXECUTABLE_PATH\")\ndone";
+		};
 		F9BA2A3D206DCA4F0059ECBA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -762,9 +759,11 @@
 				F940B5D7206DC884007CE630 /* DataConverter.swift in Sources */,
 				F902E9BE20A632BE00DE8690 /* ListItemDisplayManager.swift in Sources */,
 				F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */,
+				F9727F0020B9E93D0015AC07 /* SearchTagHelper.swift in Sources */,
 				F9408EEF20B1FD50003BB8B1 /* TagsCell.swift in Sources */,
 				F9EBFF78207AB45600B0B0F3 /* ArchiveViewController.swift in Sources */,
 				F90CF7982072E13A00174AA2 /* FilterViewController.swift in Sources */,
+				F9727F1120BCCA7F0015AC07 /* ShowIfEmptyView.swift in Sources */,
 				F940B5DC206DC884007CE630 /* SharedItems.xcdatamodeld in Sources */,
 				F940B5DB206DC884007CE630 /* FetchHelper.swift in Sources */,
 				F90CF79E2072F3F100174AA2 /* FilteredItemsViewController.swift in Sources */,
@@ -987,6 +986,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
