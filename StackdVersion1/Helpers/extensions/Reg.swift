@@ -23,6 +23,14 @@ extension String {
         return s
     }
     
+    func formatSafariUrl() -> String {
+        let arr = self.components(separatedBy: "://www.")
+        let s = arr[1].components(separatedBy: ".com")
+        let f = s[0] + ".com"
+        
+        return f
+    }
+    
     func formatDurationForArticle() -> String {
 //        var replace = self.replacingOccurrences(of: ":", with: " Min, ")
         let replace = self.split(separator: ":")

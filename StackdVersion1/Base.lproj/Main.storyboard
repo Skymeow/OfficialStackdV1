@@ -62,16 +62,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="pTm-gc-Ivo">
-                                        <rect key="frame" x="10" y="50.5" width="355" height="45"/>
+                                        <rect key="frame" x="10" y="53.5" width="355" height="42"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtI-Am-ewt">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtI-Am-ewt">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Came from ................" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fr-7B-UJi">
-                                                <rect key="frame" x="0.0" y="21" width="355" height="24"/>
+                                                <rect key="frame" x="0.0" y="19.5" width="355" height="22.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -119,7 +119,7 @@
                                     <constraint firstAttribute="width" constant="375" id="BmF-VW-zcC"/>
                                     <constraint firstAttribute="trailing" secondItem="hgk-PB-hln" secondAttribute="trailing" constant="75" id="E26-0i-vhv"/>
                                     <constraint firstItem="eOg-Q5-5fR" firstAttribute="top" secondItem="hgk-PB-hln" secondAttribute="bottom" id="VZ1-9l-oZs"/>
-                                    <constraint firstItem="pTm-gc-Ivo" firstAttribute="top" secondItem="Sue-Qh-i2c" secondAttribute="bottom" id="XjV-dh-rDi"/>
+                                    <constraint firstItem="pTm-gc-Ivo" firstAttribute="top" secondItem="Sue-Qh-i2c" secondAttribute="bottom" constant="3" id="XjV-dh-rDi"/>
                                     <constraint firstItem="Sue-Qh-i2c" firstAttribute="leading" secondItem="uCq-Yg-xw1" secondAttribute="leading" id="XxC-Bb-o0G"/>
                                     <constraint firstAttribute="trailing" secondItem="pTm-gc-Ivo" secondAttribute="trailing" constant="10" id="Yhv-fq-YLB"/>
                                     <constraint firstItem="pTm-gc-Ivo" firstAttribute="leading" secondItem="uCq-Yg-xw1" secondAttribute="leading" constant="10" id="Z3k-NX-fvS"/>
@@ -342,16 +342,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="iGi-hq-0yq">
-                                        <rect key="frame" x="10" y="50.5" width="355" height="45"/>
+                                        <rect key="frame" x="10" y="53.5" width="355" height="42"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrF-cG-t0b">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrF-cG-t0b">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Came from ................" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiI-Om-XC5">
-                                                <rect key="frame" x="0.0" y="21" width="355" height="24"/>
+                                                <rect key="frame" x="0.0" y="19.5" width="355" height="22.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -404,7 +404,7 @@
                                     <constraint firstItem="h5t-V5-5IS" firstAttribute="leading" secondItem="UcA-ys-Mll" secondAttribute="leading" id="LXK-Je-Has"/>
                                     <constraint firstItem="1gg-Ps-sAm" firstAttribute="leading" secondItem="UcA-ys-Mll" secondAttribute="leading" constant="75" id="N5d-hE-Vg9"/>
                                     <constraint firstAttribute="trailing" secondItem="tBv-JS-c5u" secondAttribute="trailing" id="P4z-YE-75R"/>
-                                    <constraint firstItem="iGi-hq-0yq" firstAttribute="top" secondItem="h5t-V5-5IS" secondAttribute="bottom" id="PA1-NC-Fdt"/>
+                                    <constraint firstItem="iGi-hq-0yq" firstAttribute="top" secondItem="h5t-V5-5IS" secondAttribute="bottom" constant="3" id="PA1-NC-Fdt"/>
                                     <constraint firstAttribute="trailing" secondItem="1gg-Ps-sAm" secondAttribute="trailing" constant="75" id="QGd-9g-UoH"/>
                                     <constraint firstAttribute="height" constant="200" id="RyE-a4-pkx"/>
                                     <constraint firstItem="tBv-JS-c5u" firstAttribute="top" secondItem="1gg-Ps-sAm" secondAttribute="bottom" id="X7S-9B-guG"/>

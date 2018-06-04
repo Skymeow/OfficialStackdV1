@@ -196,7 +196,7 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
                 genericCell = cell
                 cell.duration.text = item.duration
-                cell.sourceLabel.text = "apple.itunes.com"
+                cell.sourceLabel.text = "itunes"
                 let img = UIImage(named: "listen_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
@@ -211,7 +211,7 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
                 genericCell = cell
                 let duration = item.duration?.formatDurationForArticle()
                 cell.duration.text = duration
-                cell.sourceLabel.text = item.urlStr?.getSafariSource()
+                cell.sourceLabel.text = item.urlStr?.formatSafariUrl()
                 let img = UIImage(named: "read_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
@@ -225,7 +225,7 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
             if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
                 genericCell = cell
                 cell.duration.text = item.duration
-                cell.sourceLabel.text = "www.youtube.com"
+                cell.sourceLabel.text = "youtube"
                 cell.sourceImg.kf.indicatorType = .activity
                 let url = URL(string: item.videoThumbnail!)
                 cell.sourceImg.kf.setImage(with: url, options: [.cacheSerializer(FormatIndicatedCacheSerializer.jpeg), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
