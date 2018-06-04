@@ -17,6 +17,7 @@ class SharedTableViewCell: UITableViewCell {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var sourceTitle: UILabel!
    
+    @IBOutlet weak var parentView: UIView!
     var tagsData: [Tags]?
     
     override func awakeFromNib() {

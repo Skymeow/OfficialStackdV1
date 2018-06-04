@@ -89,6 +89,7 @@
 		F9ECEBAE20AFEE4800ADC134 /* StackdWebLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECEBAD20AFEE4800ADC134 /* StackdWebLabelView.swift */; };
 		F9F0075D20C515D0009DA5CE /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933D34620B6030E009BF593 /* NotificationHelper.swift */; };
 		F9F0075E20C5DC2F009DA5CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F940B599206DC156007CE630 /* Assets.xcassets */; };
+		F9F0076020C5F639009DA5CE /* TableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0075F20C5F639009DA5CE /* TableViewCellExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +196,7 @@
 		F9ECEBA920AF721900ADC134 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F9ECEBAB20AFE1B600ADC134 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F9ECEBAD20AFEE4800ADC134 /* StackdWebLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackdWebLabelView.swift; sourceTree = "<group>"; };
+		F9F0075F20C5F639009DA5CE /* TableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +469,7 @@
 				F9076CF720B27F57001C43AF /* Storyboad & Utility.swift */,
 				F947AE1A20B2B05D00B138B5 /* DateToStr.swift */,
 				F933D34620B6030E009BF593 /* NotificationHelper.swift */,
+				F9F0075F20C5F639009DA5CE /* TableViewCellExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				F940B593206DC156007CE630 /* AppDelegate.swift in Sources */,
 				F933D34720B6030E009BF593 /* NotificationHelper.swift in Sources */,
 				F9EBFF7C207AC9E100B0B0F3 /* PrepareForPresentingViews.swift in Sources */,
+				F9F0076020C5F639009DA5CE /* TableViewCellExtension.swift in Sources */,
 				F9ECEBAA20AF721900ADC134 /* AlertView.swift in Sources */,
 				F9408EF220B25653003BB8B1 /* SettingViewController.swift in Sources */,
 				F90CF79A2072E16700174AA2 /* HomeListViewController.swift in Sources */,

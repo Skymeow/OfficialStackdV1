@@ -18,6 +18,7 @@ class YoutubeTableViewCell: UITableViewCell {
     @IBOutlet weak var sourceTitle: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var parentView: UIView!
     var tagsData: [Tags]?
     override func awakeFromNib() {
         super.awakeFromNib()

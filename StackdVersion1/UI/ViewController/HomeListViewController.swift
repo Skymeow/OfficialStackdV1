@@ -109,7 +109,6 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         case UIGestureRecognizerState.began:
             if indexPath != nil {
                 self.initialIndexPath = indexPath
-                
             }
         case UIGestureRecognizerState.changed:
             break
@@ -197,6 +196,39 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         return .none
     }
 
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let item = self.allItems![indexPath.row]
+        let type = item.cellType!
+        switch type{
+        case "podcast", "safari":
+            if let cell = tableView.cellForRow(at: indexPath) as? SharedTableViewCell {
+                cell.parentView.transform = .init(scaleX: 0.8, y: 0.8)
+            }
+        case "youtube":
+            if let cell = tableView.cellForRow(at: indexPath) as? YoutubeTableViewCell {
+                cell.parentView.transform = .init(scaleX: 0.8, y: 0.8)
+            }
+        default:
+            print("default")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let item = self.allItems![indexPath.row]
+        let type = item.cellType!
+        switch type{
+        case "podcast", "safari":
+            if let cell = tableView.cellForRow(at: indexPath) as? SharedTableViewCell {
+                cell.parentView.transform = .identity
+            }
+        case "youtube":
+            if let cell = tableView.cellForRow(at: indexPath) as? YoutubeTableViewCell {
+                cell.parentView.transform = .identity
+            }
+        default:
+            print("default")
+        }
+    }
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
@@ -222,6 +254,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case "podcast":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
+                
                 genericCell = cell
                 cell.duration.text = item.duration
                 cell.sourceLabel.text = "itunes"
