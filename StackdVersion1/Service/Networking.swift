@@ -55,12 +55,12 @@ class Networking {
                     }
                 }
                 else{
-                    completion(false, "unable to analyze time")
+                    completion(false, "")
                 }
             }
             else {
                 // Failure\
-                completion(false, "unable to analyze time")
+                completion(false, "")
                 print("URL Session Task Failed: %@", error!.localizedDescription);
             }
         })
@@ -69,7 +69,7 @@ class Networking {
     }
     
     
-    func getYoutubeDetail(youtubeUrl: String, completion: @escaping(_ success: Bool, _ result: Video) -> Void) {
+    func getYoutubeDetail(youtubeUrl: String, completion: @escaping(_ success: Bool, _ result: Video?) -> Void) {
         let baseUrl = "https://www.googleapis.com/youtube/v3/videos/"
         let videoId = youtubeUrl.getYoutubeId()!
         let params = ["part": "snippet, contentDetails",
@@ -96,6 +96,7 @@ class Networking {
                    
                 }
                 else {
+                    completion(false, nil)
                     debugPrint("HTTP Request failed: \(response.result.error)")
                 }
         }

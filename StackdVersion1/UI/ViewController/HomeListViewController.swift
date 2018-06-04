@@ -44,6 +44,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(observeEnterforeground(notification:)), name: .enterForeground, object: nil)
         self.dismissPopUp = UITapGestureRecognizer(target: self, action: #selector(dismissXis))
         self.view.addGestureRecognizer(dismissPopUp)
         dismissPopUp.cancelsTouchesInView = false
@@ -77,7 +78,10 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
 //    deinit {
 //        NotificationCenter.default.removeObserver(self)
 //    }
-    
+//
+    @objc func observeEnterforeground(notification: NSNotification){
+         self.loadItems()
+    }
     func loadItems() {
        self.allItems = fetchAll(AllItem.self, route: .allItemUnArchived)
     }

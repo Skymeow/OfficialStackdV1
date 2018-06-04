@@ -14,5 +14,5 @@ extension Notification.Name {
     static let safaris = Notification.Name("safaris")
     static let youtubes = Notification.Name("youtubes")
     static let enterForeground = Notification.Name("enterForeground")
-    static let finishLaunch = Notification.Name("finishLaunch")
+    static let shareExtension = Notification.Name("shareExtension")
 }

@@ -200,12 +200,10 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
                 let img = UIImage(named: "listen_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
+                cell.createdAt.text = item.date?.toString()
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-//                    if tags.count != 0 {
-//                        print("tags babe", tags[0].content!)
-//                    }
                 }
             }
         case "safari":
@@ -217,12 +215,10 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
                 let img = UIImage(named: "read_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
+                cell.createdAt.text = item.date?.toString()
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-//                    if tags.count != 0 {
-//                        print("tags babe", tags[0].content!)
-//                    }
                 }
             }
         case "youtube":
@@ -236,12 +232,10 @@ extension FilteredItemsViewController: UITableViewDelegate, UITableViewDataSourc
                 let img = UIImage(named: "watch_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
+                cell.createdDate.text = item.date?.toString()
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-//                    if tags.count != 0 {
-//                        print("tags babe", tags[0].content!)
-//                    }
                 }
             }
         default:

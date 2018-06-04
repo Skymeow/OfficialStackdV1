@@ -16,17 +16,11 @@ extension String {
     }
     
     func formatDuration() -> String {
-        var replace = self.replacingOccurrences(of: "H", with: " H, ")
-        replace = replace.replacingOccurrences(of: "M", with: " Min, ")
-        replace = replace.replacingOccurrences(of: "S", with: " Sec")
-        replace = replace.replacingOccurrences(of: "PT", with: "")
-//        let replace = self.split(separator: "H")
-//        let arrMins = replace[1].split(separator: "M")
-//        let onlyMins = arrMins[0]
-//        let mins = String(onlyMins)
-//
-//        return mins
-        return replace
+        let replace = self.replacingOccurrences(of: "PT", with: "")
+        let r = replace.components(separatedBy: "M")
+        let s = r[0]+" min"
+
+        return s
     }
     
     func formatDurationForArticle() -> String {

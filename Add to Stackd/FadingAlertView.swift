@@ -11,12 +11,13 @@ import UIKit
 class FadingAlertView: UIView {
     
     
+    @IBOutlet weak var stackImg: UIImageView!
     @IBOutlet weak var alertMsg: UILabel!
-
+    
     func configureView(title: String, at location: CGPoint) {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.clear.cgColor
-//        self.backgroundColor = UIColor.white
+        self.stackImg.image = #imageLiteral(resourceName: "confirm_action")
         self.center = location
         self.alertMsg.text = title
     }

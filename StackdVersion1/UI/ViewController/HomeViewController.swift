@@ -18,9 +18,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     var isFilterTagged = false
     var placeHolderView: ShowIfEmptyView?
+    var seenIntro = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(decideIfShowIntroView(notification:)), name: .enterForeground, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(dismissIntro(notification:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         
         UserDefaults.standard.set(true, forKey: "saw_onboarding")
         self.navigationController?.navigationBar.isHidden = true
@@ -30,16 +31,20 @@ class HomeViewController: UIViewController {
         customizedHeaderView.customedHeaderDelegate = self 
     }
     
-    @objc func decideIfShowIntroView(notification: NSNotification) {
-        let allItems = fetchAll(AllItem.self, route: .allItemUnArchived)
-        if allItems.count == 0 {
+    @objc func dismissIntro(notification: NSNotification) {
+        let all = fetchAll(AllItem.self, route: .allItemUnArchived)
+        if all.count == 0 {
             self.placeHolderView = ShowIfEmptyView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
             self.view.addSubview(placeHolderView!)
-        }else{
-            
+        } else {
             self.placeHolderView?.removeFromSuperview()
         }
     }
+    
+//    deinit observe
+//    override func viewWillDisappear(_ animated: Bool) {
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+//    }
     
     func loadDifferentTypeItems() {
         let podcasts = fetchAll(Podcast.self, route: .podcast)

@@ -17,7 +17,6 @@ import CoreData
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
         successView.configureView(title: "Saved", at: self.view.center)
         self.view.addSubview(successView)
@@ -36,9 +35,9 @@ import CoreData
                             if success {
                                 let id = UUID().uuidString
                                 youtube.id = id
-                                youtube.duration  = result.duration
-                                youtube.videoThumbnail = result.thumbnailUrl
-                                youtube.title = result.videoTitle
+                                youtube.duration  = result?.duration
+                                youtube.videoThumbnail = result?.thumbnailUrl
+                                youtube.title = result?.videoTitle
                                 youtube.cellType = "youtube"
                                 youtube.date = Date()
                                 youtube.rearrangedRow = -1

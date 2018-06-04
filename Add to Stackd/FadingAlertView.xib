@@ -44,6 +44,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="alertMsg" destination="Lhw-UL-zEj" id="RYI-ob-6by"/>
+                <outlet property="stackImg" destination="Ma9-iX-754" id="Lb3-AR-fmn"/>
             </connections>
             <point key="canvasLocation" x="-184.5" y="277"/>
         </view>

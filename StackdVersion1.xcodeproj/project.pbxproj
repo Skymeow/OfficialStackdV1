@@ -87,6 +87,8 @@
 		F9ECEBAA20AF721900ADC134 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECEBA920AF721900ADC134 /* AlertView.swift */; };
 		F9ECEBAC20AFE1B600ADC134 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECEBAB20AFE1B600ADC134 /* HomeViewController.swift */; };
 		F9ECEBAE20AFEE4800ADC134 /* StackdWebLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECEBAD20AFEE4800ADC134 /* StackdWebLabelView.swift */; };
+		F9F0075D20C515D0009DA5CE /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933D34620B6030E009BF593 /* NotificationHelper.swift */; };
+		F9F0075E20C5DC2F009DA5CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F940B599206DC156007CE630 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -593,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F940B5B8206DC1C8007CE630 /* GetURL.js in Resources */,
+				F9F0075E20C5DC2F009DA5CE /* Assets.xcassets in Resources */,
 				F940B5E1206DC89D007CE630 /* FadingAlertView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,6 +790,7 @@
 				F9BA2A3E206DCAC60059ECBA /* CoreDataInitializable.swift in Sources */,
 				F9BA2A41206DCACE0059ECBA /* SharedItems.xcdatamodeld in Sources */,
 				F940B5AB206DC174007CE630 /* ShareViewController.swift in Sources */,
+				F9F0075D20C515D0009DA5CE /* NotificationHelper.swift in Sources */,
 				F940B5E0206DC89D007CE630 /* FadingAlertView.swift in Sources */,
 				F9BA2A42206DCAD30059ECBA /* KeyCenter.swift in Sources */,
 				F902E9C020A63AB100DE8690 /* ListItem.swift in Sources */,
