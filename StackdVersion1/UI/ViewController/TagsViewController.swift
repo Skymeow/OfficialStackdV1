@@ -8,8 +8,13 @@
 import UIKit
 import CoreData
 
+protocol TagsDelegate: class {
+    func reloadTags()
+}
+
 class TagsViewController: UIViewController, UITextFieldDelegate {
     
+    weak var delegate: TagsDelegate?
     var initialIndexPath: IndexPath? = nil
     let coreDataStack = CoreDataStack.instance
     var selected: AllItem?
@@ -34,6 +39,8 @@ class TagsViewController: UIViewController, UITextFieldDelegate {
             coredataTag.itemId = selected?.id
             self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
             self.configureTagedModal()
+//            ask previous view to reload cell that's been tagged
+            self.delegate?.reloadTags()
         } else {
             //            show alert view that the tag field is empty
             AlertView.instance.presentAlertView("Please enter a valid tag keyword", self)

@@ -26,6 +26,12 @@ class FilteredItemsViewController: UIViewController, OpenedViewDelegate {
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var sourceHostLabel: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

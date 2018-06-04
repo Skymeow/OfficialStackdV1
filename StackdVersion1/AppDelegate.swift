@@ -33,10 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         UITabBar.appearance().unselectedItemTintColor = UIColor(red:0.73, green:0.73, blue:0.73, alpha:1.0)
-//            = UIColor(red:0.25, green:0.58, blue:0.58, alpha:1.0)
         return true
     }
 
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        NotificationCenter.default.post(name: .enterForeground, object: nil)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

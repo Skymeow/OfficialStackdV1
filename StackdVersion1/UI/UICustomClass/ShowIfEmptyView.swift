@@ -15,7 +15,7 @@ class ShowIfEmptyView: UIView {
     var imgView: GIFImageView!
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        layoutNewSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {

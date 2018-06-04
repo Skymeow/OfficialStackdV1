@@ -20,13 +20,7 @@ class HomeViewController: UIViewController {
     var placeHolderView: ShowIfEmptyView?
     override func viewDidLoad() {
         super.viewDidLoad()
-        let allItems = fetchAll(AllItem.self, route: .allItemUnArchived)
-        if allItems.count == 0 {
-            self.placeHolderView = ShowIfEmptyView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
-            self.view.addSubview(placeHolderView!)
-        } else {
-            self.placeHolderView?.removeFromSuperview()
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(decideIfShowIntroView(notification:)), name: .enterForeground, object: nil)
         
         UserDefaults.standard.set(true, forKey: "saw_onboarding")
         self.navigationController?.navigationBar.isHidden = true
@@ -34,6 +28,17 @@ class HomeViewController: UIViewController {
         let customizedHeaderView = CustomHeaderView(frame: frame)
         headerView.addSubview(customizedHeaderView)
         customizedHeaderView.customedHeaderDelegate = self 
+    }
+    
+    @objc func decideIfShowIntroView(notification: NSNotification) {
+        let allItems = fetchAll(AllItem.self, route: .allItemUnArchived)
+        if allItems.count == 0 {
+            self.placeHolderView = ShowIfEmptyView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+            self.view.addSubview(placeHolderView!)
+        }else{
+            
+            self.placeHolderView?.removeFromSuperview()
+        }
     }
     
     func loadDifferentTypeItems() {
@@ -47,6 +52,11 @@ class HomeViewController: UIViewController {
         let podcastNotiDict: [String: [Podcast]] = ["podcasts": podcasts]
         NotificationCenter.default.post(name: .podcasts, object: nil, userInfo: podcastNotiDict)
     }
+    
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
+
     
 }
 extension HomeViewController: HeaderActionDelegate {

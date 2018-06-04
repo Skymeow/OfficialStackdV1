@@ -33,11 +33,6 @@ class YoutubeTableViewCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.register(tagCell, forCellWithReuseIdentifier: "TagsCell")
     }
-    
-    override func layoutSubviews() {
-        
-    }
-    
 }
 
 extension YoutubeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {

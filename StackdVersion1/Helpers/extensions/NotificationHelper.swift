@@ -13,4 +13,6 @@ extension Notification.Name {
     static let podcasts = Notification.Name("podcast")
     static let safaris = Notification.Name("safaris")
     static let youtubes = Notification.Name("youtubes")
+    static let enterForeground = Notification.Name("enterForeground")
+    static let finishLaunch = Notification.Name("finishLaunch")
 }

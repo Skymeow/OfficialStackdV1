@@ -21,6 +21,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     @IBOutlet weak var centerX: NSLayoutConstraint!
     @IBOutlet weak var popupComeFrom: UILabel!
     @IBOutlet weak var popupSource: UILabel!
+    var dismissPopUp: UITapGestureRecognizer!
     var initialIndexPath: IndexPath? = nil
     var selectedIndex: IndexPath?
     let coreDataStack = CoreDataStack.instance
@@ -33,12 +34,17 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
             }
         }
     }
-    
+    var tagIndex: IndexPath?
     @IBOutlet weak var tableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: true)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dismissPopUp = UITapGestureRecognizer(target: self, action: #selector(dismissXis))
+        self.dismissPopUp = UITapGestureRecognizer(target: self, action: #selector(dismissXis))
         self.view.addGestureRecognizer(dismissPopUp)
         dismissPopUp.cancelsTouchesInView = false
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
@@ -55,6 +61,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
         self.loadItems()
+        self.loadTags()
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
@@ -62,20 +69,28 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         }
         
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for:  .valueChanged)
-        
-//        backFromPopupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissXis)))
 
         deleteBtn.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
         archiveBtn.addTarget(self, action: #selector(archiveTapped), for: .touchUpInside)
-        
     }
+    
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
     
     func loadItems() {
        self.allItems = fetchAll(AllItem.self, route: .allItemUnArchived)
     }
     
+    func loadTags() {
+        if let reloadCell = self.tagIndex {
+            tableView.reloadRows(at: [reloadCell], with: .none)
+        }
+    }
+    
     @objc private func refreshData(_ sender: Any) {
         self.loadItems()
+        self.loadTags()
         self.refreshControl.endRefreshing()
     }
     
@@ -213,9 +228,6 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-//                    if tags.count != 0 {
-//                        print("tags babe", tags[0].content!)
-//                    }
                 }
             }
         case "safari":
@@ -231,9 +243,6 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-//                    if tags.count != 0 {
-//                        print("tags babe", tags[0].content!)
-//                    }
                 }
             }
         case "youtube":
@@ -251,9 +260,6 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
-//                    if tags.count != 0 {
-//                        print("tags babe", tags[0].content!)
-//                    }
                 }
             }
         default:
@@ -309,9 +315,10 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         let action = UIContextualAction(style: .normal, title: "Tag") { (action, view, completionHandler: (Bool) -> Void) in
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let tagVC = storyboard.instantiateViewController(withIdentifier: "tagVC") as! TagsViewController
+            tagVC.delegate = self
             tagVC.selected = self.allItems?[indexPath.row]
             self.navigationController?.pushViewController(tagVC, animated: false)
-//            (tagVC, animated: false, completion: nil)
+            self.tagIndex = indexPath
             completionHandler(true)
         }
         
@@ -372,3 +379,19 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension HomeListViewController: TagsDelegate {
+    func reloadTags() {
+        self.loadTags()
+        
+    }
+}
+
+extension HomeListViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if let isTouch = touch.view?.isDescendant(of: tableView) {
+            dismissPopUp.cancelsTouchesInView = true
+            return false
+        }
+        return true
+    }
+}
