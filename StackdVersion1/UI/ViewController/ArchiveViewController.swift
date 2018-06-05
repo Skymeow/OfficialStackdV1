@@ -121,15 +121,18 @@ extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         case "safari":
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
                 genericCell = cell
                 let duration = item.duration?.formatDurationForArticle()
                 cell.duration.text = duration
                 cell.sourceLabel.text = item.urlStr?.formatSafariUrl()
+                cell.sourceImg.kf.indicatorType = .activity
+                let url = URL(string: item.videoThumbnail!)
+                cell.sourceImg.kf.setImage(with: url, options: [.cacheSerializer(FormatIndicatedCacheSerializer.jpeg), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
                 let img = UIImage(named: "read_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
-                cell.createdAt.text = item.date?.toString()
+                cell.createdDate.text = item.date?.toString()
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags
