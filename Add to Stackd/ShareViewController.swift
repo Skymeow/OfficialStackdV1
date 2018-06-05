@@ -86,10 +86,11 @@ import CoreData
                         OperationQueue.main.addOperation {
                             if let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as? NSDictionary,
                                 let title = results["title"] as? String,
-                                let urlStr = results["URL"] as? String {
+                                let urlStr = results["URL"] as? String, let i = results["pageSource"] as? String{
                                 let safari = Safari(context: self.coreDataStack.privateContext)
                                 let id = UUID().uuidString
                                 safari.id = id
+                                safari.videoThumbnail = i 
                                 safari.urlStr = urlStr
                                 safari.title = title
                                 safari.cellType = "safari"

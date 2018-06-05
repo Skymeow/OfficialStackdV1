@@ -200,13 +200,15 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         let item = self.allItems![indexPath.row]
         let type = item.cellType!
         switch type{
-        case "podcast", "safari":
+        case "podcast":
             if let cell = tableView.cellForRow(at: indexPath) as? SharedTableViewCell {
-                cell.parentView.transform = .init(scaleX: 0.8, y: 0.8)
+                cell.parentView.transform = .init(scaleX: 0.75, y: 0.75)
+                cell.contentView.backgroundColor = .gray
             }
-        case "youtube":
+        case "youtube", "safari":
             if let cell = tableView.cellForRow(at: indexPath) as? YoutubeTableViewCell {
-                cell.parentView.transform = .init(scaleX: 0.8, y: 0.8)
+                cell.parentView.transform = .init(scaleX: 0.75, y: 0.75)
+                cell.contentView.backgroundColor = .clear
             }
         default:
             print("default")
@@ -217,11 +219,11 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         let item = self.allItems![indexPath.row]
         let type = item.cellType!
         switch type{
-        case "podcast", "safari":
+        case "podcast":
             if let cell = tableView.cellForRow(at: indexPath) as? SharedTableViewCell {
                 cell.parentView.transform = .identity
             }
-        case "youtube":
+        case "youtube", "safari":
             if let cell = tableView.cellForRow(at: indexPath) as? YoutubeTableViewCell {
                 cell.parentView.transform = .identity
             }
@@ -268,15 +270,18 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         case "safari":
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
                 genericCell = cell
                 let duration = item.duration?.formatDurationForArticle()
                 cell.duration.text = duration
                 cell.sourceLabel.text = item.urlStr?.formatSafariUrl()
+                cell.sourceImg.kf.indicatorType = .activity
+                let url = URL(string: item.videoThumbnail!)
+                cell.sourceImg.kf.setImage(with: url, options: [.cacheSerializer(FormatIndicatedCacheSerializer.jpeg), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
                 let img = UIImage(named: "read_small")
                 cell.sourceLogo.image = img
                 cell.sourceTitle.text = item.title
-                cell.createdAt.text = item.date?.toString()
+                cell.createdDate.text = item.date?.toString()
                 if let id = item.id {
                     let tags = fetchAll(Tags.self, route: .tags(itemId: id))
                     cell.tagsData = tags

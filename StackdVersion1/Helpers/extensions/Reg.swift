@@ -24,7 +24,7 @@ extension String {
     }
     
     func formatSafariUrl() -> String {
-        let arr = self.components(separatedBy: "://www.")
+        let arr = self.components(separatedBy: "://")
         let s = arr[1].components(separatedBy: ".com")
         let f = s[0] + ".com"
         
