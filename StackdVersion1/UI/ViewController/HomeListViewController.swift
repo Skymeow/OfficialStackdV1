@@ -44,7 +44,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(observeEnterforeground(notification:)), name: .enterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(observeEnterforeground(notification:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         self.dismissPopUp = UITapGestureRecognizer(target: self, action: #selector(dismissXis))
         self.view.addGestureRecognizer(dismissPopUp)
         dismissPopUp.cancelsTouchesInView = false
