@@ -22,8 +22,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          NotificationCenter.default.addObserver(self, selector: #selector(dismissIntro(notification:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-        self.placeHolderView = ShowIfEmptyView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
-        self.view.addSubview(placeHolderView!)
+        let all = fetchAll(AllItem.self, route: .allItemUnArchived)
+        if all.count == 0 {
+            self.placeHolderView = ShowIfEmptyView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+            self.view.addSubview(placeHolderView!)
+        }
         UserDefaults.standard.set(true, forKey: "saw_onboarding")
         self.navigationController?.navigationBar.isHidden = true
         let frame = CGRect(x: 0, y: 0, width: headerView.frame.size.width, height: 150)
