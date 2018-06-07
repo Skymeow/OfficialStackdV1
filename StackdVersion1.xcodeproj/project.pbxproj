@@ -16,13 +16,10 @@
 		F905BF582075873C00C7B94F /* apple-app-site-association in Resources */ = {isa = PBXBuildFile; fileRef = F905BF572075873B00C7B94F /* apple-app-site-association */; };
 		F905BF5A2075875100C7B94F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905BF592075875100C7B94F /* WebViewController.swift */; };
 		F9076CE420B25D5F001C43AF /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9076CE320B25D5E001C43AF /* CollectionViewDataSource.swift */; };
-		F9076CEA20B271D3001C43AF /* giftrd.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9076CE720B271D1001C43AF /* giftrd.gif */; };
-		F9076CEB20B271D3001C43AF /* giffirst.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9076CE820B271D2001C43AF /* giffirst.gif */; };
-		F9076CEC20B271D3001C43AF /* gifsec.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9076CE920B271D3001C43AF /* gifsec.gif */; };
-		F9076CEF20B27782001C43AF /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9076CEE20B27782001C43AF /* OnboardingPageViewController.swift */; };
-		F9076CF120B277E2001C43AF /* Gif1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9076CF020B277E2001C43AF /* Gif1ViewController.swift */; };
-		F9076CF320B277ED001C43AF /* Gif2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9076CF220B277ED001C43AF /* Gif2ViewController.swift */; };
-		F9076CF520B277F7001C43AF /* Gif3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9076CF420B277F7001C43AF /* Gif3ViewController.swift */; };
+		F9076CEA20B271D3001C43AF /* gif2.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9076CE720B271D1001C43AF /* gif2.gif */; };
+		F9076CEB20B271D3001C43AF /* gif0.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9076CE820B271D2001C43AF /* gif0.gif */; };
+		F9076CEC20B271D3001C43AF /* gif1.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9076CE920B271D3001C43AF /* gif1.gif */; };
+		F9076CEF20B27782001C43AF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9076CEE20B27782001C43AF /* OnboardingViewController.swift */; };
 		F9076CF820B27F57001C43AF /* Storyboad & Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9076CF720B27F57001C43AF /* Storyboad & Utility.swift */; };
 		F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
 		F90CF76E2070770F00174AA2 /* CustomPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */; };
@@ -90,6 +87,10 @@
 		F9F0075D20C515D0009DA5CE /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933D34620B6030E009BF593 /* NotificationHelper.swift */; };
 		F9F0075E20C5DC2F009DA5CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F940B599206DC156007CE630 /* Assets.xcassets */; };
 		F9F0076020C5F639009DA5CE /* TableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0075F20C5F639009DA5CE /* TableViewCellExtension.swift */; };
+		F9F0079420C9DD60009DA5CE /* CustomOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9F0079020C9DD5F009DA5CE /* CustomOverlay.xib */; };
+		F9F0079520C9DD60009DA5CE /* CustomPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9F0079120C9DD5F009DA5CE /* CustomPage.xib */; };
+		F9F0079620C9DD60009DA5CE /* CustomPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0079220C9DD5F009DA5CE /* CustomPage.swift */; };
+		F9F0079720C9DD60009DA5CE /* CustomOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0079320C9DD60009DA5CE /* CustomOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,13 +129,10 @@
 		F905BF572075873B00C7B94F /* apple-app-site-association */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
 		F905BF592075875100C7B94F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F9076CE320B25D5E001C43AF /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
-		F9076CE720B271D1001C43AF /* giftrd.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giftrd.gif; sourceTree = "<group>"; };
-		F9076CE820B271D2001C43AF /* giffirst.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giffirst.gif; sourceTree = "<group>"; };
-		F9076CE920B271D3001C43AF /* gifsec.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gifsec.gif; sourceTree = "<group>"; };
-		F9076CEE20B27782001C43AF /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
-		F9076CF020B277E2001C43AF /* Gif1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif1ViewController.swift; sourceTree = "<group>"; };
-		F9076CF220B277ED001C43AF /* Gif2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif2ViewController.swift; sourceTree = "<group>"; };
-		F9076CF420B277F7001C43AF /* Gif3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif3ViewController.swift; sourceTree = "<group>"; };
+		F9076CE720B271D1001C43AF /* gif2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif2.gif; sourceTree = "<group>"; };
+		F9076CE820B271D2001C43AF /* gif0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif0.gif; sourceTree = "<group>"; };
+		F9076CE920B271D3001C43AF /* gif1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif1.gif; sourceTree = "<group>"; };
+		F9076CEE20B27782001C43AF /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		F9076CF720B27F57001C43AF /* Storyboad & Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboad & Utility.swift"; sourceTree = "<group>"; };
 		F90CF76C2070763D00174AA2 /* CustomPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersistantContainer.swift; sourceTree = "<group>"; };
 		F90CF76F20707CB500174AA2 /* YoutubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTableViewCell.swift; sourceTree = "<group>"; };
@@ -197,6 +195,10 @@
 		F9ECEBAB20AFE1B600ADC134 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F9ECEBAD20AFEE4800ADC134 /* StackdWebLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackdWebLabelView.swift; sourceTree = "<group>"; };
 		F9F0075F20C5F639009DA5CE /* TableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellExtension.swift; sourceTree = "<group>"; };
+		F9F0079020C9DD5F009DA5CE /* CustomOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOverlay.xib; sourceTree = "<group>"; };
+		F9F0079120C9DD5F009DA5CE /* CustomPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPage.xib; sourceTree = "<group>"; };
+		F9F0079220C9DD5F009DA5CE /* CustomPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPage.swift; sourceTree = "<group>"; };
+		F9F0079320C9DD60009DA5CE /* CustomOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,9 +253,9 @@
 		F9076CE620B27184001C43AF /* Gif Resource */ = {
 			isa = PBXGroup;
 			children = (
-				F9076CE820B271D2001C43AF /* giffirst.gif */,
-				F9076CE920B271D3001C43AF /* gifsec.gif */,
-				F9076CE720B271D1001C43AF /* giftrd.gif */,
+				F9076CE820B271D2001C43AF /* gif0.gif */,
+				F9076CE920B271D3001C43AF /* gif1.gif */,
+				F9076CE720B271D1001C43AF /* gif2.gif */,
 				F9727F0E20BCBBFA0015AC07 /* showIfEmpty.gif */,
 			);
 			path = "Gif Resource";
@@ -262,10 +264,11 @@
 		F9076CED20B27750001C43AF /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				F9076CEE20B27782001C43AF /* OnboardingPageViewController.swift */,
-				F9076CF020B277E2001C43AF /* Gif1ViewController.swift */,
-				F9076CF220B277ED001C43AF /* Gif2ViewController.swift */,
-				F9076CF420B277F7001C43AF /* Gif3ViewController.swift */,
+				F9076CEE20B27782001C43AF /* OnboardingViewController.swift */,
+				F9F0079320C9DD60009DA5CE /* CustomOverlay.swift */,
+				F9F0079020C9DD5F009DA5CE /* CustomOverlay.xib */,
+				F9F0079220C9DD5F009DA5CE /* CustomPage.swift */,
+				F9F0079120C9DD5F009DA5CE /* CustomPage.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -580,13 +583,15 @@
 				F9EBFF7A207ABB8000B0B0F3 /* FadingAlertView.xib in Resources */,
 				F936C4BD20813219002D4E4D /* LoadingIndicator.xib in Resources */,
 				F9727ECC20B7807F0015AC07 /* SharedTableViewCell.xib in Resources */,
-				F9076CEB20B271D3001C43AF /* giffirst.gif in Resources */,
-				F9076CEA20B271D3001C43AF /* giftrd.gif in Resources */,
+				F9F0079420C9DD60009DA5CE /* CustomOverlay.xib in Resources */,
+				F9076CEB20B271D3001C43AF /* gif0.gif in Resources */,
+				F9076CEA20B271D3001C43AF /* gif2.gif in Resources */,
 				F9408EF020B1FD50003BB8B1 /* TagsCell.xib in Resources */,
+				F9F0079520C9DD60009DA5CE /* CustomPage.xib in Resources */,
 				F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */,
 				F940B59A206DC156007CE630 /* Assets.xcassets in Resources */,
 				F9727F0F20BCBBFA0015AC07 /* showIfEmpty.gif in Resources */,
-				F9076CEC20B271D3001C43AF /* gifsec.gif in Resources */,
+				F9076CEC20B271D3001C43AF /* gif1.gif in Resources */,
 				F9727ECA20B771F20015AC07 /* YoutubeTableViewCell.xib in Resources */,
 				F905BF582075873C00C7B94F /* apple-app-site-association in Resources */,
 				F940B598206DC156007CE630 /* Main.storyboard in Resources */,
@@ -713,11 +718,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StackdVersion1/Pods-StackdVersion1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyOnboard/SwiftyOnboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Gifu/Gifu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyOnboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gifu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
@@ -738,21 +745,20 @@
 				F940B5D8206DC884007CE630 /* Reg.swift in Sources */,
 				F9ECEBAC20AFE1B600ADC134 /* HomeViewController.swift in Sources */,
 				F940B5DD206DC884007CE630 /* KeyCenter.swift in Sources */,
+				F9F0079720C9DD60009DA5CE /* CustomOverlay.swift in Sources */,
 				F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */,
 				F9ECEBAE20AFEE4800ADC134 /* StackdWebLabelView.swift in Sources */,
-				F9076CF520B277F7001C43AF /* Gif3ViewController.swift in Sources */,
 				F97EC34120A0029100CED0F5 /* UIImageExtension.swift in Sources */,
 				F9EBFF79207ABB7200B0B0F3 /* FadingAlertView.swift in Sources */,
-				F9076CF120B277E2001C43AF /* Gif1ViewController.swift in Sources */,
 				F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */,
 				F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */,
 				F936C4BE20813219002D4E4D /* LoadingIndicatorView.swift in Sources */,
-				F9076CF320B277ED001C43AF /* Gif2ViewController.swift in Sources */,
 				F940B5D1206DC884007CE630 /* Video.swift in Sources */,
 				F947AE1B20B2B05D00B138B5 /* DateToStr.swift in Sources */,
 				F9076CF820B27F57001C43AF /* Storyboad & Utility.swift in Sources */,
-				F9076CEF20B27782001C43AF /* OnboardingPageViewController.swift in Sources */,
+				F9076CEF20B27782001C43AF /* OnboardingViewController.swift in Sources */,
 				F940B5D9206DC884007CE630 /* CoreDataInitializable.swift in Sources */,
+				F9F0079620C9DD60009DA5CE /* CustomPage.swift in Sources */,
 				F940B593206DC156007CE630 /* AppDelegate.swift in Sources */,
 				F933D34720B6030E009BF593 /* NotificationHelper.swift in Sources */,
 				F9EBFF7C207AC9E100B0B0F3 /* PrepareForPresentingViews.swift in Sources */,

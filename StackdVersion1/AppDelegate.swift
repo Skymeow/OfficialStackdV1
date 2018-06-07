@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // MARK: Instantiate with custom NavController here
             initialViewController = UIStoryboard.initialViewController(for: .main)
         } else {
-            initialViewController = storyboard.instantiateViewController(withIdentifier: "pageVC") as! OnboardingPageViewController
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "onboardingVC") as! OnboardingViewController
         }
         window?.rootViewController = initialViewController
         window?.makeKeyAndVisible()

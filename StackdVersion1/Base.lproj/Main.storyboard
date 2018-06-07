@@ -753,153 +753,34 @@
             </objects>
             <point key="canvasLocation" x="-825" y="1295"/>
         </scene>
-        <!--Onboarding Page View Controller-->
-        <scene sceneID="8cA-dW-aQx">
+        <!--Onboarding View Controller-->
+        <scene sceneID="Z7B-8d-WPq">
             <objects>
-                <pageViewController storyboardIdentifier="pageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="psi-jg-mBf" customClass="OnboardingPageViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H5a-Hg-SIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2661" y="3038"/>
-        </scene>
-        <!--Gif1 View Controller-->
-        <scene sceneID="tVK-v8-TXy">
-            <objects>
-                <viewController storyboardIdentifier="gif1VC" id="W3C-yb-m18" customClass="Gif1ViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xj0-Ch-PyO">
+                <viewController storyboardIdentifier="onboardingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9hY-u2-K4U" customClass="OnboardingViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aGL-T0-OBS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ekD-eW-P8g" customClass="GIFImageView" customModule="Gifu">
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJh-MQ-C7K" customClass="SwiftyOnboard" customModule="SwiftyOnboard">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmX-s2-qql">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="0.1474475599" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="et2-LL-O2C"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <state key="normal" title="GOT IT!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="confirmTapped:" destination="1gA-WL-sxs" eventType="touchUpInside" id="Q2V-NX-orI"/>
-                                    <action selector="skipTapped:" destination="W3C-yb-m18" eventType="touchUpInside" id="NBk-re-xIM"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="SmX-s2-qql" secondAttribute="trailing" id="4ei-Fh-fnk"/>
-                            <constraint firstItem="SmX-s2-qql" firstAttribute="leading" secondItem="vUg-qa-0Bp" secondAttribute="leading" id="N6x-8k-sV3"/>
-                            <constraint firstItem="vUg-qa-0Bp" firstAttribute="bottom" secondItem="ekD-eW-P8g" secondAttribute="bottom" id="Nhy-XS-TQ0"/>
-                            <constraint firstItem="vUg-qa-0Bp" firstAttribute="trailing" secondItem="ekD-eW-P8g" secondAttribute="trailing" id="h1g-wo-oge"/>
-                            <constraint firstItem="vUg-qa-0Bp" firstAttribute="bottom" secondItem="SmX-s2-qql" secondAttribute="bottom" id="kUv-N0-7rw"/>
-                            <constraint firstItem="ekD-eW-P8g" firstAttribute="leading" secondItem="vUg-qa-0Bp" secondAttribute="leading" id="oDd-e2-IMh"/>
-                            <constraint firstItem="ekD-eW-P8g" firstAttribute="top" secondItem="Xj0-Ch-PyO" secondAttribute="top" id="udQ-ef-BAa"/>
+                            <constraint firstAttribute="bottom" secondItem="dJh-MQ-C7K" secondAttribute="bottom" id="6En-XT-Z8y"/>
+                            <constraint firstItem="dJh-MQ-C7K" firstAttribute="top" secondItem="aGL-T0-OBS" secondAttribute="top" id="IKs-Xa-qje"/>
+                            <constraint firstItem="dJh-MQ-C7K" firstAttribute="leading" secondItem="aGL-T0-OBS" secondAttribute="leading" id="Vzz-pC-wOr"/>
+                            <constraint firstAttribute="trailing" secondItem="dJh-MQ-C7K" secondAttribute="trailing" id="aue-ja-dBz"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="vUg-qa-0Bp"/>
                     </view>
                     <connections>
-                        <outlet property="gifView" destination="ekD-eW-P8g" id="OxS-gW-vcl"/>
+                        <outlet property="swiftyOnboard" destination="dJh-MQ-C7K" id="cyr-a9-jBg"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e4G-vb-CIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WEP-MM-RIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1905" y="3037"/>
-        </scene>
-        <!--Gif2 View Controller-->
-        <scene sceneID="KUv-Hk-TzO">
-            <objects>
-                <viewController storyboardIdentifier="gif2VC" id="QO6-LU-j75" customClass="Gif2ViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2uZ-Qi-cDu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5jM-pD-FBa" customClass="GIFImageView" customModule="Gifu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I85-17-JJk">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="0.1474475599" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="9cU-NN-eiV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <state key="normal" title="GOT IT!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="confirmTapped:" destination="1gA-WL-sxs" eventType="touchUpInside" id="QV1-Mw-LY0"/>
-                                    <action selector="skipTapped:" destination="QO6-LU-j75" eventType="touchUpInside" id="wiK-no-NIC"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="5jM-pD-FBa" firstAttribute="top" secondItem="2uZ-Qi-cDu" secondAttribute="top" id="0Mm-71-f0o"/>
-                            <constraint firstItem="I85-17-JJk" firstAttribute="leading" secondItem="CEP-cP-HXt" secondAttribute="leading" id="Egz-hg-weC"/>
-                            <constraint firstItem="CEP-cP-HXt" firstAttribute="bottom" secondItem="5jM-pD-FBa" secondAttribute="bottom" id="KbJ-cI-zTp"/>
-                            <constraint firstItem="CEP-cP-HXt" firstAttribute="trailing" secondItem="5jM-pD-FBa" secondAttribute="trailing" id="eWp-Hc-ecP"/>
-                            <constraint firstAttribute="trailing" secondItem="I85-17-JJk" secondAttribute="trailing" id="fl1-mX-Axx"/>
-                            <constraint firstItem="5jM-pD-FBa" firstAttribute="leading" secondItem="CEP-cP-HXt" secondAttribute="leading" id="hfG-y7-Cp7"/>
-                            <constraint firstItem="CEP-cP-HXt" firstAttribute="bottom" secondItem="I85-17-JJk" secondAttribute="bottom" id="pJ0-mk-Nor"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="CEP-cP-HXt"/>
-                    </view>
-                    <connections>
-                        <outlet property="gifView" destination="5jM-pD-FBa" id="J5t-kQ-uOu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zbR-5Y-h6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1182" y="3037"/>
-        </scene>
-        <!--Gif3 View Controller-->
-        <scene sceneID="ZZk-DU-0qg">
-            <objects>
-                <viewController storyboardIdentifier="gif3VC" id="1gA-WL-sxs" customClass="Gif3ViewController" customModule="StackdVersion1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="COb-7v-1Iu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ETf-C8-RUx" customClass="GIFImageView" customModule="Gifu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRb-KY-VH9">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="0.14744755993150685" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Ltq-42-9Sg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <state key="normal" title="GOT IT!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="confirmTapped:" destination="1gA-WL-sxs" eventType="touchUpInside" id="71V-9e-a8K"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="lUG-op-m6p" firstAttribute="trailing" secondItem="PRb-KY-VH9" secondAttribute="trailing" id="D8v-08-DER"/>
-                            <constraint firstItem="PRb-KY-VH9" firstAttribute="leading" secondItem="lUG-op-m6p" secondAttribute="leading" id="NBO-wt-nCC"/>
-                            <constraint firstItem="lUG-op-m6p" firstAttribute="bottom" secondItem="ETf-C8-RUx" secondAttribute="bottom" id="UJ7-KZ-cGK"/>
-                            <constraint firstItem="lUG-op-m6p" firstAttribute="trailing" secondItem="ETf-C8-RUx" secondAttribute="trailing" id="W9w-OB-JFc"/>
-                            <constraint firstItem="ETf-C8-RUx" firstAttribute="top" secondItem="COb-7v-1Iu" secondAttribute="top" id="WFC-5S-9Ba"/>
-                            <constraint firstItem="ETf-C8-RUx" firstAttribute="leading" secondItem="lUG-op-m6p" secondAttribute="leading" id="hwC-cQ-n8j"/>
-                            <constraint firstItem="lUG-op-m6p" firstAttribute="bottom" secondItem="PRb-KY-VH9" secondAttribute="bottom" id="nkC-vT-X1R"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="lUG-op-m6p"/>
-                    </view>
-                    <connections>
-                        <outlet property="gifView" destination="ETf-C8-RUx" id="GOi-Kg-7DB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="20n-Pi-5g7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-474" y="3036"/>
+            <point key="canvasLocation" x="-2639" y="3200"/>
         </scene>
         <!--Setting-->
         <scene sceneID="Vk0-Rj-7Ce">
