@@ -111,7 +111,10 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
                 self.initialIndexPath = indexPath
             }
         case UIGestureRecognizerState.changed:
-            break
+            if (indexPath != nil) && (indexPath != self.initialIndexPath) {
+                tableView.moveRow(at: self.initialIndexPath!, to: indexPath!)
+                self.initialIndexPath = indexPath
+            }
         case .ended:
             if ((indexPath != nil) && (indexPath != self.initialIndexPath)) {
 //                print(indexPath!, initialIndexPath!)
@@ -196,41 +199,42 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         return .none
     }
 
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let item = self.allItems![indexPath.row]
-        let type = item.cellType!
-        switch type{
-        case "podcast":
-            if let cell = tableView.cellForRow(at: indexPath) as? SharedTableViewCell {
-                cell.parentView.transform = .init(scaleX: 0.75, y: 0.75)
-                cell.contentView.backgroundColor = .gray
-            }
-        case "youtube", "safari":
-            if let cell = tableView.cellForRow(at: indexPath) as? YoutubeTableViewCell {
-                cell.parentView.transform = .init(scaleX: 0.75, y: 0.75)
-                cell.contentView.backgroundColor = .clear
-            }
-        default:
-            print("default")
-        }
-    }
+//    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+//        let item = self.allItems![indexPath.row]
+//        let type = item.cellType!
+//        switch type{
+//        case "podcast":
+//            if let cell = tableView.cellForRow(at: indexPath) as? SharedTableViewCell {
+//                cell.parentView.transform = .init(scaleX: 0.75, y: 0.75)
+//                cell.contentView.backgroundColor = .gray
+//            }
+//        case "youtube", "safari":
+//            if let cell = tableView.cellForRow(at: indexPath) as? YoutubeTableViewCell {
+//                cell.parentView.transform = .init(scaleX: 0.75, y: 0.75)
+//                cell.contentView.backgroundColor = .clear
+//            }
+//        default:
+//            print("default")
+//        }
+//    }
+//
+//    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+//        let item = self.allItems![indexPath.row]
+//        let type = item.cellType!
+//        switch type{
+//        case "podcast":
+//            if let cell = tableView.cellForRow(at: indexPath) as? SharedTableViewCell {
+//                cell.parentView.transform = .identity
+//            }
+//        case "youtube", "safari":
+//            if let cell = tableView.cellForRow(at: indexPath) as? YoutubeTableViewCell {
+//                cell.parentView.transform = .identity
+//            }
+//        default:
+//            print("default")
+//        }
+//    }
     
-    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        let item = self.allItems![indexPath.row]
-        let type = item.cellType!
-        switch type{
-        case "podcast":
-            if let cell = tableView.cellForRow(at: indexPath) as? SharedTableViewCell {
-                cell.parentView.transform = .identity
-            }
-        case "youtube", "safari":
-            if let cell = tableView.cellForRow(at: indexPath) as? YoutubeTableViewCell {
-                cell.parentView.transform = .identity
-            }
-        default:
-            print("default")
-        }
-    }
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
