@@ -27,8 +27,9 @@ extension String {
         let arr = self.components(separatedBy: "://")
         let s = arr[1].components(separatedBy: ".com")
         let f = s[0] + ".com"
-        
-        return f
+        guard f.count > 3, f.hasPrefix("www.") else { return f }
+        let r = String(f.dropFirst(4))
+        return r
     }
     
     func formatDurationForArticle() -> String {

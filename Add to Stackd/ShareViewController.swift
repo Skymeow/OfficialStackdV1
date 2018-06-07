@@ -65,7 +65,7 @@ import CoreData
                         let podcast = Podcast(context: self.coreDataStack.privateContext)
                         podcast.urlStr = urlStr
                         podcast.title = title
-                        podcast.duration = "see detail in podcast app"
+//                        podcast.duration = ""
                         podcast.cellType = "podcast"
                         podcast.date = Date()
                         podcast.rearrangedRow = -1
@@ -100,9 +100,10 @@ import CoreData
                                 Networking.instance.analyzeTime(url: urlStr) { (success, timeStr) in
                                     if success {
                                        safari.duration = timeStr
-                                    } else {
-                                         safari.duration = "unable to analyze time"
                                     }
+//                                        else {
+////                                         safari.duration = ""
+//                                    }
                                     let queue = DispatchQueue(label: "synctask")
                                     queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
                                         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
