@@ -13,6 +13,7 @@ import SnapKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var wrapperView: UIView!
     @IBOutlet weak var filterContainerView: UIView!
     @IBOutlet weak var homeContainerView: UIView!
     @IBOutlet weak var headerView: UIView!
@@ -24,8 +25,8 @@ class HomeViewController: UIViewController {
          NotificationCenter.default.addObserver(self, selector: #selector(dismissIntro(notification:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         let all = fetchAll(AllItem.self, route: .allItemUnArchived)
         if all.count == 0 {
-            self.placeHolderView = ShowIfEmptyView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
-            self.view.addSubview(placeHolderView!)
+            self.placeHolderView = ShowIfEmptyView(frame: (self.tabBarController?.view.frame)!)
+            self.tabBarController?.view.addSubview(placeHolderView!)
         }
         UserDefaults.standard.set(true, forKey: "saw_onboarding")
         self.navigationController?.navigationBar.isHidden = true
