@@ -53,12 +53,10 @@ class Networking {
                     } catch {
                         print("parse reading time from api failed")
                     }
-                }
-                else{
+                } else{
                     completion(false, "")
                 }
-            }
-            else {
+            } else {
                 // Failure\
                 completion(false, "")
                 print("URL Session Task Failed: %@", error!.localizedDescription);

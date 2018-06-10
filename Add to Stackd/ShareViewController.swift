@@ -42,14 +42,14 @@ import CoreData
                                 youtube.date = Date()
                                 youtube.rearrangedRow = -1
                                 youtube.archived = false
-//                                run these three task in serial queue async
-                                let queue = DispatchQueue(label: "synctask")
-                                queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                                    self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
-                                    successView.hide()
-                                    self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
-                                })
                             }
+                            //    run these three task in serial queue async
+                            let queue = DispatchQueue(label: "synctask")
+                            queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                                self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+                                successView.hide()
+                                self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+                            })
                         }
                         
                     }
@@ -65,19 +65,20 @@ import CoreData
                         let podcast = Podcast(context: self.coreDataStack.privateContext)
                         podcast.urlStr = urlStr
                         podcast.title = title
-//                        podcast.duration = ""
+                        podcast.duration = "N/A"
                         podcast.cellType = "podcast"
                         podcast.date = Date()
                         podcast.rearrangedRow = -1
                         podcast.archived = false
                         podcast.id = id
-                        let queue = DispatchQueue(label: "synctask")
-                        queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                            self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
-                            successView.hide()
-                            self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
-                        })
                     }
+                    
+                    let queue = DispatchQueue(label: "synctask")
+                    queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+                        successView.hide()
+                        self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+                    })
                 })
                 // safari
             } else if itemProvider.hasItemConformingToTypeIdentifier(String(kUTTypePropertyList)) {
@@ -100,10 +101,9 @@ import CoreData
                                 Networking.instance.analyzeTime(url: urlStr) { (success, timeStr) in
                                     if success {
                                        safari.duration = timeStr
+                                    } else {
+                                         safari.duration = "N/A"
                                     }
-//                                        else {
-////                                         safari.duration = ""
-//                                    }
                                     let queue = DispatchQueue(label: "synctask")
                                     queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
                                         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)

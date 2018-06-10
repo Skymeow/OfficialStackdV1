@@ -16,11 +16,12 @@ extension String {
     }
     
     func formatDuration() -> String {
-        let replace = self.replacingOccurrences(of: "PT", with: "")
-        let r = replace.components(separatedBy: "M")
-        let s = r[0]+" min"
+        var replace = self.replacingOccurrences(of: "PT", with: "")
+        replace = replace.replacingOccurrences(of: "H", with: "h ")
+        replace = replace.replacingOccurrences(of: "M", with: "min ")
+        replace = replace.replacingOccurrences(of: "S", with: "s")
 
-        return s
+        return replace
     }
     
     func formatSafariUrl() -> String {
@@ -33,12 +34,17 @@ extension String {
     }
     
     func formatDurationForArticle() -> String {
-//        var replace = self.replacingOccurrences(of: ":", with: " Min, ")
         let replace = self.split(separator: ":")
-        let mins = replace[0] + " Min"
-        let fullStr = String(mins)
-        
-        return fullStr
+        var cleaned = ""
+        guard self.count != 0 && self != "N/A" else { return self }
+        if replace.count == 3 {
+            cleaned = replace[0] + "h " + replace[1] + "min " + replace[2] + "s"
+        } else if replace.count == 2 {
+            cleaned = replace[0] + "min " + replace[1] + "s"
+        } else {
+            cleaned = replace[0] + "s"
+        }
+        return cleaned
     }
     
     func getSafariSource() -> String {

@@ -63,8 +63,6 @@ class HomeViewController: UIViewController {
 //    deinit {
 //        NotificationCenter.default.removeObserver(self)
 //    }
-
-    
 }
 extension HomeViewController: HeaderActionDelegate {
     func filterTapped() {

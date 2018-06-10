@@ -260,7 +260,6 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case "podcast":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
-                
                 genericCell = cell
                 cell.duration.text = item.duration
                 cell.sourceLabel.text = "itunes"

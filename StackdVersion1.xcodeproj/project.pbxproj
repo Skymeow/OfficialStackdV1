@@ -49,7 +49,7 @@
 		F940B5D4206DC884007CE630 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C2206DC884007CE630 /* Networking.swift */; };
 		F940B5D5206DC884007CE630 /* PodcastDataServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C3206DC884007CE630 /* PodcastDataServer.swift */; };
 		F940B5D7206DC884007CE630 /* DataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C6206DC884007CE630 /* DataConverter.swift */; };
-		F940B5D8206DC884007CE630 /* Reg.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C7206DC884007CE630 /* Reg.swift */; };
+		F940B5D8206DC884007CE630 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C7206DC884007CE630 /* StringExtension.swift */; };
 		F940B5D9206DC884007CE630 /* CoreDataInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C9206DC884007CE630 /* CoreDataInitializable.swift */; };
 		F940B5DA206DC884007CE630 /* CoredataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CA206DC884007CE630 /* CoredataStack.swift */; };
 		F940B5DB206DC884007CE630 /* FetchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CB206DC884007CE630 /* FetchHelper.swift */; };
@@ -73,7 +73,7 @@
 		F9BA2A41206DCACE0059ECBA /* SharedItems.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CC206DC884007CE630 /* SharedItems.xcdatamodeld */; };
 		F9BA2A42206DCAD30059ECBA /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5CF206DC884007CE630 /* KeyCenter.swift */; };
 		F9BA2A43206DCAD70059ECBA /* DataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C6206DC884007CE630 /* DataConverter.swift */; };
-		F9BA2A44206DCAD90059ECBA /* Reg.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C7206DC884007CE630 /* Reg.swift */; };
+		F9BA2A44206DCAD90059ECBA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C7206DC884007CE630 /* StringExtension.swift */; };
 		F9BA2A45206DCADD0059ECBA /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5BC206DC883007CE630 /* Video.swift */; };
 		F9BA2A46206DCAE20059ECBA /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5C2206DC884007CE630 /* Networking.swift */; };
 		F9BA2A52206DCB260059ECBA /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BA2A4C206DCB190059ECBA /* CommonCrypto.framework */; };
@@ -165,7 +165,7 @@
 		F940B5C2206DC884007CE630 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		F940B5C3206DC884007CE630 /* PodcastDataServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastDataServer.swift; sourceTree = "<group>"; };
 		F940B5C6206DC884007CE630 /* DataConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConverter.swift; sourceTree = "<group>"; };
-		F940B5C7206DC884007CE630 /* Reg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reg.swift; sourceTree = "<group>"; };
+		F940B5C7206DC884007CE630 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		F940B5C9206DC884007CE630 /* CoreDataInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInitializable.swift; sourceTree = "<group>"; };
 		F940B5CA206DC884007CE630 /* CoredataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoredataStack.swift; sourceTree = "<group>"; };
 		F940B5CB206DC884007CE630 /* FetchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchHelper.swift; sourceTree = "<group>"; };
@@ -466,7 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				F940B5C6206DC884007CE630 /* DataConverter.swift */,
-				F940B5C7206DC884007CE630 /* Reg.swift */,
+				F940B5C7206DC884007CE630 /* StringExtension.swift */,
 				F97EC34020A0029100CED0F5 /* UIImageExtension.swift */,
 				F97EC34220A005B700CED0F5 /* UIColorExtension.swift */,
 				F9076CF720B27F57001C43AF /* Storyboad & Utility.swift */,
@@ -742,7 +742,7 @@
 			files = (
 				F940B5D2206DC884007CE630 /* CustomHeaderView.swift in Sources */,
 				F940B5D5206DC884007CE630 /* PodcastDataServer.swift in Sources */,
-				F940B5D8206DC884007CE630 /* Reg.swift in Sources */,
+				F940B5D8206DC884007CE630 /* StringExtension.swift in Sources */,
 				F9ECEBAC20AFE1B600ADC134 /* HomeViewController.swift in Sources */,
 				F940B5DD206DC884007CE630 /* KeyCenter.swift in Sources */,
 				F9F0079720C9DD60009DA5CE /* CustomOverlay.swift in Sources */,
@@ -806,7 +806,7 @@
 				F902E9C020A63AB100DE8690 /* ListItem.swift in Sources */,
 				F9BA2A40206DCACB0059ECBA /* FetchHelper.swift in Sources */,
 				F9BA2A3F206DCAC90059ECBA /* CoredataStack.swift in Sources */,
-				F9BA2A44206DCAD90059ECBA /* Reg.swift in Sources */,
+				F9BA2A44206DCAD90059ECBA /* StringExtension.swift in Sources */,
 				F9BA2A45206DCADD0059ECBA /* Video.swift in Sources */,
 				F902E9BF20A63AB100DE8690 /* ListItemDisplayManager.swift in Sources */,
 			);
