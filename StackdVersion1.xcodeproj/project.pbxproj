@@ -38,7 +38,6 @@
 		F9408EF220B25653003BB8B1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9408EF120B25653003BB8B1 /* SettingViewController.swift */; };
 		F940B593206DC156007CE630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B592206DC156007CE630 /* AppDelegate.swift */; };
 		F940B598206DC156007CE630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F940B596206DC156007CE630 /* Main.storyboard */; };
-		F940B59A206DC156007CE630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F940B599206DC156007CE630 /* Assets.xcassets */; };
 		F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F940B59B206DC156007CE630 /* LaunchScreen.storyboard */; };
 		F940B5AB206DC174007CE630 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940B5AA206DC174007CE630 /* ShareViewController.swift */; };
 		F940B5B2206DC174007CE630 /* Add to Stackd.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F940B5A8206DC174007CE630 /* Add to Stackd.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -91,6 +90,8 @@
 		F9F0079520C9DD60009DA5CE /* CustomPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9F0079120C9DD5F009DA5CE /* CustomPage.xib */; };
 		F9F0079620C9DD60009DA5CE /* CustomPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0079220C9DD5F009DA5CE /* CustomPage.swift */; };
 		F9F0079720C9DD60009DA5CE /* CustomOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0079320C9DD60009DA5CE /* CustomOverlay.swift */; };
+		F9F0079B20CCD3DD009DA5CE /* OpenAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0079A20CCD3DD009DA5CE /* OpenAppView.swift */; };
+		F9F0079C20CCD6B4009DA5CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F940B599206DC156007CE630 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +200,7 @@
 		F9F0079120C9DD5F009DA5CE /* CustomPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPage.xib; sourceTree = "<group>"; };
 		F9F0079220C9DD5F009DA5CE /* CustomPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPage.swift; sourceTree = "<group>"; };
 		F9F0079320C9DD60009DA5CE /* CustomOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOverlay.swift; sourceTree = "<group>"; };
+		F9F0079A20CCD3DD009DA5CE /* OpenAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAppView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +404,7 @@
 				F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */,
 				F9ECEBAD20AFEE4800ADC134 /* StackdWebLabelView.swift */,
 				F9727F1020BCCA7F0015AC07 /* ShowIfEmptyView.swift */,
+				F9F0079A20CCD3DD009DA5CE /* OpenAppView.swift */,
 			);
 			path = UICustomClass;
 			sourceTree = "<group>";
@@ -584,12 +587,12 @@
 				F936C4BD20813219002D4E4D /* LoadingIndicator.xib in Resources */,
 				F9727ECC20B7807F0015AC07 /* SharedTableViewCell.xib in Resources */,
 				F9F0079420C9DD60009DA5CE /* CustomOverlay.xib in Resources */,
+				F9F0079C20CCD6B4009DA5CE /* Assets.xcassets in Resources */,
 				F9076CEB20B271D3001C43AF /* gif0.gif in Resources */,
 				F9076CEA20B271D3001C43AF /* gif2.gif in Resources */,
 				F9408EF020B1FD50003BB8B1 /* TagsCell.xib in Resources */,
 				F9F0079520C9DD60009DA5CE /* CustomPage.xib in Resources */,
 				F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */,
-				F940B59A206DC156007CE630 /* Assets.xcassets in Resources */,
 				F9727F0F20BCBBFA0015AC07 /* showIfEmpty.gif in Resources */,
 				F9076CEC20B271D3001C43AF /* gif1.gif in Resources */,
 				F9727ECA20B771F20015AC07 /* YoutubeTableViewCell.xib in Resources */,
@@ -782,6 +785,7 @@
 				F90CF79E2072F3F100174AA2 /* FilteredItemsViewController.swift in Sources */,
 				F940B5DA206DC884007CE630 /* CoredataStack.swift in Sources */,
 				F905BF5A2075875100C7B94F /* WebViewController.swift in Sources */,
+				F9F0079B20CCD3DD009DA5CE /* OpenAppView.swift in Sources */,
 				F940B5D0206DC884007CE630 /* SharedTableViewCell.swift in Sources */,
 				F902E9BC20A61F5000DE8690 /* ListItem.swift in Sources */,
 				F9076CE420B25D5F001C43AF /* CollectionViewDataSource.swift in Sources */,

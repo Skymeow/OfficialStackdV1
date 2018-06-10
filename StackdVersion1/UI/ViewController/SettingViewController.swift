@@ -13,8 +13,7 @@ class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     @IBAction func emailButtonTapped(_ sender: UIButton) {
@@ -28,7 +27,7 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["jsbotto@gmail.com"])
+            mail.setToRecipients(["product@stackdapp.com"])
             mail.setMessageBody("<p>let us know how we can do better</p>", isHTML: true)
             
             present(mail, animated: true)

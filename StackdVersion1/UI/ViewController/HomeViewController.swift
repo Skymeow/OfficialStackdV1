@@ -19,9 +19,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     var isFilterTagged = false
     var placeHolderView: ShowIfEmptyView?
+    var openView: OpenAppView?
     var seenIntro = false
     override func viewDidLoad() {
         super.viewDidLoad()
+    
          NotificationCenter.default.addObserver(self, selector: #selector(dismissIntro(notification:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         let all = fetchAll(AllItem.self, route: .allItemUnArchived)
         if all.count == 0 {
@@ -34,6 +36,18 @@ class HomeViewController: UIViewController {
         let customizedHeaderView = CustomHeaderView(frame: frame)
         headerView.addSubview(customizedHeaderView)
         customizedHeaderView.customedHeaderDelegate = self 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        showWhenOpenApp()
+    }
+    
+    func showWhenOpenApp() {
+        self.openView = OpenAppView(frame: (self.tabBarController?.view.frame)!)
+        self.tabBarController?.view.addSubview(self.openView!)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            self.openView?.removeFromSuperview()
+        })
     }
     
     @objc func dismissIntro(notification: NSNotification) {
