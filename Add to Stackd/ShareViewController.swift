@@ -74,14 +74,12 @@ import SnapKit
                         podcast.rearrangedRow = -1
                         podcast.archived = false
                         podcast.id = id
-                    }
-                    
-                    let queue = DispatchQueue(label: "synctask")
-                    queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                        self.tagView.itemId = id
                         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
-                        self.successView.hide()
+                    } else {
+                        //                                if save failed
                         self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
-                    })
+                    }
                 })
                 // safari
             } else if itemProvider.hasItemConformingToTypeIdentifier(String(kUTTypePropertyList)) {
@@ -107,16 +105,13 @@ import SnapKit
                                     } else {
                                          safari.duration = "N/A"
                                     }
-                                    let queue = DispatchQueue(label: "synctask")
-                                    queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                                        self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
-                                        self.successView.hide()
-                                        self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
-                                    })
+                                self.tagView.itemId = id
+                                self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
                                 }
-                                
+                            } else {
+                                //                                if save failed
+                                self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
                             }
-                            
                         }
                     }
                 })
