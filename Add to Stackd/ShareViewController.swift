@@ -10,17 +10,20 @@ import UIKit
 import Social
 import MobileCoreServices
 import CoreData
+import SnapKit
 
 @objc (ShareViewController) class ShareViewController: UIViewController {
     
     let coreDataStack = CoreDataStack.instance
-   
+    var tagView: ShareInTag!
+    var successView: FadingAlertView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView else { return }
-        successView.configureView(title: "Saved", at: self.view.center)
-        self.view.addSubview(successView)
-        
+        self.tagView = Bundle.main.loadNibNamed("ShareInTag", owner: self, options: nil)![0] as? ShareInTag
+        self.tagView.delegate = self
+        self.tagView.center = CGPoint(x: self.view.center.x, y: (self.view.frame.maxY - self.tagView.bounds.height * 0.5))
+        self.view.addSubview(tagView)
+        successView = Bundle.main.loadNibNamed("FadingAlertView", owner: self, options: nil)![0] as? FadingAlertView
         
         let extensionItem = extensionContext?.inputItems.first as! NSExtensionItem
 
@@ -42,14 +45,14 @@ import CoreData
                                 youtube.date = Date()
                                 youtube.rearrangedRow = -1
                                 youtube.archived = false
-                            }
-                            //    run these three task in serial queue async
-                            let queue = DispatchQueue(label: "synctask")
-                            queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                                //  first run tagview save tag or dismiss, then run popup
+                                self.tagView.itemId = id
                                 self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
-                                successView.hide()
+                              
+                            } else {
+//                                if save failed
                                 self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
-                            })
+                            }
                         }
                         
                     }
@@ -76,7 +79,7 @@ import CoreData
                     let queue = DispatchQueue(label: "synctask")
                     queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
                         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
-                        successView.hide()
+                        self.successView.hide()
                         self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
                     })
                 })
@@ -107,7 +110,7 @@ import CoreData
                                     let queue = DispatchQueue(label: "synctask")
                                     queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
                                         self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
-                                        successView.hide()
+                                        self.successView.hide()
                                         self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
                                     })
                                 }
@@ -127,4 +130,17 @@ import CoreData
     
 }
 
-
+extension ShareViewController: ShareTageDelegate {
+    func notifyShareVC() {
+        self.successView.configureView(title: "Saved", at: self.view.center)
+        self.view.addSubview(self.successView)
+        let queue = DispatchQueue(label: "synctask")
+        queue.asyncAfter(deadline: .now() + .seconds(2), execute: {
+//            self.coreDataStack.saveTo(context: self.coreDataStack.privateContext)
+            self.successView.hide()
+            self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+        })
+    }
+    
+    
+}

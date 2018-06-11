@@ -30,8 +30,9 @@
 		F90CF79E2072F3F100174AA2 /* FilteredItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */; };
 		F90CF7A02073078D00174AA2 /* FilteredItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */; };
 		F90CF7A220730DA100174AA2 /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */; };
-		F927305820CCDF8000A18E7E /* ShareInTag.xib in Resources */ = {isa = PBXBuildFile; fileRef = F927305720CCDF8000A18E7E /* ShareInTag.xib */; };
 		F927305A20CCE64300A18E7E /* ShareInTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F927305920CCE64300A18E7E /* ShareInTag.swift */; };
+		F927305D20CD822D00A18E7E /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECEBA920AF721900ADC134 /* AlertView.swift */; };
+		F927308920CE0FD900A18E7E /* ShareInTag.xib in Resources */ = {isa = PBXBuildFile; fileRef = F927308820CE0FD900A18E7E /* ShareInTag.xib */; };
 		F933D34720B6030E009BF593 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933D34620B6030E009BF593 /* NotificationHelper.swift */; };
 		F936C4BD20813219002D4E4D /* LoadingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = F936C4BB20813219002D4E4D /* LoadingIndicator.xib */; };
 		F936C4BE20813219002D4E4D /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */; };
@@ -145,8 +146,8 @@
 		F90CF79D2072F3F100174AA2 /* FilteredItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredItemsViewController.swift; sourceTree = "<group>"; };
 		F90CF79F2073078D00174AA2 /* FilteredItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredItemCell.swift; sourceTree = "<group>"; };
 		F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHeaderView.swift; sourceTree = "<group>"; };
-		F927305720CCDF8000A18E7E /* ShareInTag.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareInTag.xib; sourceTree = "<group>"; };
 		F927305920CCE64300A18E7E /* ShareInTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareInTag.swift; sourceTree = "<group>"; };
+		F927308820CE0FD900A18E7E /* ShareInTag.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareInTag.xib; path = ../../imgGenerator/imgGenerator/ShareInTag.xib; sourceTree = "<group>"; };
 		F933D34620B6030E009BF593 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		F936C4BB20813219002D4E4D /* LoadingIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingIndicator.xib; sourceTree = "<group>"; };
 		F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
@@ -373,7 +374,7 @@
 				F940B5DF206DC89D007CE630 /* FadingAlertView.xib */,
 				F940B5AF206DC174007CE630 /* Info.plist */,
 				F940B5B7206DC1C8007CE630 /* GetURL.js */,
-				F927305720CCDF8000A18E7E /* ShareInTag.xib */,
+				F927308820CE0FD900A18E7E /* ShareInTag.xib */,
 				F927305920CCE64300A18E7E /* ShareInTag.swift */,
 			);
 			path = "Add to Stackd";
@@ -612,7 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F940B5B8206DC1C8007CE630 /* GetURL.js in Resources */,
-				F927305820CCDF8000A18E7E /* ShareInTag.xib in Resources */,
+				F927308920CE0FD900A18E7E /* ShareInTag.xib in Resources */,
 				F9F0075E20C5DC2F009DA5CE /* Assets.xcassets in Resources */,
 				F940B5E1206DC89D007CE630 /* FadingAlertView.xib in Resources */,
 			);
@@ -730,12 +731,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-StackdVersion1/Pods-StackdVersion1-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftyOnboard/SwiftyOnboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Gifu/Gifu.framework",
+				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyOnboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gifu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -821,6 +824,7 @@
 				F9BA2A44206DCAD90059ECBA /* StringExtension.swift in Sources */,
 				F9BA2A45206DCADD0059ECBA /* Video.swift in Sources */,
 				F902E9BF20A63AB100DE8690 /* ListItemDisplayManager.swift in Sources */,
+				F927305D20CD822D00A18E7E /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
