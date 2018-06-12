@@ -30,7 +30,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.66666666666666663" green="0.66666668653488159" blue="0.66666668653488159" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Ma9-iX-754" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="7q6-aM-8gg"/>
                 <constraint firstItem="Ma9-iX-754" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="4:10" id="Bek-Im-UcV"/>

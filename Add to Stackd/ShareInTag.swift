@@ -33,6 +33,7 @@ class ShareInTag: UIView, UITextFieldDelegate {
     @objc func saveTag() {
         if text.text?.isEmpty == false {
             let tag = text.text
+            self.tagLabel.text = tag
             let coredataTag = Tags(context: coreDataStack.privateContext)
             coredataTag.content = tag
             guard let id = self.itemId else { return }

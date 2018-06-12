@@ -58,8 +58,7 @@ extension OnboardingViewController: SwiftyOnboardDelegate, SwiftyOnboardDataSour
     func swiftyOnboardOverlayForPosition(_ swiftyOnboard: SwiftyOnboard, overlay: SwiftyOnboardOverlay, for position: Double) {
         let overlay = overlay as! CustomOverlay
         let currentPage = round(position)
-        overlay.pageControl.currentPage = Int(currentPage)
-        //        overlay.skip.tag = Int(position)
+        overlay.contentControl.currentPage = Int(currentPage)
         if currentPage == 0.0 || currentPage == 1.0 {
             overlay.skip.setTitle("Got it", for: .normal)
             overlay.skip.contentHorizontalAlignment = .center

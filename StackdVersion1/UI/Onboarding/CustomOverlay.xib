@@ -42,7 +42,7 @@
                 <constraint firstAttribute="bottom" secondItem="aMw-dt-lF7" secondAttribute="bottom" id="skQ-s4-WMc"/>
             </constraints>
             <connections>
-                <outlet property="contentControl" destination="Nzm-rP-scd" id="v1c-QV-gXm"/>
+                <outlet property="contentControl" destination="Nzm-rP-scd" id="fXM-2y-Pga"/>
                 <outlet property="skip" destination="aMw-dt-lF7" id="etN-kZ-H2E"/>
             </connections>
             <point key="canvasLocation" x="499" y="55"/>

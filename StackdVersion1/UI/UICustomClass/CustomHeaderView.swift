@@ -38,9 +38,9 @@ class CustomHeaderView: UIView {
         backgroundImg.isUserInteractionEnabled = true
         
         titleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
-        titleLabel.text = "Stacked"
+        titleLabel.text = "Stackd"
         titleLabel.textColor = .white
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 36)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 34)
         titleLabel.textAlignment = .left
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 1
@@ -49,7 +49,7 @@ class CustomHeaderView: UIView {
         subTitleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
         subTitleLabel.text = "Shared Items"
         subTitleLabel.textColor = .white
-        subTitleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        subTitleLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         subTitleLabel.textAlignment = .left
         subTitleLabel.alpha = 0.8
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -81,8 +81,8 @@ class CustomHeaderView: UIView {
         
         titleLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(45)
-            make.bottom.equalTo(subTitleLabel.snp.top).offset(30)
+            make.top.equalToSuperview().offset(20)
+            make.bottom.equalTo(subTitleLabel.snp.top).offset(55)
             make.height.equalTo(55)
             make.width.equalTo(200)
         }

@@ -29,10 +29,10 @@ class StackdWebLabelView: UIView {
     
     func layoutNewSubviews() {
         self.isUserInteractionEnabled = true
+        
         btn = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
         btn.backgroundColor = .black
         btn.setBackgroundImage(#imageLiteral(resourceName: "back_btn"), for: .normal)
-        
         btn.addTarget(self, action: #selector(viewTapped), for: .touchUpInside)
         
         titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
@@ -43,10 +43,12 @@ class StackdWebLabelView: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 1
         titleLabel.sizeToFit()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        titleLabel.isUserInteractionEnabled = true
+        titleLabel.addGestureRecognizer(tap)
         
         self.addSubview(btn)
         self.addSubview(titleLabel)
-        
         setConstraints()
     }
     

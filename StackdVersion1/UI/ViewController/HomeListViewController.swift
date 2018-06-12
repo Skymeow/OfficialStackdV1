@@ -62,7 +62,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
         self.loadItems()
-        self.loadTags()
+//        self.loadTags()
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
@@ -81,6 +81,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
 //
     @objc func observeEnterforeground(notification: NSNotification){
          self.loadItems()
+//         self.loadTags()
     }
     func loadItems() {
        self.allItems = fetchAll(AllItem.self, route: .allItemUnArchived)
@@ -94,7 +95,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     @objc private func refreshData(_ sender: Any) {
         self.loadItems()
-        self.loadTags()
+//        self.loadTags()
         self.refreshControl.endRefreshing()
     }
     
@@ -199,42 +200,6 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         return .none
     }
 
-//    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-//        let item = self.allItems![indexPath.row]
-//        let type = item.cellType!
-//        switch type{
-//        case "podcast":
-//            if let cell = tableView.cellForRow(at: indexPath) as? SharedTableViewCell {
-//                cell.parentView.transform = .init(scaleX: 0.75, y: 0.75)
-//                cell.contentView.backgroundColor = .gray
-//            }
-//        case "youtube", "safari":
-//            if let cell = tableView.cellForRow(at: indexPath) as? YoutubeTableViewCell {
-//                cell.parentView.transform = .init(scaleX: 0.75, y: 0.75)
-//                cell.contentView.backgroundColor = .clear
-//            }
-//        default:
-//            print("default")
-//        }
-//    }
-//
-//    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-//        let item = self.allItems![indexPath.row]
-//        let type = item.cellType!
-//        switch type{
-//        case "podcast":
-//            if let cell = tableView.cellForRow(at: indexPath) as? SharedTableViewCell {
-//                cell.parentView.transform = .identity
-//            }
-//        case "youtube", "safari":
-//            if let cell = tableView.cellForRow(at: indexPath) as? YoutubeTableViewCell {
-//                cell.parentView.transform = .identity
-//            }
-//        default:
-//            print("default")
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
@@ -426,7 +391,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeListViewController: TagsDelegate {
     func reloadTags() {
-        self.loadTags()
+//        self.loadTags()
         
     }
 }
