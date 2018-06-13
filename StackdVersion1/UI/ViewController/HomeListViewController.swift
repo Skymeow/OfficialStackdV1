@@ -21,8 +21,8 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     @IBOutlet weak var centerX: NSLayoutConstraint!
     @IBOutlet weak var popupComeFrom: UILabel!
     @IBOutlet weak var popupSource: UILabel!
-    var actionToolbar: UIToolbar!
-    var actionButton: UIBarButtonItem!
+    var generateView: ListImg!
+    var shareView: ShareTabView!
     var dismissPopUp: UITapGestureRecognizer!
     var initialIndexPath: IndexPath? = nil
     var selectedIndex: IndexPath?
@@ -53,6 +53,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(observeEnterforeground(notification:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         self.dismissPopUp = UITapGestureRecognizer(target: self, action: #selector(dismissXis))
         self.view.addGestureRecognizer(dismissPopUp)
@@ -222,6 +223,9 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case "podcast":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "regularcell", for: indexPath) as? SharedTableViewCell {
+                if tableView.isEditing == true {
+                    cell.editingAccessoryType = .checkmark
+                }
                 genericCell = cell
                 cell.duration.text = item.duration
                 cell.sourceLabel.text = "itunes"
@@ -237,6 +241,9 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         case "safari":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
                 genericCell = cell
+                if tableView.isEditing == true {
+                    cell.editingAccessoryType = .checkmark
+                }
                 let duration = item.duration?.formatDurationForArticle()
                 cell.duration.text = duration
                 cell.sourceLabel.text = item.urlStr?.formatSafariUrl()
@@ -257,12 +264,6 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
                 if tableView.isEditing == true {
                     cell.editingAccessoryType = .checkmark
                 }
-//                    self.tableView.isEditing = false
-//                    self.navigationItem.leftBarButtonItem?.title = "Done"
-//                } else {
-//                    self.tableView.isEditing = true
-//                    self.navigationItem.leftBarButtonItem?.title = "Edit"
-//                }
                 genericCell = cell
                 cell.duration.text = item.duration
                 cell.sourceLabel.text = "youtube"
@@ -310,6 +311,11 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
             default:
                 print("exception in didselect")
             }
+        } else {
+            let frame = CGRect(x: 0, y: ((self.tabBarController?.view.frame.height)! - 45), width: (self.tabBarController?.view.frame.width)!, height: 45)
+            self.shareView = ShareTabView(frame: frame)
+            shareView.delegate = self
+            self.tabBarController?.view.addSubview(shareView)
         }
     }
     
@@ -326,10 +332,6 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
     }
     
     @available(iOS 11.0, *)
@@ -433,12 +435,21 @@ extension HomeListViewController: HomeDelegate {
         self.tableView.setEditing(true, animated: true)
         self.tableView.allowsMultipleSelectionDuringEditing = true
         self.tableView.reloadData()
-        
     }
     
     func cancelEdit() {
         self.tableView.isEditing = false
         self.tableView.allowsMultipleSelectionDuringEditing = true
         self.tableView.reloadData()
+    }
+}
+extension HomeListViewController: ShareDelegate {
+    func shareTapped() {
+        generateView = ListImg(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 130))
+        generateView.view1.text = "sdagadsgasfgafsgafgafggfhgfshsdghsdghgdshsdghsdhdgh"
+        generateView.view2.text = "sdagadsgasfgafsgafgafggfhgfshsdghsdghgdshsdghsdhdgh"
+        generateView.view3.text = "sdagadsgasfgafsgafgafggfhgfshsdghsdghgdshsdghsdhdgh"
+    
+        let shareList = UIImage(view: generateView)
     }
 }

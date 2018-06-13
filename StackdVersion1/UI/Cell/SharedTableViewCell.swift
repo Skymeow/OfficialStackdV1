@@ -26,6 +26,15 @@ class SharedTableViewCell: UITableViewCell {
 //        accessoryType = selected ? .checkmark : .none
 //    }
     
+    override func willTransition(to state: UITableViewCellStateMask) {
+        super.willTransition(to: state)
+        if state == UITableViewCellStateMask.showingEditControlMask {
+            self.parentView.frame = CGRect(x: 35, y: 0, width: self.frame.width, height: self.frame.height)
+        } else {
+            self.parentView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -29,21 +29,13 @@ class YoutubeTableViewCell: UITableViewCell {
     override func willTransition(to state: UITableViewCellStateMask) {
         super.willTransition(to: state)
         if state == UITableViewCellStateMask.showingEditControlMask {
-            //            self.parentView.transform =  CGAffineTransform(translationX: 36, y: 0)
             self.parentView.frame = CGRect(x: 35, y: 0, width: self.frame.width, height: self.frame.height)
         } else {
            self.parentView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         }
     }
+
     
-//    override func didTransition(to state: UITableViewCellStateMask) {
-//        super.didTransition(to: state)
-//        if state == UITableViewCellStateMask.showingEditControlMask {
-////            self.parentView.transform =  CGAffineTransform(translationX: 36, y: 0)
-//            self.parentView.frame = CGRect(x: 35, y: 0, width: self.frame.width, height: self.frame.height)
-//            self.parentView.transform = CGAffineTransform.identity
-//        }
-//    }
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -81,13 +73,4 @@ extension YoutubeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
 }
-
-//extension YoutubeTableViewCell: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = CGFloat(25)
-//
-//        return CGSize(width: width, height: collectionView.bounds.height - 2)
-//    }
-//}
-
 

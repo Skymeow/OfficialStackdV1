@@ -34,6 +34,8 @@
 		F927305D20CD822D00A18E7E /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECEBA920AF721900ADC134 /* AlertView.swift */; };
 		F927308920CE0FD900A18E7E /* ShareInTag.xib in Resources */ = {isa = PBXBuildFile; fileRef = F927308820CE0FD900A18E7E /* ShareInTag.xib */; };
 		F927308B20CF963400A18E7E /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = F927308A20CF963300A18E7E /* loading.gif */; };
+		F92B1D7E20D0E51F00DC8ACC /* ShareTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92B1D7D20D0E51F00DC8ACC /* ShareTabView.swift */; };
+		F92B1D8020D0F21600DC8ACC /* ListImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92B1D7F20D0F21600DC8ACC /* ListImg.swift */; };
 		F933D34720B6030E009BF593 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933D34620B6030E009BF593 /* NotificationHelper.swift */; };
 		F936C4BD20813219002D4E4D /* LoadingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = F936C4BB20813219002D4E4D /* LoadingIndicator.xib */; };
 		F936C4BE20813219002D4E4D /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */; };
@@ -150,6 +152,8 @@
 		F927305920CCE64300A18E7E /* ShareInTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareInTag.swift; sourceTree = "<group>"; };
 		F927308820CE0FD900A18E7E /* ShareInTag.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareInTag.xib; path = ../../imgGenerator/imgGenerator/ShareInTag.xib; sourceTree = "<group>"; };
 		F927308A20CF963300A18E7E /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		F92B1D7D20D0E51F00DC8ACC /* ShareTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTabView.swift; sourceTree = "<group>"; };
+		F92B1D7F20D0F21600DC8ACC /* ListImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListImg.swift; sourceTree = "<group>"; };
 		F933D34620B6030E009BF593 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		F936C4BB20813219002D4E4D /* LoadingIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingIndicator.xib; sourceTree = "<group>"; };
 		F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
@@ -409,12 +413,14 @@
 		F940B5BD206DC884007CE630 /* UICustomClass */ = {
 			isa = PBXGroup;
 			children = (
+				F92B1D7F20D0F21600DC8ACC /* ListImg.swift */,
 				F940B5BE206DC884007CE630 /* CustomHeaderView.swift */,
 				F90CF7A120730DA100174AA2 /* FilterHeaderView.swift */,
 				F97EC34420A0DB4C00CED0F5 /* ArchiveHeaderView.swift */,
 				F9ECEBAD20AFEE4800ADC134 /* StackdWebLabelView.swift */,
 				F9727F1020BCCA7F0015AC07 /* ShowIfEmptyView.swift */,
 				F9F0079A20CCD3DD009DA5CE /* OpenAppView.swift */,
+				F92B1D7D20D0E51F00DC8ACC /* ShareTabView.swift */,
 			);
 			path = UICustomClass;
 			sourceTree = "<group>";
@@ -766,6 +772,7 @@
 				F90CF7772070961600174AA2 /* TabelViewCellItem.swift in Sources */,
 				F9ECEBAE20AFEE4800ADC134 /* StackdWebLabelView.swift in Sources */,
 				F97EC34120A0029100CED0F5 /* UIImageExtension.swift in Sources */,
+				F92B1D7E20D0E51F00DC8ACC /* ShareTabView.swift in Sources */,
 				F9EBFF79207ABB7200B0B0F3 /* FadingAlertView.swift in Sources */,
 				F90CF77020707CB500174AA2 /* YoutubeTableViewCell.swift in Sources */,
 				F90CF76D2070763D00174AA2 /* CustomPersistantContainer.swift in Sources */,
@@ -799,6 +806,7 @@
 				F90CF79E2072F3F100174AA2 /* FilteredItemsViewController.swift in Sources */,
 				F940B5DA206DC884007CE630 /* CoredataStack.swift in Sources */,
 				F905BF5A2075875100C7B94F /* WebViewController.swift in Sources */,
+				F92B1D8020D0F21600DC8ACC /* ListImg.swift in Sources */,
 				F9F0079B20CCD3DD009DA5CE /* OpenAppView.swift in Sources */,
 				F940B5D0206DC884007CE630 /* SharedTableViewCell.swift in Sources */,
 				F902E9BC20A61F5000DE8690 /* ListItem.swift in Sources */,

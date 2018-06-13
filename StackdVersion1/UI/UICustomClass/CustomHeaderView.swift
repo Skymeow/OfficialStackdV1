@@ -51,7 +51,7 @@ class CustomHeaderView: UIView {
         subTitleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
         subTitleLabel.text = "Share Items"
         subTitleLabel.textColor = .white
-        subTitleLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        subTitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         subTitleLabel.textAlignment = .left
         subTitleLabel.alpha = 0.8
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
