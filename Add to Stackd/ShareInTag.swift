@@ -47,6 +47,7 @@ class ShareInTag: UIView, UITextFieldDelegate {
     
     @IBAction func dismissTapped(_ sender: UIButton) {
         self.dismiss()
+        delegate?.notifyShareVC()
     }
   
     func dismiss() {

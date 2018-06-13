@@ -11,6 +11,11 @@ import CoreData
 import Gifu
 import SnapKit
 
+protocol HomeDelegate: class {
+    func notifyEdit()
+    func cancelEdit()
+}
+
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var wrapperView: UIView!
@@ -18,12 +23,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var homeContainerView: UIView!
     @IBOutlet weak var headerView: UIView!
     var isFilterTagged = false
+    var isSetEdit = true
     var placeHolderView: ShowIfEmptyView?
     var openView: OpenAppView?
     var seenIntro = false
+    weak var delegate: HomeDelegate?
+    var customizedHeaderView: CustomHeaderView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
          NotificationCenter.default.addObserver(self, selector: #selector(dismissIntro(notification:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         let all = fetchAll(AllItem.self, route: .allItemUnArchived)
         if all.count == 0 {
@@ -33,9 +42,9 @@ class HomeViewController: UIViewController {
         UserDefaults.standard.set(true, forKey: "saw_onboarding")
         self.navigationController?.navigationBar.isHidden = true
         let frame = CGRect(x: 0, y: 0, width: headerView.frame.size.width, height: 150)
-        let customizedHeaderView = CustomHeaderView(frame: frame)
-        headerView.addSubview(customizedHeaderView)
-        customizedHeaderView.customedHeaderDelegate = self 
+        self.customizedHeaderView = CustomHeaderView(frame: frame)
+        headerView.addSubview(customizedHeaderView!)
+        customizedHeaderView?.customedHeaderDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,11 +66,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-//    deinit observe
-//    override func viewWillDisappear(_ animated: Bool) {
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-//    }
-    
     func loadDifferentTypeItems() {
         let podcasts = fetchAll(Podcast.self, route: .podcast)
         let safaris = fetchAll(Safari.self, route: .safari)
@@ -73,12 +77,21 @@ class HomeViewController: UIViewController {
         let podcastNotiDict: [String: [Podcast]] = ["podcasts": podcasts]
         NotificationCenter.default.post(name: .podcasts, object: nil, userInfo: podcastNotiDict)
     }
-    
-//    deinit {
-//        NotificationCenter.default.removeObserver(self)
-//    }
+
 }
 extension HomeViewController: HeaderActionDelegate {
+    func shareTapped() {
+        if self.isSetEdit == false {
+            self.delegate?.notifyEdit()
+            self.isSetEdit = true
+            self.customizedHeaderView?.subTitleLabel.text = "Cancel"
+        } else {
+            self.delegate?.cancelEdit()
+            self.customizedHeaderView?.subTitleLabel.text = "Share Items"
+            self.isSetEdit = false
+        }
+    }
+    
     func filterTapped() {
         self.loadDifferentTypeItems()
         if self.isFilterTagged == false {

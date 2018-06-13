@@ -21,6 +21,8 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     @IBOutlet weak var centerX: NSLayoutConstraint!
     @IBOutlet weak var popupComeFrom: UILabel!
     @IBOutlet weak var popupSource: UILabel!
+    var actionToolbar: UIToolbar!
+    var actionButton: UIBarButtonItem!
     var dismissPopUp: UITapGestureRecognizer!
     var initialIndexPath: IndexPath? = nil
     var selectedIndex: IndexPath?
@@ -35,6 +37,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         }
     }
     var tagIndex: IndexPath?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +45,12 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
             self.tableView.deselectRow(at: index, animated: true)
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let homeVC = self.parent as? HomeViewController
+        homeVC?.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(observeEnterforeground(notification:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
@@ -52,8 +61,6 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         tableView.addGestureRecognizer(longpress)
         centerX.constant = -1000
         self.tableView.dragInteractionEnabled = true
-        
-        self.navigationController?.navigationBar.isHidden = true
         self.tableView.sectionHeaderHeight = 150
         
         let nibCell = UINib(nibName: "SharedTableViewCell", bundle: Bundle.main)
@@ -74,15 +81,13 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         deleteBtn.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
         archiveBtn.addTarget(self, action: #selector(archiveTapped), for: .touchUpInside)
     }
+
     
-//    deinit {
-//        NotificationCenter.default.removeObserver(self)
-//    }
-//
     @objc func observeEnterforeground(notification: NSNotification){
          self.loadItems()
 //         self.loadTags()
     }
+    
     func loadItems() {
        self.allItems = fetchAll(AllItem.self, route: .allItemUnArchived)
     }
@@ -196,14 +201,6 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return .none
-    }
-
-    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
 
         return true
@@ -257,6 +254,15 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case "youtube":
             if let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell {
+                if tableView.isEditing == true {
+                    cell.editingAccessoryType = .checkmark
+                }
+//                    self.tableView.isEditing = false
+//                    self.navigationItem.leftBarButtonItem?.title = "Done"
+//                } else {
+//                    self.tableView.isEditing = true
+//                    self.navigationItem.leftBarButtonItem?.title = "Edit"
+//                }
                 genericCell = cell
                 cell.duration.text = item.duration
                 cell.sourceLabel.text = "youtube"
@@ -286,28 +292,44 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
         let url = selected.urlStr!
         let selectedType = selected.cellType!
         self.selectedIndex = indexPath
-        switch selectedType {
-        case "podcast":
-            self.popupSource.text = selected.urlStr?.getSafariSource()
-            self.popupComeFrom.text = selected.title
-            PrepareForPresentingViews.shared.redirectToPodcast(url)
-        case "youtube":
-            self.popupSource.text = selected.urlStr?.getSafariSource()
-            self.popupComeFrom.text = selected.title
-            PrepareForPresentingViews.shared.openInApp(url, viewController: self, navigationController: self.navigationController)
-        case "safari":
-            self.popupSource.text = selected.urlStr?.getSafariSource()
-            self.popupComeFrom.text = selected.title
-            PrepareForPresentingViews.shared.openInApp(url, viewController: self, navigationController: self.navigationController)
-        default:
-            print("exception in didselect")
+        if self.tableView.isEditing != true {
+            switch selectedType {
+            case "podcast":
+                self.popupSource.text = selected.urlStr?.getSafariSource()
+                self.popupComeFrom.text = selected.title
+                PrepareForPresentingViews.shared.redirectToPodcast(url)
+            case "youtube":
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "youtubecell", for: indexPath) as? YoutubeTableViewCell else { return }
+                self.popupSource.text = selected.urlStr?.getSafariSource()
+                self.popupComeFrom.text = selected.title
+                PrepareForPresentingViews.shared.openInApp(url, viewController: self, navigationController: self.navigationController)
+            case "safari":
+                self.popupSource.text = selected.urlStr?.getSafariSource()
+                self.popupComeFrom.text = selected.title
+                PrepareForPresentingViews.shared.openInApp(url, viewController: self, navigationController: self.navigationController)
+            default:
+                print("exception in didselect")
+            }
         }
     }
     
-    
+    //    MARK: for share left cell edit mode
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
         return true
+    }
+   
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
     }
     
     @available(iOS 11.0, *)
@@ -403,5 +425,20 @@ extension HomeListViewController: UIGestureRecognizerDelegate {
             return false
         }
         return true
+    }
+}
+
+extension HomeListViewController: HomeDelegate {
+    func notifyEdit() {
+        self.tableView.setEditing(true, animated: true)
+        self.tableView.allowsMultipleSelectionDuringEditing = true
+        self.tableView.reloadData()
+        
+    }
+    
+    func cancelEdit() {
+        self.tableView.isEditing = false
+        self.tableView.allowsMultipleSelectionDuringEditing = true
+        self.tableView.reloadData()
     }
 }

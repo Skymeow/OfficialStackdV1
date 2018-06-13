@@ -11,7 +11,9 @@ import SnapKit
 
 protocol HeaderActionDelegate {
     func filterTapped()
+    func shareTapped()
 }
+
 class CustomHeaderView: UIView {
    
     var customedHeaderDelegate: HeaderActionDelegate?
@@ -47,7 +49,7 @@ class CustomHeaderView: UIView {
         titleLabel.sizeToFit()
         
         subTitleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
-        subTitleLabel.text = "Shared Items"
+        subTitleLabel.text = "Share Items"
         subTitleLabel.textColor = .white
         subTitleLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         subTitleLabel.textAlignment = .left
@@ -55,6 +57,10 @@ class CustomHeaderView: UIView {
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subTitleLabel.numberOfLines = 1
         subTitleLabel.sizeToFit()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(shareTapped))
+        subTitleLabel.isUserInteractionEnabled = true
+        subTitleLabel.clipsToBounds = true
+        subTitleLabel.addGestureRecognizer(tap)
         
         filterButton = UIButton(type: .custom)
         let filterImg = #imageLiteral(resourceName: "Filter")
@@ -81,8 +87,7 @@ class CustomHeaderView: UIView {
         
         titleLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(20)
-            make.bottom.equalTo(subTitleLabel.snp.top).offset(55)
+            make.top.equalToSuperview().offset(25)
             make.height.equalTo(55)
             make.width.equalTo(200)
         }
@@ -105,6 +110,11 @@ class CustomHeaderView: UIView {
     
     @objc func filterTapped() {
         customedHeaderDelegate?.filterTapped()
+        
+    }
+    
+    @objc func shareTapped() {
+        customedHeaderDelegate?.shareTapped()
     }
 }
 

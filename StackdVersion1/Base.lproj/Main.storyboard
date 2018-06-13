@@ -309,11 +309,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="453"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="30o-Xj-0zP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="30o-Xj-0zP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="453"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="regularcell" rowHeight="120" id="yU3-vn-RlK" customClass="SharedTableViewCell" customModule="StackdVersion1" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="regularcell" rowHeight="120" id="yU3-vn-RlK" customClass="SharedTableViewCell" customModule="StackdVersion1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yU3-vn-RlK" id="gex-32-Ykb">
@@ -323,7 +323,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="youtubecell" rowHeight="120" id="NUB-pY-h2i" customClass="YoutubeTableViewCell" customModule="StackdVersion1" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="youtubecell" rowHeight="120" id="NUB-pY-h2i" customClass="YoutubeTableViewCell" customModule="StackdVersion1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NUB-pY-h2i" id="dch-vY-0XU">
@@ -589,15 +589,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxf-zC-X5T">
-                                <rect key="frame" x="0.0" y="64" width="375" height="6"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="6" id="mOO-T7-DpF"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xCZ-I9-mV1">
-                                <rect key="frame" x="0.0" y="70" width="375" height="548"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="regularcell" rowHeight="120" id="7xz-F6-GjC" customClass="SharedTableViewCell" customModule="StackdVersion1" customModuleProvider="target">
@@ -628,11 +621,8 @@
                         <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cKJ-9Z-UQi" firstAttribute="bottom" secondItem="xCZ-I9-mV1" secondAttribute="bottom" id="2kI-RL-WsW"/>
-                            <constraint firstItem="kxf-zC-X5T" firstAttribute="bottom" secondItem="xCZ-I9-mV1" secondAttribute="top" id="3TK-KT-7Ww"/>
-                            <constraint firstItem="kxf-zC-X5T" firstAttribute="top" secondItem="cKJ-9Z-UQi" secondAttribute="top" id="6Pd-hU-Okh"/>
+                            <constraint firstItem="xCZ-I9-mV1" firstAttribute="top" secondItem="cKJ-9Z-UQi" secondAttribute="top" id="3sW-ot-RHL"/>
                             <constraint firstItem="xCZ-I9-mV1" firstAttribute="leading" secondItem="cKJ-9Z-UQi" secondAttribute="leading" id="72v-UP-wv7"/>
-                            <constraint firstItem="kxf-zC-X5T" firstAttribute="leading" secondItem="Y7U-5I-Xng" secondAttribute="leading" id="D3y-ku-3RD"/>
-                            <constraint firstAttribute="trailing" secondItem="kxf-zC-X5T" secondAttribute="trailing" id="g6T-9f-S4q"/>
                             <constraint firstItem="cKJ-9Z-UQi" firstAttribute="trailing" secondItem="xCZ-I9-mV1" secondAttribute="trailing" id="zCf-xx-ULX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cKJ-9Z-UQi"/>

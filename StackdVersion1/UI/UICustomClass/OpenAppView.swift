@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 import SnapKit
+import Gifu
 
 class OpenAppView: UIView {
-    var imgView: UIImageView!
+    var imgView: GIFImageView!
     override init(frame: CGRect) {
         super.init(frame: frame)
         layoutNewSubviews()
@@ -23,10 +24,12 @@ class OpenAppView: UIView {
     
     func layoutNewSubviews() {
         self.isUserInteractionEnabled = true
-       
-        imgView = UIImageView(frame: self.frame)
+        imgView = GIFImageView(frame: self.frame)
         imgView.contentMode = .scaleAspectFill
-        imgView.image = #imageLiteral(resourceName: "openAppView")
+        imgView.animate(withGIFNamed: "loading") {
+        }
+        
+
         self.addSubview(imgView)
         self.setConstraints()
     }
