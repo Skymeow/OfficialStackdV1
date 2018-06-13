@@ -19,12 +19,16 @@ class ShareTabView: UIView {
     weak var delegate: ShareDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.init(rgb: 0xF7F7F7, a: 0.6)
+        self.backgroundColor = UIColor.init(rgb: 0xF7F7F7, a: 0.73)
         layoutNewSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func dismiss() {
+        self.removeFromSuperview()
     }
     
     func layoutNewSubviews() {

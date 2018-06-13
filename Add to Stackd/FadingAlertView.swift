@@ -20,6 +20,7 @@ class FadingAlertView: UIView {
         self.stackImg.image = #imageLiteral(resourceName: "confirm_action")
         self.center = location
         self.alertMsg.text = title
+        self.alertMsg.font = UIFont(name: "SFProDisplay-Medium", size: 17)
     }
     
     func dismiss() {

@@ -32,7 +32,15 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }
+
          NotificationCenter.default.addObserver(self, selector: #selector(dismissIntro(notification:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         let all = fetchAll(AllItem.self, route: .allItemUnArchived)
         if all.count == 0 {

@@ -42,7 +42,7 @@ class CustomHeaderView: UIView {
         titleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
         titleLabel.text = "Stackd"
         titleLabel.textColor = .white
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 34)
+        titleLabel.font = UIFont(name: "Comfortaa-Bold", size: 34)
         titleLabel.textAlignment = .left
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 1
@@ -51,7 +51,7 @@ class CustomHeaderView: UIView {
         subTitleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
         subTitleLabel.text = "Share Items"
         subTitleLabel.textColor = .white
-        subTitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        subTitleLabel.font = UIFont(name: "SFProDisplay-Medium", size: 17)
         subTitleLabel.textAlignment = .left
         subTitleLabel.alpha = 0.8
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -87,14 +87,14 @@ class CustomHeaderView: UIView {
         
         titleLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(25)
+            make.top.equalToSuperview().offset(30)
             make.height.equalTo(55)
             make.width.equalTo(200)
         }
         
         subTitleLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().offset(-5)
+            make.bottom.equalToSuperview().offset(-10)
             make.height.equalTo(35)
             make.width.equalTo(150)
         }

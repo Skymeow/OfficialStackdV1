@@ -44,21 +44,21 @@ class FilterHeaderView: UIView {
         titleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
         titleLabel.text = "FILTER"
         titleLabel.textColor = .white
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        titleLabel.font = UIFont(name: "SFProDisplay-Medium", size: 34)
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.numberOfLines = 1
         titleLabel.sizeToFit()
         
-        subTitleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
-        subTitleLabel.text = "Shared Items"
-        subTitleLabel.textColor = .white
-        subTitleLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        subTitleLabel.textAlignment = .left
-        subTitleLabel.alpha = 0.8
-        subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        subTitleLabel.numberOfLines = 1
-        subTitleLabel.sizeToFit()
+//        subTitleLabel = UILabel(frame: CGRect(x: 20, y: 130, width: 180, height: 29))
+//        subTitleLabel.text = "Shared Items"
+//        subTitleLabel.textColor = .white
+//        subTitleLabel.font = UIFont(name: "SFProDisplay-Medium", size: 17)
+//        subTitleLabel.textAlignment = .left
+//        subTitleLabel.alpha = 0.8
+//        subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+//        subTitleLabel.numberOfLines = 1
+//        subTitleLabel.sizeToFit()
         
         backButton = UIButton(type: .custom)
         let backImg = #imageLiteral(resourceName: "back_btn")
@@ -69,7 +69,7 @@ class FilterHeaderView: UIView {
         self.addSubview(backgroundImg)
         backgroundImg.addSubview(backButton)
         backgroundImg.addSubview(titleLabel)
-        backgroundImg.addSubview(subTitleLabel)
+//        backgroundImg.addSubview(subTitleLabel)
         
         setConstraints()
     }
@@ -92,12 +92,12 @@ class FilterHeaderView: UIView {
             make.width.equalTo(200)
         }
         
-        subTitleLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().offset(-5)
-            make.height.equalTo(35)
-            make.width.equalTo(150)
-        }
+//        subTitleLabel.snp.makeConstraints { (make) in
+//            make.left.equalToSuperview().offset(20)
+//            make.bottom.equalToSuperview().offset(-5)
+//            make.height.equalTo(35)
+//            make.width.equalTo(150)
+//        }
         
         backButton.snp.makeConstraints { (make) in
             let height = self.bounds.size.height * 0.17

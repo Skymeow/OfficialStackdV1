@@ -19,7 +19,8 @@ class ListImg: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        
+        self.layer.cornerRadius = 15
+        self.clipsToBounds = true 
         layoutNewSubviews()
     }
     
@@ -32,21 +33,21 @@ class ListImg: UIView {
         
         backgroundImg = UIImageView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: 25))
         backgroundImg.contentMode = .scaleAspectFill
-        backgroundImg.backgroundColor = .blue
+        backgroundImg.image = #imageLiteral(resourceName: "share_header")
         
         view1 = UILabel(frame:  CGRect(x: 0, y: 0, width: self.bounds.size.width, height: 30))
         view1.font = UIFont.boldSystemFont(ofSize: 16)
-//        view1.text = "dfsfadsf"
+        view1.numberOfLines = 3
         view1.textAlignment = .left
         view1.backgroundColor = .white
-        
+       
         view2 = UILabel(frame:  CGRect(x: 0, y: 0, width: self.bounds.size.width, height: 30))
         view2.font = UIFont.boldSystemFont(ofSize: 16)
-//        view2.text = "dfsfadsf"
+        view2.numberOfLines = 3
         view2.textAlignment = .left
         
         view3 = UILabel(frame:  CGRect(x: 0, y: 0, width: self.bounds.size.width, height: 30))
-//        view3.text = "dfsfadsf"
+        view3.numberOfLines = 3
         view3.font = UIFont.boldSystemFont(ofSize: 16)
         view3.textAlignment = .left
         
@@ -64,26 +65,26 @@ class ListImg: UIView {
             make.top.equalToSuperview()
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.height.equalTo(25)
+            make.height.equalTo(33)
         }
        
         view1.snp.makeConstraints { (make) in
             make.top.equalTo(backgroundImg.snp.bottom)
-            make.height.equalTo(30)
+            make.height.greaterThanOrEqualTo(35)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
         
         view2.snp.makeConstraints { (make) in
             make.top.equalTo(view1.snp.bottom)
-            make.height.equalTo(30)
+            make.height.greaterThanOrEqualTo(35)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
         
         view3.snp.makeConstraints { (make) in
             make.top.equalTo(view2.snp.bottom)
-            make.height.equalTo(30)
+            make.height.greaterThanOrEqualTo(35)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }

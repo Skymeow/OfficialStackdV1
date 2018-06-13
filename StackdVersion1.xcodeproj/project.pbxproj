@@ -36,6 +36,12 @@
 		F927308B20CF963400A18E7E /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = F927308A20CF963300A18E7E /* loading.gif */; };
 		F92B1D7E20D0E51F00DC8ACC /* ShareTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92B1D7D20D0E51F00DC8ACC /* ShareTabView.swift */; };
 		F92B1D8020D0F21600DC8ACC /* ListImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92B1D7F20D0F21600DC8ACC /* ListImg.swift */; };
+		F92B1D8220D1852000DC8ACC /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F92B1D8120D1852000DC8ACC /* SF-Pro-Display-Bold.otf */; };
+		F92B1D8320D1852000DC8ACC /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F92B1D8120D1852000DC8ACC /* SF-Pro-Display-Bold.otf */; };
+		F92B1D8520D1870400DC8ACC /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F92B1D8420D1870400DC8ACC /* SF-Pro-Display-Medium.otf */; };
+		F92B1D8620D1870400DC8ACC /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F92B1D8420D1870400DC8ACC /* SF-Pro-Display-Medium.otf */; };
+		F92B1D8820D188F000DC8ACC /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F92B1D8720D188F000DC8ACC /* Comfortaa-Bold.ttf */; };
+		F92B1D8920D188F000DC8ACC /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F92B1D8720D188F000DC8ACC /* Comfortaa-Bold.ttf */; };
 		F933D34720B6030E009BF593 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933D34620B6030E009BF593 /* NotificationHelper.swift */; };
 		F936C4BD20813219002D4E4D /* LoadingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = F936C4BB20813219002D4E4D /* LoadingIndicator.xib */; };
 		F936C4BE20813219002D4E4D /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */; };
@@ -154,6 +160,9 @@
 		F927308A20CF963300A18E7E /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		F92B1D7D20D0E51F00DC8ACC /* ShareTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTabView.swift; sourceTree = "<group>"; };
 		F92B1D7F20D0F21600DC8ACC /* ListImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListImg.swift; sourceTree = "<group>"; };
+		F92B1D8120D1852000DC8ACC /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		F92B1D8420D1870400DC8ACC /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		F92B1D8720D188F000DC8ACC /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Bold.ttf"; sourceTree = "<group>"; };
 		F933D34620B6030E009BF593 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		F936C4BB20813219002D4E4D /* LoadingIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingIndicator.xib; sourceTree = "<group>"; };
 		F936C4BC20813219002D4E4D /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
@@ -353,6 +362,9 @@
 		F940B591206DC156007CE630 /* StackdVersion1 */ = {
 			isa = PBXGroup;
 			children = (
+				F92B1D8420D1870400DC8ACC /* SF-Pro-Display-Medium.otf */,
+				F92B1D8720D188F000DC8ACC /* Comfortaa-Bold.ttf */,
+				F92B1D8120D1852000DC8ACC /* SF-Pro-Display-Bold.otf */,
 				F9076CE620B27184001C43AF /* Gif Resource */,
 				F905BF572075873B00C7B94F /* apple-app-site-association */,
 				F940B592206DC156007CE630 /* AppDelegate.swift */,
@@ -605,14 +617,17 @@
 				F9F0079420C9DD60009DA5CE /* CustomOverlay.xib in Resources */,
 				F9F0079C20CCD6B4009DA5CE /* Assets.xcassets in Resources */,
 				F9076CEB20B271D3001C43AF /* gif0.gif in Resources */,
+				F92B1D8520D1870400DC8ACC /* SF-Pro-Display-Medium.otf in Resources */,
 				F9076CEA20B271D3001C43AF /* gif2.gif in Resources */,
 				F9408EF020B1FD50003BB8B1 /* TagsCell.xib in Resources */,
 				F9F0079520C9DD60009DA5CE /* CustomPage.xib in Resources */,
 				F940B59D206DC156007CE630 /* LaunchScreen.storyboard in Resources */,
 				F927308B20CF963400A18E7E /* loading.gif in Resources */,
+				F92B1D8820D188F000DC8ACC /* Comfortaa-Bold.ttf in Resources */,
 				F9727F0F20BCBBFA0015AC07 /* showIfEmpty.gif in Resources */,
 				F9076CEC20B271D3001C43AF /* gif1.gif in Resources */,
 				F9727ECA20B771F20015AC07 /* YoutubeTableViewCell.xib in Resources */,
+				F92B1D8220D1852000DC8ACC /* SF-Pro-Display-Bold.otf in Resources */,
 				F905BF582075873C00C7B94F /* apple-app-site-association in Resources */,
 				F940B598206DC156007CE630 /* Main.storyboard in Resources */,
 			);
@@ -622,10 +637,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F92B1D8620D1870400DC8ACC /* SF-Pro-Display-Medium.otf in Resources */,
 				F940B5B8206DC1C8007CE630 /* GetURL.js in Resources */,
+				F92B1D8320D1852000DC8ACC /* SF-Pro-Display-Bold.otf in Resources */,
 				F927308920CE0FD900A18E7E /* ShareInTag.xib in Resources */,
 				F9F0075E20C5DC2F009DA5CE /* Assets.xcassets in Resources */,
 				F940B5E1206DC89D007CE630 /* FadingAlertView.xib in Resources */,
+				F92B1D8920D188F000DC8ACC /* Comfortaa-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

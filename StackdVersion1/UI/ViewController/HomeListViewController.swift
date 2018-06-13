@@ -12,6 +12,7 @@ import AVFoundation
 import MediaPlayer
 import CoreData
 import Kingfisher
+import Social
 
 class HomeListViewController: UIViewController, OpenedViewDelegate {
  
@@ -37,7 +38,7 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         }
     }
     var tagIndex: IndexPath?
-    
+    var titleForShareList = Set<String>()
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -316,6 +317,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
             self.shareView = ShareTabView(frame: frame)
             shareView.delegate = self
             self.tabBarController?.view.addSubview(shareView)
+            self.titleForShareList.insert(selected.title!)
         }
     }
     
@@ -446,10 +448,26 @@ extension HomeListViewController: HomeDelegate {
 extension HomeListViewController: ShareDelegate {
     func shareTapped() {
         generateView = ListImg(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 130))
-        generateView.view1.text = "sdagadsgasfgafsgafgafggfhgfshsdghsdghgdshsdghsdhdgh"
-        generateView.view2.text = "sdagadsgasfgafsgafgafggfhgfshsdghsdghgdshsdghsdhdgh"
-        generateView.view3.text = "sdagadsgasfgafsgafgafggfhgfshsdghsdghgdshsdghsdhdgh"
-    
-        let shareList = UIImage(view: generateView)
+        if titleForShareList.count == 1 {
+            generateView.view1.text = Array(titleForShareList)[0]
+        } else if titleForShareList.count == 2 {
+            generateView.view1.text = Array(titleForShareList)[0]
+            generateView.view2.text = Array(titleForShareList)[1]
+        } else if titleForShareList.count == 2 {
+            generateView.view1.text = Array(titleForShareList)[0]
+            generateView.view2.text = Array(titleForShareList)[1]
+            generateView.view3.text = Array(titleForShareList)[2]
+        }
+      var shareList = UIImage(view: generateView)
+        
+        guard let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else { return }
+        vc.add(shareList)
+        vc.setInitialText("Share reading list")
+        self.present(vc, animated: true, completion: nil)
+        for subview in (tabBarController?.view.subviews)! {
+            if type(of: subview) === ShareTabView.self {
+                subview.removeFromSuperview()
+            }
+        }
     }
 }
