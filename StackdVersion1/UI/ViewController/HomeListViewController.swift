@@ -71,7 +71,6 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
         let nibCell2 = UINib(nibName: "YoutubeTableViewCell", bundle: Bundle.main)
         tableView.register(nibCell2, forCellReuseIdentifier: "youtubecell")
         self.loadItems()
-//        self.loadTags()
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
@@ -87,11 +86,11 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     @objc func observeEnterforeground(notification: NSNotification){
          self.loadItems()
-//         self.loadTags()
     }
     
     func loadItems() {
        self.allItems = fetchAll(AllItem.self, route: .allItemUnArchived)
+       self.tableView.reloadData()
     }
     
     func loadTags() {
@@ -102,7 +101,6 @@ class HomeListViewController: UIViewController, OpenedViewDelegate {
     
     @objc private func refreshData(_ sender: Any) {
         self.loadItems()
-//        self.loadTags()
         self.refreshControl.endRefreshing()
     }
     
@@ -355,6 +353,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
             tagVC.selected = self.allItems?[indexPath.row]
             self.navigationController?.pushViewController(tagVC, animated: false)
             self.tagIndex = indexPath
+            
             completionHandler(true)
         }
         
@@ -417,8 +416,7 @@ extension HomeListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeListViewController: TagsDelegate {
     func reloadTags() {
-//        self.loadTags()
-        
+        self.loadTags()
     }
 }
 
